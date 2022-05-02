@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
+
+const bodyParser = require('body-parser');
+
+app.engine('.ejs', require('ejs').__express);
+app.set('view engine', 'ejs');
+
 app.listen(3000, function(){
-console.log('listening on 3000');
-});
-app.get('/hello', function(req, res){
-res.send('Hello World!');
+    console.log('listening on 3000');
 });
 
 //verbindung zur Datenbank
@@ -15,4 +18,8 @@ let db = new sqlite3.Database('collector.db', (err) => {
          console.error(err.message); 
     } 
     console.log('Connected to the shop database.');
+});
+
+app.get('/', function(req, res){
+    res.render('home');
 });
