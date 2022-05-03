@@ -23,3 +23,7 @@ let db = new sqlite3.Database('collector.db', (err) => {
 app.get('/', function(req, res){
     res.render('home');
 });
+
+app.get('/trustedShops', function(req, res){
+    res.render('trustedShops');
+});

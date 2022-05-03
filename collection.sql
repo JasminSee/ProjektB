@@ -64,6 +64,18 @@ CREATE TABLE figurines (
     FOREIGN KEY (figuyaID) REFERENCES figuyaData(id)
 );
 
+/*user wird aud user id gewechselt/Integer*/
+CREATE TABLE reviews (
+    rid INTEGER PRIMARY KEY AUTOINCREMENT,
+    fid INTEGER,
+    user TEXT,
+    postDate DATE,
+    rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    title TEXT,
+    rDescription TEXT,
+    FOREIGN KEY(fid) REFERENCES figurines(fid)
+);
+
 INSERT INTO companies(companyName, banner, link) VALUES
 ("Good Smile Company","https://cf.goodsmile.jp/GSCSite/gsc_logo.png", "https://www.goodsmile.info/en/"),
 ("Kotobukiya","https://en.kotobukiya.co.jp/wp-content/themes/kotobukiya/images/logo.png", "https://en.kotobukiya.co.jp/"),
@@ -228,3 +240,6 @@ INSERT INTO figurines(figurineName, picture,isbn,origin,characterName,company,cl
 ("Digimon Adventure - Wizardmon & Gatomon - G.E.M.","https://static.myfigurecollection.net/upload/items/large/362389.jpg","4535123831041",17,"Wizardmon, Tailmon",7,"G.E.M","Height= 145mm","ABS, PVC","05/2016",6800,23,23,23,23),
 ("Naruto Shippuden - Uchiha Itachi Susano Version - Precious G.E.M.","https://static.myfigurecollection.net/upload/items/large/1392334.jpg","4535123832598",5,"Uchiha Itachi",7,"Precious G.E.M.","Height= 380mm Width=350mm Length=280mm","ABS, PVC, LED","08/2022",37500,24,24,24,24),
 ("Evangelion: Thrice Upon a Time - Rei Ayanami Statue - Precious G.E.M.","https://static.myfigurecollection.net/upload/items/large/1394910.jpg","4535123833441",18,"Ayanami Rei",7,"Precious G.E.M.","Height= 225mm","ABS, PVC","09/2022",15800,25,25,25,25);
+
+INSERT INTO reviews(fid,user, postDate, rating, title, rDescription) VALUES
+(1,"user1", "2008-11-11", 5, "Best Fig Ever", "test text");
