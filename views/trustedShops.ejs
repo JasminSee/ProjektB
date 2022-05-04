@@ -3,13 +3,89 @@
   <head>
     <title>trustedShops</title>
     <style>
+        * {
+        box-sizing: border-box;
+      }
+        body {
+          font-family: "Lato", sans-serif;
+          background-color: #161616;
+          margin: 0;
+          color: white;
+        }
+        /* Style the header */
+        .header {
+          background-color: #0F0E0E;
+          padding: 10px;
+          text-align: center;
+          color: white;
+          font-size: 24px;
+        }
+        /* The navbar container */
+        .topnav {
+          overflow: hidden;
+          background-color: #346751;
+        }
+        /* Navbar links */
+        .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        /* Links - change color on hover */
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        .topnav input[type=text] {
+          float: right;
+          padding: 6px;
+          border: none;
+          margin-top: 8px;
+          margin-right: 16px;
+          font-size: 17px;
+          background-color: #0F0E0E;
+          color: white;
+        }
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 8%;
+          background-color: #0F0E0E;
+          color: white;
+          text-align: center;
+        }
+        /* Create three equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 15px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width:600px) {
+          .column {
+            width: 100%;
+          }
+        }
         .button {
           display: inline-block;
           padding: 10px 20px;
           text-align: center;
           text-decoration: none;
           color: #ffffff;
-          background-color: #7aa8b7;
+          background-color: #346751;
           border-radius: 6px;
           outline: none;
         }
@@ -24,52 +100,66 @@
             padding: 8px;
         }
 
-        #shipping tr:nth-child(even){background-color: #f2f2f2;}
+        #shipping tr:nth-child(even){background-color: #0F0E0E;}
 
-        #shipping tr:hover {background-color: #ddd;}
+        #shipping tr:hover {background-color: #0F0E0E;}
 
         #shipping th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: #04AA6D;
-            color: white;
+            background-color: #346751;
+            color: #ddd;
         }
       </style>
   </head>
   <body>
-    <h1>Trusted Shops</h1>
-        <u1><h1>Allblue World</h1>
+    <div class="header">
+        <p>Trusted Shops</p>
+      </div>
+  
+      <div class="topnav">
+        <a href="/">Über uns</a>
+        <a href="/">Top 10</a>
+        <a href="/trustedShops">Trusted Shops</a>
+        <a href="/">Mein Konto</a>
+        <!--a style="float:right" href="#">Suchen</a-->
+        <input type="text" placeholder="Search..">
+    </div>
+    <div class="row">
+        <div class="column">
+            <h1>Allblue World</h1>
+                
+                <img src="https://www.allblue-world.de/media/image/c7/0a/65/jolly.png" height="200px">
+                <p1><br><br>Allblue World wurde Ende 2014 von Daniel Berghöfer in Remscheid als Anime Online-Shop gegründet und bietet seither populäre, hochwertige, exklusive und auch günstige Figuren zu den angesagtesten Franchises sowie zahlreiche weitere Trend- und Merchandise-Artikel aus den Bereichen Kino, Comic, Games und TV an.<br><br>
+                    Das Sortiment von Allblue World umfasst aktuell über 2000 Artikel, bestehend aus Anime-Figuren, Prize Figuren, Premium Statuen, SD-Figuren / Trading Figuren, Action Figuren, Nendoroids, Plüschies, Tassen, Handtücher, Schlüsselanhänger Mützen und noch vielem mehr, mit günstigen Preisen.</p1>
+                <p2><br><br>Versand: <br></p2>
+                
+                <p4>Versandkosten innerhalb Deutschlands:<br>
+                   
+                    Brutto-Warengewicht bis 1 kg: 5,50 EUR inkl. MwSt.<br>
+                    Brutto-Warengewicht bis 3 kg: 6,00 EUR inkl. MwSt.<br>
+                    Brutto-Warengewicht bis 5 kg: 7,-€ EUR inkl. MwSt.<br>
+                    Brutto-Warengewicht bis 10 kg: 9,50 EUR inkl. MwSt.<br>
+                    Brutto-Warengewicht bis 31,5 kg: 17 EUR inkl. MwSt.<br>
+                    <br>
+                    
+                    Kostenloser Versand (nur innerhalb Deutschlands) ab einen Warenwert von 150,-€. ***Nicht gültig für Sperrgutware ab 31,5kg und / oder 3,60 Meter Gurtmaß***
+                <br><br>
+                    Zahlungsmethoden: <br>-Paypal<br>-Kreditkarte via Stripe<br>-SOFORT Überweisung<br>-Zahlung per Nachnahme(Vorübergehend deaktiviert!)<br>-Per Vorkasse oder Pay Later<br>-Barzahlung bei Abholung<br>-Sicher einkafen mit deinem Amazon-Konto
+                </p4>
+                <p5><br><br>Kontakt: 
+                    <br>Allblue World e.K.
+                    <br>Kreuzbergstrasse 55
+                    <br>42899 Remscheid
+                    <br>kontakt@allblue-world.de
+                    <br>Tel.: 02191 / 7891347
+                    <br>Fax: 02191 / 7891342<br><br></p5>
+                <a class="button" type="submit" href="https://www.allblue-world.de/">Visit Allblue World</a>
             
-            <img src="https://www.allblue-world.de/media/image/c7/0a/65/jolly.png" height="200px">
-            <p1><br><br>Allblue World wurde Ende 2014 von Daniel Berghöfer in Remscheid als Anime Online-Shop gegründet und bietet seither populäre, hochwertige, exklusive und auch günstige Figuren zu den angesagtesten Franchises sowie zahlreiche weitere Trend- und Merchandise-Artikel aus den Bereichen Kino, Comic, Games und TV an.<br><br>
-                Das Sortiment von Allblue World umfasst aktuell über 2000 Artikel, bestehend aus Anime-Figuren, Prize Figuren, Premium Statuen, SD-Figuren / Trading Figuren, Action Figuren, Nendoroids, Plüschies, Tassen, Handtücher, Schlüsselanhänger Mützen und noch vielem mehr, mit günstigen Preisen.</p1>
-            <p2><br><br>Versand: <br></p2>
-            <p3>Bestellungen werden unverzüglich nach dem Eingang, spätestens jedoch am darauf folgenden Arbeitstag bearbeitet. Die Lieferung erfolgt nach dem Versand im Zeitraum von ca. 24 bis 48 Stunden. Mit DHL Paket – einem Produkt der DHL Vertriebs GmbH – werden die Sendungen innerhalb Deutschlands mit bis zu 31,5 kg, flächendeckend und zuverlässig angeliefert.
-                <br><br>
-                Die Pakete enthalten für eine Lieferung minimal / maximal folgende Maße:
-                <br>
-                min. L 15cm, B 11cm, H 1cm<br>
-                max. L 120cm, B 60cm, H 60cm<br><br></p3>
-            <p4>Versandkosten innerhalb Deutschlands<br>
-                Die Versandkosten betragen bei einem:
-                <br>
-                Brutto-Warengewicht bis 1 kg: 5,50 EUR inkl. MwSt.<br>
-                Brutto-Warengewicht bis 3 kg: 6,00 EUR inkl. MwSt.<br>
-                Brutto-Warengewicht bis 5 kg: 7,-€ EUR inkl. MwSt.<br>
-                Brutto-Warengewicht bis 10 kg: 9,50 EUR inkl. MwSt.<br>
-                Brutto-Warengewicht bis 31,5 kg: 17 EUR inkl. MwSt.<br>
-                <br><br>
-                Das Brutto-Warengewicht entspricht dem Gewicht der Ware, der Versandverpackung und des Füllstoffs. Eine Berechnung der Versandkosten erfolgt an der Kasse, damit alle bestellten Waren berücksichtigt werden.
-                <br><br>
-                Kostenloser Versand (nur innerhalb Deutschlands) ab einen Warenwert von 150,-€. ***Nicht gültig für Sperrgutware ab 31,5kg und / oder 3,60 Meter Gurtmaß***
-            <br><br>
-                Zahlungsmethoden: Paypal, Kreditkarte via Stripe, SOFORT Überweisung, Zahlung per Nachnahme(Vorübergehend deaktiviert!), Per Vorkasse oder Pay Later, Barzahlung bei Abholung, Sicher einkafen mit deinem Amazon-Konto
-            </p4>
-            <p5><br><br>Kontakt: Kontakt@allblue-world.de<br><br></p5>
-            <a class="button" type="submit" href="https://www.allblue-world.de/">Visit Allblue World</a>
-        </u1>
-        <u1><h1>Manga-Mafia</h1>
+        </div>
+        <div class="column">
+            <h1>Manga-Mafia</h1>
             
             <img src="https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png" height="200px">
             <p1><br><br>Im Manga-Mafia Online Shop wird Dir alles angeboten, was das Fan-Herz begehrt. Von Mangas und Figuren Deiner Lieblingscharaktere, über Plüschies sowie Kissen bis hin zu allerhand Merchandise Artikeln unterschiedlicher Anime, findest Du garantiert, wonach Du gesucht hast.</p1>
@@ -106,11 +196,150 @@
                     <td>7-21 Werktage</td>
                 </tr>
             </table> 	
-            <p3><br><br>Zahlungsmethoden: Vorkasse / Überweisung, SofortÜberweisung, Amazon Payments, Billpay Lastschrif, Billpay Rechnungskauf, Paypal, DHL Nachnahme ab einem Gesamtbestellwert von 50 €	mit einem Aufpreis von 9,90 €</p3>	 
-            <p4>
-            </p4>
-            <p5><br><br>Kontakt: Telefon: 02684/978616. E-Mail: shop@manga-mafia.de<br><br></p5>
+            <p3><br><br>Zahlungsmethoden: <br>-Vorkasse / Überweisung <br>-SofortÜberweisung<br>-Amazon Payments<br>-Billpay Lastschrift<br>-Billpay Rechnungskauf<br>-Paypal<br>-DHL Nachnahme ab einem Gesamtbestellwert von 50 €	mit einem Aufpreis von 9,90 €</p3>	 
+            <p5><br><br>Kontakt: <br>Z-Zero GmbH
+
+                <br>Talstraße 2b
+                <br>56316 Raubach
+                <br>Deutschland
+                <br>shop@manga-mafia.de
+                <br>02684/978616<br><br></p5>
+            
             <a class="button" type="submit" href="https://manga-mafia.de/">Visit Manga-Mafia</a>
-        </u1>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="column">
+            <h1>AniMe LE</h1>
+            <img src="https://www.anime-le.de/media/image/6a/18/0b/logo.png" height="200px">
+            <p1><br><br>AniMe-LE steht für Anime und Merchandise - Leipzig
+                <br><br>
+                Hier findest Du hochwertige Anime-Figuren und Fan-Artikel zu deinem Lieblingscharakteren aus Japan. AniMe-LE importiert auch einige Produkte selbst und kaufen im Großhandel wie z.B. bei HEO, für euch ein.
+                 
+                Desweiteren haben sie auch gebrauchte Ware, wie Manga, Anime, CDs, MCs und vieles mehr!
+            </p1>
+            <p2><br><br>Versand: <br><br>
+                </p2>
+            <table id="shipping">
+                <tr>
+                    <th>Land</th>
+                    <th>Versandkosten</th>
+                </tr>
+                <tr>
+                    <td>Deutschland</td>
+                    <td>4,50€</td>
+                </tr>
+                <tr>
+                    <td>Belgien, Dänemark, Frankreich, Luxemburg, Niederlande, Österreich, Polen, Tschechien</td>
+                    <td>13,90 €</td>
+                </tr>
+                <tr>
+                    <td>Liechtenstein, Schweiz</td>
+                    <td>18,90 €</td>
+                </tr>
+                <tr>
+                    <td>Großbritanien, Italien, Schweden, Slowakei, Slowenien, Spanien, Ungarn</td>
+                    <td>15,90 €</td>
+                </tr>
+                <tr>
+                    <td>Estland, Finnland, Griechenland, Irland, Kroatien, Lettland, Litauen, Malta, Portugal, Rumänien, Zypern</td>
+                    <td>15,90 €</td>
+                </tr>
+            </table> 	
+            <p3><br><br>Bei Lieferungen innerhalb Deutschlands haben Sie folgende Zahlungsmöglichkeiten:
+
+                <br>-Vorkasse per Überweisung / Vorkasse
+                <br>-Zahlung per Kreditkarte
+                <br>-Zahlung per PayPal
+                <br>-Zahlung per PayPal Plus
+                <br>-Zahlung per Sofortüberweisung
+                <br><br>
+                Bei Lieferungen ins Ausland haben Sie folgende Zahlungsmöglichkeiten:
+                
+                <br>-Vorkasse per Überweisung / Vorkasse
+                <br>-Zahlung per Kreditkarte
+                <br>-Zahlung per PayPal
+                <br>-Zahlung per PayPal Plus
+                <br>-Zahlung per Sofortüberweisung</p3>
+                <p5><br><br>Kontakt: <br>AniMe-L.E.
+                    <br>Isabell Lischka-Klause
+                    <br>Delitzscher Str. 74
+                    <br>D-04129 Leipzig
+                    <br>info@anime-le.de<br><br></p5>
+            
+                <a class="button" type="submit" href="https://www.anime-le.de/">Visit AniMe-LE</a>
+        </div>
+        <div class="column">
+            <h1>Figuya</h1>
+            <img src="https://figuya.com/dist/src/figuya.dd406080ad197ecf939e9843773d6e37.svg" height="200px">
+            <p1><br><br>Figuya ist der Online-Shop für Anime und Manga Figuren und Merchandise aus Berlin. Hier findet ihr ausschließlich Original Artikel!</p1>
+            <p2><br><br>Versand:<br>
+                <br>DHL Zone 1: Liechtenstein, Schweiz
+                <br>DHL Zone 1 Premium: Belgien, Dänemark, Frankreich, Luxemburg, Monaco, Niederlande, Österreich, Polen, Tschechien
+                <br>DHL Zone 2 Premium: Andorra, Vereinigtes Königreich, Italien, San Marino, Schweden, Slowakei, Slowenien, Spanien, Ungarn, Heiliger Stuhl (Staat Vatikanstadt)
+                <br>DHL Zone 3: Bulgarien, Estland, Finnland, Griechenland, Irland, Kroatien, Lettland, Litauen, Malta, Rumänien, Portugal, Zypern
+                <br><br></p2>
+                <table id="shipping">
+                    <tr>
+                        <th>Zone</th>
+                        <th>bis 1 kg</th>
+                        <th>bis 5 kg</th>
+                        <th>bis 10 kg</th>
+                        <th>bis 20 kg</th>
+                        <th>bis 31.5 kg</th>
+                        <th>darüber</th>
+                        
+                    </tr>
+                    <tr>
+                        <td>Deutschland</td>
+                        <td>4,99 €</td>
+                        <td>4,99 €</td>
+                        <td>4,99 €</td>
+                        <td>4,99 €</td>
+                        <td>4,99 €</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>DHL Zone 1 (Standard & Premium)</td>
+                        <td>15,90 €</td>
+                        <td>17,90 €</td>
+                        <td>20,90 €</td>
+                        <td>26,90 €</td>
+                        <td>31,90 €</td>
+                        <td>31,90 €</td>
+                    </tr>
+                    <tr>
+                        <td>DHL Zone 2 Premium</td>
+                        <td>16,90 €</td>
+                        <td>18,90 €</td>
+                        <td>21,90 €</td>
+                        <td>27,90 €</td>
+                        <td>32,90 €</td>
+                        <td>32,90 €</td>
+                    </tr>
+                    <tr>
+                        <td>DHL Zone 3 </td>
+                        <td>17,90 €</td>
+                        <td>19,90 €</td>
+                        <td>22,90 €</td>
+                        <td>29,90 €</td>
+                        <td>37,90 €</td>
+                        <td>37,90 €</td>
+                    </tr>
+                    
+                </table> 	
+                <p3><br><br>Zahlungsmethoden: <br>-Vorkasse <br>-SofortÜberweisung<br>-SofortÜberweisung by klarna<br>-Paypal Rechnungskauf<br>-Paypal<br>-DHL Nachnahme mit einem Aufpreis von 10,99 €, bei einem Gesamtbetrag von über 130 € nur 6,00 €</p3>	 
+                
+                <p5><br><br>Kontakt: <br>Figuya Store
+                    <br>Oranienburger Str. 13-14
+                    <br> 10178 Berlin
+                    <br>kontakt@figuya.de
+                    <br>+49 (0)30 577 011 989<br><br></p5>
+                
+                <a class="button" type="submit" href="https://figuya.com/de">Visit Figuya</a>
+        </div>
+    </div>
+    
   </body>
 <html>
