@@ -27,3 +27,7 @@ app.get('/', function(req, res){
 app.get('/trustedShops', function(req, res){
     res.render('trustedShops');
 });
+
+app.get('/login', function(req, res){
+    res.render('login');
+});
