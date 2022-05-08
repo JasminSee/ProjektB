@@ -1,3 +1,11 @@
+CREATE TABLE customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL,
+    psword TEXT NOT NULL,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL
+);
+
 CREATE TABLE allBlueData (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     link TEXT NOT NULL,
@@ -75,6 +83,13 @@ CREATE TABLE reviews (
     rDescription TEXT,
     FOREIGN KEY(fid) REFERENCES figurines(fid)
 );
+
+INSERT INTO customers(email, psword, firstName, lastName) VALUES
+("Daniel.Sauter@klein.de", "TXI&Lo60", "Daniel", "Sauter"),
+("Joanna.Keßler@hubner.net", "eaLdt", "Joanna", "Keßler"),
+("Robert.Eichhorn@hotmail.de", "PfPzJGn", "Robert", "Eichhorn"),
+("Fabian.Richter@neubert.de", "}wu5TZk2WR|L:,", "Fabian", "Richter"),
+("Bianka.Neubert@john.com", "FJlpNV", "Bianka", "Neubert");
 
 INSERT INTO companies(companyName, banner, link) VALUES
 ("Good Smile Company","https://cf.goodsmile.jp/GSCSite/gsc_logo.png", "https://www.goodsmile.info/en/"),
