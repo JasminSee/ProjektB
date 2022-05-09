@@ -35,6 +35,14 @@ app.get('/login', function(req, res){
     res.render('login');
 });
 
+app.get('/register', function(req, res){
+    res.render('register');
+});
+
+app.get('/top10', function(req, res){
+    res.render('top10');
+});
+
 app.get('/hersteller', function(req, res){
     let sql = "SELECT * FROM companies";
     db.all(sql, function(err, rows){
