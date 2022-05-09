@@ -40,14 +40,14 @@ app.get('/hersteller', function(req, res){
 });
 
 app.get('/serien', function(req, res){
-    let sql = "SELECT * FROM series";
+    let sql = "SELECT * FROM series ORDER BY seriesName ASC";
     db.all(sql, function(err, rows){
         res.render('seriesScreen', {collector: rows});
       });
 });
 
 app.get('/serien/:seriesID', function(req, res){
-    let sql = "SELECT * FROM series";
+    let sql = "SELECT * FROM series ";
     var result;
     db.all(sql, function(err, rows){
         rows.forEach((serie) => {
