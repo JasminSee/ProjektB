@@ -37,7 +37,7 @@ CREATE TABLE series (
     icon TEXT,
     seriesType TEXT,
     release TEXT,
-    sDescription TEXT,
+    sDescription TEXT
 );
 
 CREATE TABLE companies (
