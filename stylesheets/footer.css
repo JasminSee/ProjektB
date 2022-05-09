@@ -3,8 +3,20 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background-color: #0F0E0E;
   color: white;
-  text-align: center;
+  font-size: 12px;
+}
+
+.footer-column {
+  width: 25%;
+  padding: 10px;
+  float: left;
+}
+
+.footer-row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
