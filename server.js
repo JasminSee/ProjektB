@@ -20,6 +20,9 @@ let db = new sqlite3.Database('collector.db', (err) => {
     console.log('Connected to the shop database.');
 });
 
+//CSS files laden
+app.use(express.static('stylesheets'));
+
 app.get('/', function(req, res){
     res.render('home');
 });

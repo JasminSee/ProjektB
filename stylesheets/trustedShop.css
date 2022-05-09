@@ -1,0 +1,32 @@
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #346751;
+  border-radius: 6px;
+  outline: none;
+}
+#shipping {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+#shipping td, #shipping th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#shipping tr:nth-child(even){background-color: #0F0E0E;}
+
+#shipping tr:hover {background-color: #0F0E0E;}
+
+#shipping th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #346751;
+    color: #ddd;
+}

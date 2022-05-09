@@ -1,0 +1,12 @@
+/* Create three equal columns that floats next to each other */
+.pic {
+  float: left;
+  width: 15%;
+  padding: 40px;
+  justify-items: center;
+}
+.des {
+  float: left;
+  width: 70%;
+  padding: 40px;
+}

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>seriesScreen</title>
+    <link rel="stylesheet" type="text/css" href="/header.css">
+    <link rel="stylesheet" type="text/css" href="/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/footer.css">
+    <link rel="stylesheet" type="text/css" href="/body.css">
+    <link rel="stylesheet" type="text/css" href="/columes.css">
+    <link rel="stylesheet" type="text/css" href="/seriesDetails.css">
     <style>
       * {
         box-sizing: border-box;
@@ -9,92 +14,6 @@
       html {
         height: 100%;
       }
-      body {
-        font-family: "Lato", sans-serif;
-        margin: 0;
-        color: white;
-        background: linear-gradient(#161616, #346751);
-      }
-      form {
-        border: 3px solid #161616;
-      }
-
-      /* Style the header */
-      .header {
-        background-color: #0F0E0E;
-        padding: 5px;
-        text-align: center;
-        color: white;
-        font-size: 22px;
-      }
-      /* The navbar container */
-      .topnav {
-        overflow: hidden;
-        /*background-color: #346751;*/
-        background-color: transparent;
-      }
-      /* Navbar links */
-      .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      /* Links - change color on hover */
-      .topnav a:hover {
-        background-color: #234536;
-        color: white;
-      }
-      .topnav input[type=search] {
-        float: right;
-        padding: 6px;
-        border: none;
-        margin-top: 8px;
-        margin-right: 16px;
-        font-size: 17px;
-        background-color: #0F0E0E;
-        color: white;
-      }
-
-      /*Footer Style*/
-      .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 7%;
-        background-color: #0F0E0E;
-        color: white;
-        text-align: center;
-      }
-        /* Create three equal columns that floats next to each other */
-        .pic {
-          float: left;
-          width: 15%;
-          padding: 40px;
-          justify-items: center;
-        }
-        .des {
-          float: left;
-          width: 70%;
-          padding: 40px;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-
-        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-        @media screen and (max-width:600px) {
-          .column {
-            width: 100%;
-          }
-        }
     </style>
   </head>
   <body>
@@ -103,13 +22,13 @@
     </div>
 
     <div class="topnav">
-      <a href="/">Startseite</a>
+      <a href="../">Startseite</a>
       <a href="#">Über uns</a>
       <a href="#">Top 10</a>
-      <a href="trustedShops">Shops</a>
-      <a href="hersteller">Hersteller</a>
-      <a style="background-color: #234536;" href="serien">Serien</a>
-      <a href="login">Mein Konto</a>
+      <a href="../trustedShops">Shops</a>
+      <a href="../hersteller">Hersteller</a>
+      <a style="background-color: #234536;" href="../serien">Serien</a>
+      <a href="../login">Mein Konto</a>
       <input type="search" placeholder="Search..">
     </div>
     

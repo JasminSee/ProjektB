@@ -1,0 +1,8 @@
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  color: white;
+  background: linear-gradient(#161616, #346751);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
