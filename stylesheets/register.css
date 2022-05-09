@@ -1,8 +1,7 @@
 /*Login Style*/
 .register-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  margin-top: 30%;
+  margin-left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);

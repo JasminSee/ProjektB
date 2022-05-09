@@ -1,0 +1,64 @@
+.imageChangeShops {
+    width: 300px;
+    height: 300px;
+    align-self: center;
+    animation-name: shops;
+    animation-duration: 30s;
+    background-repeat: no-repeat;
+    animation-iteration-count: infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @keyframes shops {
+    0%   {background-image: url("https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png");}
+    25%  {background-image: url("https://www.anime-le.de/media/image/6a/18/0b/logo.png");}
+    50%  {background-image: url("https://figuya.com/dist/src/figuya.dd406080ad197ecf939e9843773d6e37.svg");}
+    75% {background-image: url("https://www.allblue-world.de/media/image/c7/0a/65/jolly.png");}
+    100% {background-image: url("https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png");}
+  }
+
+  .imageChangeFigures {
+    width: 200px;
+    height: 300px;
+    align-self: center;
+    animation-name: figures;
+    animation-duration: 30s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-iteration-count: infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @keyframes figures {
+    0%   {background-image: url("https://static.myfigurecollection.net/upload/items/large/1087573.jpg");}
+    25%  {background-image: url("https://static.myfigurecollection.net/upload/items/large/675280.jpg");}
+    50%  {background-image: url("https://static.myfigurecollection.net/upload/items/large/1209165.jpg");}
+    75% {background-image: url("https://static.myfigurecollection.net/upload/items/large/1211232.jpg");}
+    100% {background-image: url("https://static.myfigurecollection.net/upload/items/large/1087573.jpg");}
+  }
+
+  .imageChangeSeries {
+    width: 200px;
+    height: 300px;
+    align-self: center;
+    animation-name: series;
+    animation-duration: 35s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-iteration-count: infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @keyframes series {
+    0%   {background-image: url("https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/media/library-400/28_637635175735318571DS-DE_Small_hq.jpg");}
+    25%  {background-image: url("https://cdn.anisearch.com/images/anime/cover/full/12/12599.webp");}
+    50%  {background-image: url("https://cdn.anisearch.de/images/anime/cover/full/2/2581.webp");}
+    75% {background-image: url("https://cdn.anisearch.de/images/anime/cover/full/8/8222.webp");}
+    100% {background-image: url("https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/media/library-400/28_637635175735318571DS-DE_Small_hq.jpg");}
+  }
