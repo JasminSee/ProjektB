@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>seriesScreen</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+        body {
+          font-family: "Lato", sans-serif;
+          background-color: #161616;
+          margin: 0;
+          color: white;
+        }
+        /* Style the header */
+        .header {
+          background-color: #0F0E0E;
+          padding: 10px;
+          text-align: center;
+          color: white;
+          font-size: 24px;
+        }
+        /* The navbar container */
+        .topnav {
+          overflow: hidden;
+          background-color: #346751;
+        }
+        /* Navbar links */
+        .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        /* Links - change color on hover */
+        .topnav a:hover {
+          background-color: #234536;
+          color: white;
+        }
+        .topnav input[type=text] {
+          float: right;
+          padding: 6px;
+          border: none;
+          margin-top: 8px;
+          margin-right: 16px;
+          font-size: 17px;
+          background-color: #0F0E0E;
+          color: white;
+        }
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 8%;
+          background-color: #0F0E0E;
+          color: white;
+          text-align: center;
+        }
+        /* Create three equal columns that floats next to each other */
+        .pic {
+          float: left;
+          width: 15%;
+          padding: 40px;
+          justify-items: center;
+        }
+        .des {
+          float: left;
+          width: 70%;
+          padding: 40px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width:600px) {
+          .column {
+            width: 100%;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <p>Seitenname</p>
+    </div>
+
+    <div class="topnav">
+      <a href="/">Startseite</a>
+      <a href="#">Über uns</a>
+      <a href="#">Top 10</a>
+      <a href="trustedShops">Trusted Shops</a>
+      <a href="login">Mein Konto</a>
+      <a style="background-color: #234536;" href="brandScreen">Hersteller</a>
+      <input type="text" placeholder="Search..">
+    </div>
+    
+    <div class="pic">
+  
+        
+        <img alt="<%=series.seriesName %>" src="<%=series.icon %>" width="250px">
+        
+    
+        </p>
+    </div>
+    <div class="des">
+        <h2><%=series.seriesName %></h2>
+        <p>Alternative Namen: <%=series.altName %>
+        <br>Typ: <%=series.seriesType %>
+        <br>Ausstrahlung: <%=series.release %>
+        <br>Beschreibung: <br><%=series.sDescription %>
+    
+        </p>
+    </div>
+    <div class="footer">
+      <p>Impressum</p>
+    </div>
+  </body>
+<html>

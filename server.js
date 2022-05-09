@@ -38,3 +38,24 @@ app.get('/hersteller', function(req, res){
         res.render('brandScreen', {collector: rows});
       });
 });
+
+app.get('/serien', function(req, res){
+    let sql = "SELECT * FROM series";
+    db.all(sql, function(err, rows){
+        res.render('seriesScreen', {collector: rows});
+      });
+});
+
+app.get('/serien/:seriesID', function(req, res){
+    let sql = "SELECT * FROM series";
+    var result;
+    db.all(sql, function(err, rows){
+        rows.forEach((serie) => {
+            if(serie.seriesID ==req.params.seriesID){
+                result = serie;
+                return true;
+            }
+        })
+        res.render('seriesDetails', {collector: rows, series: result});
+      });
+});
