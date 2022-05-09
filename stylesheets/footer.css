@@ -1,10 +1,9 @@
 /*Footer Style*/
 .footer {
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 7%;
+  height: 150px;
   background-color: #0F0E0E;
   color: white;
   text-align: center;
