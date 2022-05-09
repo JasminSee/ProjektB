@@ -31,3 +31,10 @@ app.get('/trustedShops', function(req, res){
 app.get('/login', function(req, res){
     res.render('login');
 });
+
+app.get('/hersteller', function(req, res){
+    let sql = "SELECT * FROM companies";
+    db.all(sql, function(err, rows){
+        res.render('brandScreen', {collector: rows});
+      });
+});

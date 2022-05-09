@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>hersteller</title>
     <style>
       * {
         box-sizing: border-box;
@@ -87,32 +87,24 @@
     </div>
 
     <div class="topnav">
-      <a style="background-color: #234536;" href="/">Startseite</a>
+      <a href="/">Startseite</a>
       <a href="#">Über uns</a>
       <a href="#">Top 10</a>
       <a href="trustedShops">Trusted Shops</a>
       <a href="login">Mein Konto</a>
-      <a href="hersteller">Hersteller</a>
-      <!--a style="float:right" href="#">Suchen</a-->
+      <a style="background-color: #234536;" href="brandScreen">Hersteller</a>
       <input type="text" placeholder="Search..">
     </div>
     
     <div class="row">
-      <div class="column">
-        <h2>Column</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-      </div>
-      
-      <div class="column">
-        <h2>Column</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-      </div>
-      
-      <div class="column">
-        <h2>Column</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-      </div>
-    </div>
+     
+      <% for (i=0; i<collector.length; i++){ %>
+        <div class="column">
+          <h2><%=collector[i].companyName %></h2>
+          <img alt="<%=collector[i].companyName %>" src="<%=collector[i].pic %>" height="200px">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+      <% } %>
 
     <div class="footer">
       <p>Impressum</p>
