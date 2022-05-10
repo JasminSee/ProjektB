@@ -6,6 +6,14 @@ CREATE TABLE customers (
     lastName TEXT NOT NULL
 );
 
+CREATE TABLE wishlist (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customerId INTEGER,
+    figuresId INTEGER,
+    FOREIGN KEY (customerId) REFERENCES customers(id),
+    FOREIGN KEY (figuresId) REFERENCES figurines(fid)
+)
+
 CREATE TABLE allBlueData (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     link TEXT NOT NULL,
@@ -90,6 +98,41 @@ INSERT INTO customers(email, psword, firstName, lastName) VALUES
 ("Robert.Eichhorn@hotmail.de", "PfPzJGn", "Robert", "Eichhorn"),
 ("Fabian.Richter@neubert.de", "}wu5TZk2WR|L:,", "Fabian", "Richter"),
 ("Bianka.Neubert@john.com", "FJlpNV", "Bianka", "Neubert");
+
+INSERT INTO wishlist(customerID, figuresID) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1,6),
+(2,5),
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 10),
+(3, 11),
+(3, 12),
+(3, 18),
+(3, 19),
+(3, 20),
+(3,5),
+(4,5),
+(4,6),
+(4, 13),
+(4, 14),
+(4, 15),
+(4, 16),
+(4, 17),
+(5, 21),
+(5, 22),
+(5, 23),
+(5, 24),
+(5,5),
+(5,6),
+(5, 25);
+
 
 INSERT INTO companies(companyName, banner, link) VALUES
 ("Good Smile Company","https://cf.goodsmile.jp/GSCSite/gsc_logo.png", "https://www.goodsmile.info/en/"),
