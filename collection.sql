@@ -12,7 +12,7 @@ CREATE TABLE wishlist (
     figuresId INTEGER,
     FOREIGN KEY (customerId) REFERENCES customers(id),
     FOREIGN KEY (figuresId) REFERENCES figurines(fid)
-)
+);
 
 CREATE TABLE allBlueData (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -97,7 +97,12 @@ INSERT INTO customers(email, psword, firstName, lastName) VALUES
 ("Joanna.Keßler@hubner.net", "eaLdt", "Joanna", "Keßler"),
 ("Robert.Eichhorn@hotmail.de", "PfPzJGn", "Robert", "Eichhorn"),
 ("Fabian.Richter@neubert.de", "}wu5TZk2WR|L:,", "Fabian", "Richter"),
-("Bianka.Neubert@john.com", "FJlpNV", "Bianka", "Neubert");
+("Bianka.Neubert@john.com", "FJlpNV", "Bianka", "Neubert"),
+("Monika.Feierabend@web.com", "1234abcd", "Monika", "Feierabend"),
+("Petra.Meier@web.com", "123abc", "Petra", "Meier"),
+("Andreas.Bergmann@web.com", "abc123", "Andreas", "Bergmann"),
+("Lukas.Probst@web.com", "hallo123", "Lukas", "Probst"),
+("Janina.Pfeffer@web.com", "password", "Janina", "Pfeffer");
 
 INSERT INTO wishlist(customerID, figuresID) VALUES
 (1, 1),
@@ -117,6 +122,7 @@ INSERT INTO wishlist(customerID, figuresID) VALUES
 (3, 18),
 (3, 19),
 (3, 20),
+(3,24),
 (3,5),
 (4,5),
 (4,6),
@@ -125,13 +131,25 @@ INSERT INTO wishlist(customerID, figuresID) VALUES
 (4, 15),
 (4, 16),
 (4, 17),
+(4,24),
 (5, 21),
 (5, 22),
 (5, 23),
 (5, 24),
 (5,5),
 (5,6),
-(5, 25);
+(5, 25),
+(6,5),
+(6,6),
+(6,24),
+(7,5),
+(7,6),
+(7,24),
+(8,5),
+(8,6),
+(9,5),
+(9,6),
+(10,5);
 
 
 INSERT INTO companies(companyName, banner, link) VALUES
