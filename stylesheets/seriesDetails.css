@@ -1,12 +1,64 @@
 /* Create three equal columns that floats next to each other */
 .pic {
   float: left;
-  width: 15%;
-  padding: 40px;
+  width: 18%;
+  padding: 20px;
+  padding-top: 40px;
   justify-items: center;
 }
 .des {
+  margin-left: 50px;
   float: left;
-  width: 70%;
+  width: 78%;
   padding: 40px;
+}
+.infobox{
+    margin-top: 40%;
+    margin-left: 50%;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    
+  min-height: 100px;
+  overflow: hidden;
+}
+.cover {
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0,0,0,.5);
+}
+
+.column2 {
+  float: left;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.figbox{
+  margin-top: 40%;
+  margin-left: 50%;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 80%;
+  min-height: 100px;
+  overflow: hidden;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.figcov{
+  object-fit: contain;
+    width: 250px;
+    height: 250px;
+    background-color: black;
 }

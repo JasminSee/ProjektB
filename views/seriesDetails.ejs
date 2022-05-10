@@ -14,6 +14,12 @@
       html {
         height: 100%;
       }
+      .column {
+        width: 100%;
+      }
+      .column2 {
+        width: 20%;
+      }
     </style>
   </head>
   <body>
@@ -31,34 +37,42 @@
       <input type="search" placeholder="Search..">
     </div>
     
-    <div class="pic">
-  
-        
-        <img alt="<%=series.seriesName %>" src="<%=series.icon %>" width="250px">
-        
-    
-        </p>
-    </div>
-    <div class="des">
-        <h2><%=series.seriesName %></h2>
-        <p>Alternative Namen: <%=series.altName %>
-        <br>Typ: <%=series.seriesType %>
-        <br>Ausstrahlung: <%=series.release %>
-        <br>Beschreibung: <br><%=series.sDescription %>
-    
-        </p>
-    </div>
     <div class="row">
-     
-      <% for (i=0; i<figurines.length; i++){ %>
-        <div class="column">
-          <a href="/figurDetails/<%=figurines[i].fid %>">
-          <img alt="<%=figurines[i].figurineName %>" src="<%=figurines[i].picture %>" height="200px">
-          </a>
-          <p><%=figurines[i].figurineName %></p>
+      <div class="column">
+        <div class="infobox">
+          <div class="pic">
+        
+              
+              <img alt="<%=series.seriesName %>" src="<%=series.icon %>" class="cover">
+              
           
+              </p>
+          </div>
+          <div class="des">
+              <h2><%=series.seriesName %></h2>
+              <p><b>Alternative Namen:</b> <%=series.altName %>
+              <br><b>Typ:</b> <%=series.seriesType %>
+              <br><b>Ausstrahlung:</b> <%=series.release %>
+              <br><b>Beschreibung:</b> <br><%=series.sDescription %>
+          
+              </p>
+          </div>
         </div>
-      <% } %>
+      </div>
+      <div class="column">
+        <div class="figbox">
+          <% for (i=0; i<figurines.length; i++){ %>
+            <div class="column2">
+              <a href="/figurDetails/<%=figurines[i].fid %>">
+              <img alt="<%=figurines[i].figurineName %>" src="<%=figurines[i].picture %>" class="figcov">
+              </a>
+              <p><%=figurines[i].figurineName %></p>
+              
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
     
     <footer class="footer">
       <div class="footer-row">

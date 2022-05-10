@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="columns.css">
+    <link rel="stylesheet" type="text/css" href="/card.css">
     <style>
       * {
         box-sizing: border-box;
@@ -14,7 +15,7 @@
         height: 100%;
       }
       .column {
-        width: 33.33%;
+        width: 20%;
       }
     </style>
   </head>
@@ -33,17 +34,21 @@
       <input type="search" placeholder="Search..">
     </div>
     
-    <div class="row">
+    <div class="row" style="text-align: center;">
      
       <% for (i=0; i<collector.length; i++){ %>
         <div class="column">
-          <h2><%=collector[i].seriesName %></h2>
-          <a href="/serien/<%=collector[i].seriesID %>">
-          <img alt="<%=collector[i].seriesName %>" src="<%=collector[i].icon %>" height="200px">
-          </a>
+          <div class="card">
+              
+              <a href="/serien/<%=collector[i].seriesID %>">
+              <img alt="<%=collector[i].seriesName %>" src="<%=collector[i].icon %>" class="cover">
+              
+            </a><h2><%=collector[i].seriesName %></h2>
+          </div>
         </div>
+          
       <% } %>
-
+    </div>
       <footer class="footer">
         <div class="footer-row">
           <div class="footer-column">
