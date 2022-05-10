@@ -26,7 +26,7 @@
       <a href="../top10">Top 10</a>
       <a href="../trustedShops">Shops</a>
       <a href="../hersteller">Hersteller</a>
-      <a style="background-color: #234536;" href="../serien">Serien</a>
+      <a href="../serien">Serien</a>
       <a href="../login">Mein Konto</a>
       <input type="search" placeholder="Search..">
     </div>
@@ -34,31 +34,17 @@
     <div class="pic">
   
         
-        <img alt="<%=series.seriesName %>" src="<%=series.icon %>" width="250px">
+        <img alt="<%=figurines.figurineName %>" src="<%=figurines.picture %>" width="250px">
         
     
         </p>
     </div>
     <div class="des">
-        <h2><%=series.seriesName %></h2>
-        <p>Alternative Namen: <%=series.altName %>
-        <br>Typ: <%=series.seriesType %>
-        <br>Ausstrahlung: <%=series.release %>
-        <br>Beschreibung: <br><%=series.sDescription %>
+        <h2><%=figurines.figurineName %></h2>
     
         </p>
     </div>
-    <div class="row">
-     
-      <% for (i=0; i<figurines.length; i++){ %>
-        <div class="column">
-          <a href="/figurDetails/<%=figurines[i].fid %>">
-          <img alt="<%=figurines[i].figurineName %>" src="<%=figurines[i].picture %>" height="200px">
-          </a>
-          <p><%=figurines[i].figurineName %></p>
-          
-        </div>
-      <% } %>
+    
     
     <footer class="footer">
       <div class="footer-row">

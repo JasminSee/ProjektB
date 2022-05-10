@@ -61,12 +61,33 @@ app.get('/serien/:seriesID', function(req, res){
     let sql = "SELECT * FROM series ";
     var result;
     db.all(sql, function(err, rows){
+        let sql2=`SELECT * FROM figurines WHERE origin=${req.params.seriesID}`;
         rows.forEach((serie) => {
             if(serie.seriesID ==req.params.seriesID){
                 result = serie;
                 return true;
             }
         })
-        res.render('seriesDetails', {collector: rows, series: result});
+        db.all(sql2,function(err,row){
+            res.render('seriesDetails', {collector: rows, series: result, figurines: row});
+        })
+        
+      });
+});
+
+app.get('/figurDetails/:fid', function(req, res){
+    let sql = "SELECT * FROM figurines ";
+    var result;
+    db.all(sql, function(err, rows){
+        rows.forEach((figur) => {
+            if(figur.fid ==req.params.fid){
+                result = figur;
+                return true;
+            }
+        })
+        
+        res.render('figurDetails', {collector: rows, figurines: result});
+        
+        
       });
 });
