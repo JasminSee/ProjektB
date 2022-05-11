@@ -39,6 +39,10 @@ app.get('/register', function(req, res){
     res.render('register');
 });
 
+app.get('/search', function(req, res){
+    res.render('search');
+});
+
 app.get('/top10', function(req, res){
     res.render('top10');
 });

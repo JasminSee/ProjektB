@@ -19,13 +19,30 @@
   background-color: #234536;
   color: white;
 }
-.topnav input[type=search] {
+.topnav .search-container {
   float: right;
+}
+
+.topnav input[type=text] {
   padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
   border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;
+  background: #234536;
   font-size: 17px;
-  background-color: #0F0E0E;
-  color: white;
+  border: none;
+  cursor: pointer;
 }
+
+.topnav .search-container button:hover {
+  background: #397058;
+  color:white;
+}
+
