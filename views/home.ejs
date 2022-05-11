@@ -5,17 +5,13 @@
     <link rel="stylesheet" type="text/css" href="navbar.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" type="text/css" href="body.css">
-    <link rel="stylesheet" type="text/css" href="columns.css">
-    <link rel="stylesheet" type="text/css" href="imageTransition.css">
+    <link rel="stylesheet" type="text/css" href="slideshow.css">
     <style>
       * {
         box-sizing: border-box;
       }
       html {
         height: 100%;
-      }
-      .column {
-        width: 33.33%;
       }
     </style>
   </head>
@@ -33,27 +29,43 @@
       <a href="login">Mein Konto</a>
       <input type="search" placeholder="Search..">
     </div>
-    
-    <div class="row" style="text-align: center;">
-      <div class="column">
-        <h2>Figuren</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-        <div class="imageChangeFigures"></div>
-      </div>
-      
-      <div class="column">
-        <h2>Shops</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-        <div class="imageChangeShops"></div>
-      </div>
-      
-      <div class="column">
-        <h2>Serien</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-        <div class="imageChangeSeries"></div>
-      </div>
-    </div>
+ 
+    <div style="text-align: center;">
+      <h2>Serien</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
 
+      <div class="w3-content w3-display-container">
+        <img class="mySlides" src="https://www.freepnglogos.com/uploads/naruto/image-naruto-shippuden-logo-gamefactory-wiki-14.png" style="width:100%">
+        <img class="mySlides" src="https://www.pngmart.com/files/13/My-Hero-Academia-Logo-PNG-Image.png" style="width:100%">
+        <img class="mySlides" src="https://www.pngmart.com/files/13/Attack-On-Titan-Word-Logo-Transparent-PNG.png" style="width:100%">
+        <img class="mySlides" src="https://www.pngmart.com/files/3/One-Piece-Logo-PNG-Image.png" style="width:100%">
+      
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+      </div>
+      
+      <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+
+    </div>
+      
     <footer class="footer">
       <div class="footer-row">
         <div class="footer-column">
