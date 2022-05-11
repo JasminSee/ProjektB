@@ -40,7 +40,10 @@ app.get('/register', function(req, res){
 });
 
 app.get('/search', function(req, res){
-    res.render('search');
+    let sql = 'select figurineName from figurines where figurineName like "%Uzui%";';
+    db.all(sql, function(err, rows){
+        res.render('search', {collector: rows});
+      });
 });
 
 app.get('/top10', function(req, res){
