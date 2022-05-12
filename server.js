@@ -57,6 +57,25 @@ app.get('/hersteller', function(req, res){
       });
 });
 
+
+app.get('/hersteller/:companyID', function(req, res){
+    let sql = "SELECT * FROM companies ";
+    var result;
+    db.all(sql, function(err, rows){
+        let sql2=`SELECT * FROM figurines WHERE company=${req.params.companyID}`;
+        rows.forEach((company) => {
+            if(company.companyID ==req.params.companyID){
+                result = company;
+                return true;
+            }
+        })
+        db.all(sql2,function(err,row){
+            res.render('brandDetails', {collector: rows, companies: result, figurines: row});
+        })
+        
+      });
+});
+
 app.get('/serien', function(req, res){
     let sql = "SELECT * FROM series ORDER BY seriesName ASC";
     db.all(sql, function(err, rows){

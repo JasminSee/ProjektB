@@ -35,13 +35,13 @@
       <input type="search" placeholder="Search..">
     </div>
     
-    <div class="row">
-     
+    <div style="text-align: center;" class="row">
+     <h1>Sieh dir alle Figuren deines Lieblingsherstellers an!</h1>
       <% for (i=0; i<collector.length; i++){ %>
         <div class="column">
-          <h2><%=collector[i].companyName %></h2>
-          <img alt="<%=collector[i].companyName %>" src="<%=collector[i].pic %>" height="200px">
-          <p>Lorem ipsum dolor sit amet</p>
+          <a href="/hersteller/<%=collector[i].companyID %>">
+          <img alt="<%=collector[i].companyName %>" src="<%=collector[i].banner %>" height="80px">
+          </a>
         </div>
       <% } %>
 
