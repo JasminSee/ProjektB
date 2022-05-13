@@ -70,7 +70,9 @@
       <% for (i=0; i<collectorCompanies.length; i++){ %>
         <div class="column">
           <div class="card">
-            <img alt="<%=collectorCompanies[i].companyName %>" src="<%=collectorCompanies[i].banner %>" class="cover">
+            <a href="/hersteller/<%=collectorCompanies[i].companyID %>">
+              <img alt="<%=collectorCompanies[i].companyName %>" src="<%=collectorCompanies[i].banner %>" class="cover">
+            </a>
           <h2><%=collectorCompanies[i].companyName %></h2>
           </div>
         </div>
