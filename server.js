@@ -51,7 +51,15 @@ app.post('/search',function(req,res){
 });
 
 app.get('/top10', function(req, res){
-    res.render('top10');
+    let sql = 
+        `select wishlist.id, wishlist.customerId, wishlist.figuresId, count(wishlist.figuresId), figurines.figurineName ,figurines.picture 
+        from wishlist, figurines 
+        where figurines.fid = wishlist.figuresId 
+        group BY wishlist.figuresId 
+        order by count(wishlist.figuresId) DESC;`
+    db.all(sql, function(err, rows){
+        res.render('top10', {collector: rows});
+      });
 });
 
 app.get('/hersteller', function(req, res){

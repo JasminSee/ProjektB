@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="columns.css">
     <link rel="stylesheet" type="text/css" href="top10.css">
+    <link rel="stylesheet" type="text/css" href="/card.css">
     <style>
       * {
         box-sizing: border-box;
@@ -37,6 +38,20 @@
           <button type="submit">Suchen</button>
         </form>
       </div>
+    </div>
+
+    <div class="row" style="text-align: center;">
+      <p style="font-size: 22px">Aktuell beliebteste Figuren (absteigend sortiert)</p>
+      <% for (i=0; i<collector.length; i++){ %>
+        <div class="column">
+          <div class="card">
+            <p><%=collector[i].figurineName %></p>
+            <a href="/figurDetails/<%=collector[i].figuresId %>">
+              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
+            </a><h2><%=collector[i].seriesName %></h2>
+          </div>
+        </div>
+      <% } %>
     </div>
 
     <footer class="footer">
