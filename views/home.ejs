@@ -28,15 +28,9 @@
       <a href="serien">Serien</a>
       <a href="login">Mein Konto</a>
       <div class="search-container">
-        <form action="" >
-          <input id="searchInput" type="text" placeholder="Search.." name="search">
-          <button type="submit" onClick="sConsole()">Suchen</button>
-          <script>
-            function sConsole() {
-              var data = document.getElementById("searchInput");
-              console.log(data.value);
-            }
-          </script>
+        <form action="/search" method="POST">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit">Suchen</button>
         </form>
       </div>
     </div>

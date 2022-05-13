@@ -34,7 +34,12 @@
       <a style="background-color: #234536;" href="../hersteller">Hersteller</a>
       <a href="../serien">Serien</a>
       <a href="../login">Mein Konto</a>
-      <input type="search" placeholder="Search..">
+      <div class="search-container">
+        <form action="/search" method="POST">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit">Suchen</button>
+        </form>
+      </div>
     </div>
     
     <div class="row">

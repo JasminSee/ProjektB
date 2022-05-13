@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.engine('.ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
@@ -39,11 +40,14 @@ app.get('/register', function(req, res){
     res.render('register');
 });
 
-app.get('/search', function(req, res){
-    let sql = 'select figurineName from figurines where figurineName like "%Uzui%";';
-    db.all(sql, function(err, rows){
-        res.render('search', {collector: rows});
-      });
+app.post('/search',function(req,res){
+    const search= req.body.search;
+    let sql = `SELECT * FROM figurines WHERE figurineName LIKE '%${search}%';`
+    let sql2 = `SELECT * FROM companies WHERE companyName LIKE '%${search}%';`
+    let sql3 = `SELECT * FROM series WHERE seriesName LIKE '%${search}%' OR altName LIKE '%${search}%' OR sDescription LIKE '%${search}%';`
+    db.all(sql, function(err,rows){
+        res.render('search',{collector: rows, search:search});        
+    });
 });
 
 app.get('/top10', function(req, res){
