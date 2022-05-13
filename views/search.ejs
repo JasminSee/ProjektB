@@ -40,45 +40,38 @@
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px">Suchergebnisse für Figuren:</p>
-      <% for (i=0; i<collector.length; i++){ %>
+      <p style="text-align: left; font-size: 20px"><%=collectorFigures.length %> Suchergebnisse für Figuren:</p>
+      <% for (i=0; i<collectorFigures.length; i++){ %>
         <div class="column">
           <div class="card">
-              
-              <a href="/figurDetails/<%=collector[i].fid %>">
-              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
-              
-            </a><h2><%=collector[i].seriesName %></h2>
+            <a href="/figurDetails/<%=collectorFigures[i].fid %>">
+              <img alt="<%=collectorFigures[i].figurineName %>" src="<%=collectorFigures[i].picture %>" class="cover">
+            </a><h2><%=collectorFigures[i].figurineName %></h2>
           </div>
         </div>
       <% } %>
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px">Suchergebnisse für Serien:</p>
-      <% for (i=0; i<collector.length; i++){ %>
+      <p style="text-align: left; font-size: 20px"><%=collectorSeries.length %> Suchergebnisse für Serien:</p>
+      <% for (i=0; i<collectorSeries.length; i++){ %>
         <div class="column">
-          <div class="card">
-              
-              <a href="/figurDetails/<%=collector[i].fid %>">
-              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
-              
-            </a><h2><%=collector[i].seriesName %></h2>
+          <div class="card"> 
+            <a href="/serien/<%=collectorSeries[i].seriesID %>">
+              <img alt="<%=collectorSeries[i].seriesName %>" src="<%=collectorSeries[i].icon %>" class="cover">
+            </a><h2><%=collectorSeries[i].seriesName %></h2>
           </div>
         </div>
       <% } %>
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px">Suchergebnisse für Hersteller:</p>
-      <% for (i=0; i<collector.length; i++){ %>
+      <p style="text-align: left; font-size: 20px"><%=collectorCompanies.length %> Suchergebnisse für Hersteller:</p>
+      <% for (i=0; i<collectorCompanies.length; i++){ %>
         <div class="column">
           <div class="card">
-              
-              <a href="/figurDetails/<%=collector[i].fid %>">
-              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
-              
-            </a><h2><%=collector[i].seriesName %></h2>
+            <img alt="<%=collectorCompanies[i].companyName %>" src="<%=collectorCompanies[i].banner %>" class="cover">
+          <h2><%=collectorSeries[i].companyName %></h2>
           </div>
         </div>
       <% } %>

@@ -42,11 +42,16 @@ app.get('/register', function(req, res){
 
 app.post('/search',function(req,res){
     const search= req.body.search;
+
     let sql = `SELECT * FROM figurines WHERE figurineName LIKE '%${search}%';`
-    let sql2 = `SELECT * FROM companies WHERE companyName LIKE '%${search}%';`
-    let sql3 = `SELECT * FROM series WHERE seriesName LIKE '%${search}%' OR altName LIKE '%${search}%' OR sDescription LIKE '%${search}%';`
     db.all(sql, function(err,rows){
-        res.render('search',{collector: rows, search:search});        
+        let sql2 = `SELECT * FROM companies WHERE companyName LIKE '%${search}%';`
+            db.all(sql2, function(err,rows2) {
+                let sql3 = `SELECT * FROM series WHERE seriesName LIKE '%${search}%' OR altName LIKE '%${search}%' OR sDescription LIKE '%${search}%';`
+                db.all(sql3, function(err, rows3) {
+                    res.render('search', {collectorFigures: rows, collectorCompanies: rows2, collectorSeries: rows3, search: search})
+                })
+            })  
     });
 });
 
