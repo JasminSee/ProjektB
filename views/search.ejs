@@ -40,7 +40,7 @@
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px"><%=collectorFigures.length %> Suchergebnisse für Figuren:</p>
+      <p style="text-align: left; font-size: 20px"><%=collectorFigures.length %> Suchergebniss(e) für Figuren:</p>
       <% for (i=0; i<collectorFigures.length; i++){ %>
         <div class="column">
           <div class="card">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px"><%=collectorSeries.length %> Suchergebnisse für Serien:</p>
+      <p style="text-align: left; font-size: 20px"><%=collectorSeries.length %> Suchergebniss(e) für Serien:</p>
       <% for (i=0; i<collectorSeries.length; i++){ %>
         <div class="column">
           <div class="card"> 
@@ -66,12 +66,12 @@
     </div>
 
     <div class="row" style="text-align: center;">
-      <p style="text-align: left; font-size: 20px"><%=collectorCompanies.length %> Suchergebnisse für Hersteller:</p>
+      <p style="text-align: left; font-size: 20px"><%=collectorCompanies.length %> Suchergebniss(e) für Hersteller:</p>
       <% for (i=0; i<collectorCompanies.length; i++){ %>
         <div class="column">
           <div class="card">
             <img alt="<%=collectorCompanies[i].companyName %>" src="<%=collectorCompanies[i].banner %>" class="cover">
-          <h2><%=collectorSeries[i].companyName %></h2>
+          <h2><%=collectorCompanies[i].companyName %></h2>
           </div>
         </div>
       <% } %>
