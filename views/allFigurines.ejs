@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="columns.css">
     <link rel="stylesheet" type="text/css" href="top10.css">
     <link rel="stylesheet" type="text/css" href="/card.css">
+    <link rel="stylesheet" type="text/css" href="/allFigurines.css">
     <style>
       * {
         box-sizing: border-box;
@@ -15,8 +16,9 @@
       html {
         height: 100%;
       }
+      /* Create three equal columns that floats next to each other */
       .column {
-        width: 33.33%;
+        width: 100%;
       }
     </style>
   </head>
@@ -41,9 +43,312 @@
       </div>
     </div>
 
+    <div class="row">
+      <button type="button" class="collapsible" style="margin: 20px; width: 95%">Filter</button>
+      <div class="content">
+        <div class="column">
+        <form action="/filter" method="POST">
+
+          <button type="button" class="collapsible">Erscheinungsdatum</button>
+          <div class="content">
+            <label class="container">2016
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2017
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2018
+              <input type="checkbox">
+              <span class="checkmark"></span>s
+            </label>
+            <label class="container">2019
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2020
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2021
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2022
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2023
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit">Anwenden</button>
+          </div>
+
+          <button type="button" class="collapsible">Klasse</button>
+          <div class="content">
+            <label class="container">Pop Up Parade
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Nendroid
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">ARTFX J
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bandai Spirits
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Shibuya Scramble Figure
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Figma
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Naruto Gals DX
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Game Characters Collection DX
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">G.E.M
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Precious G.E.M.
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+
+          <button type="button" class="collapsible">Material</button>
+          <div class="content">
+            <label class="container">ABS
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">PVC
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Acryl
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">LED
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+
+          <button type="button" class="collapsible">Höhe</button>
+          <div class="content">
+            <label class="container">kleiner als 160 mm
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">170 mm bis 180 mm
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">190 mm bis 250 mm
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">260 mm bis 300 mm
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">größer als 300 mm
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+
+          <button type="button" class="collapsible">Originalpreis</button>
+          <div class="content">
+            <label class="container">unter 3000 Yen
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">3000 bis 6000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">6000 bis 10.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">10.000 bis 16.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">17.000 Yen bis 20.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">21.000 Yen bis 25.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">26.000 Yen bis 30.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">über 30.000 Yen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+
+          <button type="button" class="collapsible">Serien</button>
+          <div class="content">
+            <label class="container">Attack On Titan
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Black Rock Shooter
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Danganronpa
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Darling In The FranXX
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Demon Slayer
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Digimon Adventure
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Hololive
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">InuYasha
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Jujutsu Kaisen
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">KonoSuba
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">My Hero Academia
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Naruto Shippuuden
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Neon Genesis Evangelion
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">One Piece
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Persona 5
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Shaman King
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Tokyo Revengers
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">That Time I Got Reincarnated As A Slime
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+          
+          <button type="button" class="collapsible">Hersteller</button>
+          <div class="content">
+            <label class="container">Good Smile Company
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Kotobukiya
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Aniplex
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">eStream
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bandai / Banpresto
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Max Factory
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">MegaHouse
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button type="submit">Filter</button>
+          </div>
+
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      </script>
+
     <div class="row" style="text-align: center;">
       <% for (i=0; i<collector.length; i++){ %>
-        <div class="column">
+        <div class="column"  style="width: 33.33%;">
           <div class="card">
             <p><%=collector[i].figurineName %></p>
             <a href="/figurDetails/<%=collector[i].fid %>">
