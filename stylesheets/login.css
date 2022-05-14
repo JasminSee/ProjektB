@@ -47,32 +47,7 @@
   color: #6ddead;
   font-size: 12px;
 }
-.login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #6ddead;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
-}
-.login-box a:hover {
-  background: #4b9776;
-  color: rgb(255, 255, 255);
-  border-radius: 5px;
-  box-shadow: 0 0 5px #6ddead,
-              0 0 10px #6ddead,
-              0 0 15px #6ddead,
-              0 0 20px #6ddead;
-}
-.login-box a span {
-  position: absolute;
-  display: block;
-}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width:600px) {
   span.psw {
@@ -82,4 +57,31 @@
   .cancelbtn {
     width: 100%;
   }
+}
+
+.submitButton:hover {
+  background: #4b9776;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #6ddead,
+              0 0 10px #6ddead,
+              0 0 15px #6ddead,
+              0 0 20px #6ddead;
+}
+.submitButton {
+  position: relative;
+  background-color: #3b755b;
+  border: transparent;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
