@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="columns.css">
     <link rel="stylesheet" type="text/css" href="top10.css">
-    <link rel="stylesheet" type="text/css" href="/card.css">
     <style>
       * {
         box-sizing: border-box;
@@ -42,7 +41,7 @@
 
     <div class="row" style="text-align: center;">
       <p style="font-size: 26px">Aktuell beliebteste Figuren (absteigend sortiert)</p>
-      <% for (i=0; i<collector.length; i++){ %>
+      <% for (i=0; i<3; i++){ %>
         <div class="column">
           <div class="card">
             <p><%=collector[i].figurineName %></p>
