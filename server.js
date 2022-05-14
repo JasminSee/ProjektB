@@ -11,6 +11,13 @@ app.set('view engine', 'ejs');
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const session = require('express-session');
+app.use(session({
+    secret: 'example',
+    resave: false,
+    saveUninitialized: true
+}));
+
 app.listen(3000, function(){
     console.log('listening on 3000');
 });
@@ -59,26 +66,30 @@ app.post('/doLogin', function(req, res){
                 valid=true;
             }
         }
-        if(valid==true){
+        if(valid==true) {
             let sql = `SELECT * FROM customers WHERE email="${email}"`;
-            db.get(sql,function(err,row){
+            db.get(sql,function(err, row) {
                  req.session.email = row.email;
-                if (bcrypt.compareSync(password,row.password)){
+                if (bcrypt.compareSync(password, row.psword)){
                     req.session["sessionVariable"]= "ist angemeldet";
                     req.session["id"]= row.id;
                     req.session["user"] = row.firstName +" "+ row.lastNname;
                     req.session["firstName"] = row.firstName ;
                     req.session["lastName"] = row.lastName ;
                     req.session["email"] = row.email ;
-                    res.redirect("/"); 
+                    res.render("home"); 
                 }
                 else {
-                    res.render('false',{"message":"Wrong Password"})
+                    //res.render('false',{"message":"Wrong Password"})
+                    console.log("falsches passwort")
+                    res.render("login"); 
                 };
             })
         }
         else{
-            res.render('false',{"message":"Account doesn't exist"})
+            //res.render('false',{"message":"Account doesn't exist"})
+            console.log("account exisitiert nicht")
+            res.render("login"); 
         }
     })
 });
@@ -93,6 +104,64 @@ app.get("/logout", function(req, res){
     delete req.session["email"];
     
     res.redirect("/");
+});
+
+//Auswertung nach der Registrierung
+app.post('/doRegister', function(req, res) {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirm = req.body.confirm;
+
+    let hash = bcrypt.hashSync(password,10);
+    let sql2=`SELECT email FROM customers;`
+    db.all(sql2,function(err,row){
+        var validy=false;
+        for(i=0;i<row.length;i++){
+            if(email==row[i].email){
+                validy=true;
+            }
+        }
+        if(validy==true){
+            //res.render('registerfalse',{"message": "Account already exists"})
+            console.log("account existiert bereits")
+            res.render("register"); 
+
+        }
+        else{
+            if(password==confirm){
+                //SQL Befehl um einen neuen Eintrag der Tabelle user hinzuzufügen
+                let sql = `INSERT INTO customers (email, psword, firstName, lastName) VALUES ("${email}","${hash}","${firstName}", "${lastName}");`
+                
+                db.all(sql, function(err) {
+                    if (err) { 
+                        console.error(err)
+                    } else {
+                        res.render('home',{"message":"Congratulation you are a member now! Email: "+email,"message2":""}); 
+                        let sql3=`SELECT id FROM customers WHERE email="${email}";`
+                    }
+                })
+            }
+            else {
+                //res.render('registerfalse',{"message": "Passwords don't match"})
+                console.log("passwörter stimmen nicht überein")
+                res.render("register"); 
+            }
+        }
+    });
+});
+
+
+//Anzeigen von meinKonto bzw umleiten zum login, wenn nicht angemeldet
+app.get("/myAccount", function(req, res){
+    console.log(req.session);
+    if (!req.session["sessionVariable"]){
+        res.render('login');
+    }
+    else {
+        res.render('myAccount')
+    }
 });
 
 app.get('/register', function(req, res){

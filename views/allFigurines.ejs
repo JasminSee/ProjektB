@@ -6,13 +6,17 @@
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="columns.css">
-    <link rel="stylesheet" type="text/css" href="register.css">
+    <link rel="stylesheet" type="text/css" href="top10.css">
+    <link rel="stylesheet" type="text/css" href="/card.css">
     <style>
       * {
         box-sizing: border-box;
       }
       html {
         height: 100%;
+      }
+      .column {
+        width: 33.33%;
       }
     </style>
   </head>
@@ -24,10 +28,11 @@
     <div class="topnav">
       <a href="/">Startseite</a>
       <a href="top10">Trending</a>
+      <a style="background-color: #234536;" href="allFigurines">Figuren</a>
       <a href="trustedShops">Shops</a>
       <a href="hersteller">Hersteller</a>
       <a href="serien">Serien</a>
-      <a style="background-color: #234536;" href="login">Mein Konto</a>
+      <a href="login">Mein Konto</a>
       <div class="search-container">
         <form action="/search" method="POST">
           <input type="text" placeholder="Search.." name="search">
@@ -36,33 +41,17 @@
       </div>
     </div>
 
-    <div class="register-box">
-      <h2>Registrieren</h2>
-      <form method="POST" action="/doRegister" name="register">
-
-        <div class="user-box">
-          <input type="text" name="email" required>
-          <label>E-Mail-Adresse</label>
+    <div class="row" style="text-align: center;">
+      <% for (i=0; i<collector.length; i++){ %>
+        <div class="column">
+          <div class="card">
+            <p><%=collector[i].figurineName %></p>
+            <a href="/figurDetails/<%=collector[i].fid %>">
+              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
+            </a><h2><%=collector[i].seriesName %></h2>
+          </div>
         </div>
-        <div class="user-box">
-          <input type="password" name="password" required>
-          <label>Passwort</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="confirm" required>
-          <label>Passwort</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="firstName" required>
-          <label>Vorname</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="lastName" required>
-          <label>Nachname</label>
-        </div>
-        <button type="submit">Bestätigen</button>
-
-      </form>
+      <% } %>
     </div>
 
     <footer class="footer">
