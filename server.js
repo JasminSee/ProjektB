@@ -39,14 +39,6 @@ app.get('/', function(req, res){
     res.render('home');
 });
 
-app.get('/allFigurines', function(req, res){
-    let sql = 
-        `select * from figurines;`
-    db.all(sql, function(err, rows){
-        res.render('allFigurines', {collector: rows});
-      });
-});
-
 app.get('/trustedShops', function(req, res){
     res.render('trustedShops');
 });
@@ -202,7 +194,6 @@ app.get('/hersteller', function(req, res){
       });
 });
 
-
 app.get('/hersteller/:companyID', function(req, res){
     let sql = "SELECT * FROM companies ";
     var result;
@@ -261,4 +252,244 @@ app.get('/figurDetails/:fid', function(req, res){
         
         
       });
+});
+
+app.get('/allFigurines', function(req, res){
+    let sql = `select * from figurines;`
+    db.all(sql, function(err, rows){
+        res.render('allFigurines', {collector: rows});
+      });
+});
+
+//Filter
+//---------------------------------------------------------------------------------------------
+app.post('/allFigurines/filterSeries',function(req,res){
+    const filterSeries = [];
+
+    //Serien
+    const AOT = req.body.AOT;
+    const BlackRockShooter = req.body.BlackRockShooter;
+    const Danganronpa = req.body.Danganronpa;
+    const DarlingInTheFranXX = req.body.DarlingInTheFranXX;
+    const DemonSlayer = req.body.DemonSlayer;
+    const Digimon = req.body.Digimon;
+    const Hololive = req.body.Hololive;
+    const Inuyasha = req.body.Inuyasha;
+    const JujutsuKaisen = req.body.JujutsuKaisen;
+    const KonoSuba = req.body.KonoSuba;
+    const MyHeroAcademia = req.body.MyHeroAcademia;
+    const Naruto = req.body.Naruto;
+    const NeonGenesis = req.body.NeonGenesis;
+    const OnePiece = req.body.OnePiece;
+    const Persona = req.body.Persona;
+    const ShamanKing = req.body.ShamanKing;
+    const TokyoRevengers = req.body.TokyoRevengers;
+    const Slime = req.body.Slime;
+    filterSeries.push({checked:DemonSlayer, id:1}, {checked:DarlingInTheFranXX, id:2}, {checked:Inuyasha, id:3}, {checked:Danganronpa, id:4}, {checked:Naruto, id:5}, 
+        {checked:JujutsuKaisen, id:6}, {checked:MyHeroAcademia, id:7}, {checked:AOT, id:8}, {checked:Slime, id:9}, {checked:TokyoRevengers, id:10}, {checked:OnePiece, id:11}, 
+        {checked:ShamanKing, id:12}, {checked:Hololive, id:13}, {checked:BlackRockShooter, id:14}, {checked:KonoSuba, id:15}, {checked:Persona, id:16}, {checked:Digimon, id:17}, 
+        {checked:NeonGenesis, id:18});
+
+    
+    for (i = 0; i <= filterSeries.length; i++) {
+        if (filterSeries[i].checked !== undefined) {
+            if (filterSeries[i].checked == "on") {
+                let sql = `SELECT * FROM figurines WHERE origin = ${filterSeries[i].id};`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterRelease',function(req,res){
+    const filterRelease = [];
+
+   //Erscheinungsdatum
+   const release2016 = req.body.release2016;
+   const release2017 = req.body.release2017;
+   const release2018 = req.body.release2018;
+   const release2019 = req.body.release2019;
+   const release2020 = req.body.release2020;
+   const release2021 = req.body.release2021;
+   const release2022 = req.body.release2022;
+   const release2023 = req.body.release2023;
+   filterRelease.push({checked:release2016, year:"2016"}, {checked:release2017, year:"2017"}, {checked:release2018, year:"2018"}, {checked:release2019, year:"2019"}, {checked:release2020, year:"2020"}, 
+       {checked:release2021, year:"2021"}, {checked:release2022, year:"2022"}, {checked:release2023, year:"2023"});
+
+    for (i = 0; i <= filterRelease.length; i++) {
+        if (filterRelease[i].checked !== undefined) {
+            if (filterRelease[i].checked == "on") {
+                let sql = `Select * from figurines where releaseDate like '%${filterRelease[i].year}%';`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterClassification',function(req,res){
+    const filterClassification = [];
+
+    //Klassifikation
+    const PopUpParade = req.body.PopUpParade;
+    const Nendroid = req.body.Nendroid;
+    const ArtfxJ = req.body.ArtfxJ;
+    const BendaiSpirits = req.body.BendaiSpirits;
+    const ShibuyaScrample = req.body.ShibuyaScrample;
+    const Figma = req.body.Figma;
+    const NarutoGals = req.body.NarutoGals;
+    const CharactersCollectionDX = req.body.CharactersCollectionDX;    
+    const GEM = req.body.GEM;    
+    const PreciousGEM = req.body.PreciousGEM; 
+    filterClassification.push({checked:PopUpParade, name:"Pop Up Parade"}, {checked:Nendroid, name:"Nendroid"}, {checked:ArtfxJ, name:"ARTFX J"}, {checked:BendaiSpirits, name:"Bandai Spirits"},
+        {checked:ShibuyaScrample, name:"Shibuya Scramble Figure"}, {checked:Figma, name:"Figma"}, {checked:NarutoGals, name:"Naruto Gals DX"}, {checked:CharactersCollectionDX, name:"Game Characters Collection DX"},
+        {checked:GEM, name:"G.E.M"}, {checked:PreciousGEM, name:"Precious G.E.M."}); 
+
+    for (i = 0; i <= filterClassification.length; i++) {
+        if (filterClassification[i].checked !== undefined) {
+            if (filterClassification[i].checked == "on") {
+                let sql = `SELECT * FROM figurines WHERE classification = '${filterClassification[i].name}';`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterMaterial',function(req,res){
+    const filterMaterial = [];
+
+    //Material
+    const ABS = req.body.ABS;
+    const PVC = req.body.PVC;
+    const Acryl = req.body.Acryl;
+    const LED = req.body.LED;
+    filterMaterial.push({checked:ABS, name:"ABS"}, {checked:PVC, name:"PVC"}, {checked:Acryl, name:"Acrylic"}, {checked:LED, name:"LED"});
+
+    for (i = 0; i <= filterMaterial.length; i++) {
+        if (filterMaterial[i].checked !== undefined) {
+            if (filterMaterial[i].checked == "on") {
+                let sql = `SELECT * FROM figurines WHERE material LIKE '%${filterMaterial[i].name}%';`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterHeight',function(req,res){
+    const filterHeight = [];
+
+    //Hoehe
+    const MM160 = req.body.MM160;
+    const MM170 = req.body.MM170;
+    const MM190 = req.body.MM190;
+    const MM260 = req.body.MM260;
+    const MM300 = req.body.MM300;
+    filterMaterial.push({checked:MM160, height:"160"}, {checked:MM170, height:"170"}, {checked:MM190, height:"190"}, {checked:MM260, height:"260"}, 
+        {checked:MM300, height:"Height=300"});
+
+    for (i = 0; i <= filterHeight.length; i++) {
+        if (filterHeight[i].checked !== undefined) {
+            if (filterHeight[i].checked == "on") {
+                let sql = `select * from figurines where dimension like ${filterHeight[i].height};`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterPrice',function(req,res){
+    const filterPrice = [];
+
+    //Originalpreis
+    const Yen3000 = req.body.Yen3000;
+    const Yen6000 = req.body.Yen6000;
+    const Yen10000 = req.body.Yen10000;
+    const Yen16000 = req.body.Yen16000;
+    const Yen20000 = req.body.Yen20000;
+    const Yen25000 = req.body.Yen25000;
+    const Yen30000 = req.body.Yen30000;
+    const YenMax = req.body.YenMax;
+    filterPrice.push({checked:Yen3000, min:0, max:2999}, {checked:Yen6000, min:3000, max:5999}, {checked:Yen10000, min:6000, max:9999}, {checked:Yen16000, min:10000, max:15999}, 
+        {checked:Yen20000, min:16000, max:19999}, {checked:Yen25000, min:20000, max:24999}, {checked:Yen30000, min:25000, max:29999}, {checked:YenMax, min:30000, max:60000});
+
+    for (i = 0; i <= filterPrice.length; i++) {
+        if (filterPrice[i].checked !== undefined) {
+            if (filterPrice[i].checked == "on") {
+                let sql = `select * from figurines where originalPriceYen >= ${filterPrice[i].min} AND originalPriceYen <= ${filterPrice[i].max};`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
+});
+
+app.post('/allFigurines/filterCompanies',function(req,res){
+    const filterCompanies = [];
+
+    //Hersteller
+    const GoodSmile = req.body.GoodSmile;
+    const Kotobukiya = req.body.Kotobukiya;
+    const Aniplex = req.body.Aniplex;
+    const Bandai = req.body.Bandai;
+    const eStream = req.body.eStream;
+    const MaxFactory = req.body.MaxFactory;
+    const MegaHouse = req.body.MegaHouse;
+    filterCompanies.push({checked:GoodSmile, id:1}, {checked:Kotobukiya, id:2}, {checked:Aniplex, id:3}, {checked:Bandai, id:5}, {checked:eStream, id:4},
+        {checked:MaxFactory, id:6}, {checked:MegaHouse, id:7});
+
+    for (i = 0; i <= filterCompanies.length; i++) {
+        if (filterCompanies[i].checked !== undefined) {
+            if (filterCompanies[i].checked == "on") {
+                let sql = `SELECT * FROM figurines WHERE company = ${filterCompanies[i].id};`
+                db.all(sql, function(err, rows){
+                    res.render('filter', {collector: rows});
+                });
+                break;
+            } else {
+                continue
+            }
+        } else {
+            
+        }
+    }
 });
