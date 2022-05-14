@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
+const bcrypt = require('bcrypt');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.engine('.ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 app.listen(3000, function(){
     console.log('listening on 3000');
@@ -28,12 +32,67 @@ app.get('/', function(req, res){
     res.render('home');
 });
 
+app.get('/allFigurines', function(req, res){
+    let sql = 
+        `select * from figurines;`
+    db.all(sql, function(err, rows){
+        res.render('allFigurines', {collector: rows});
+      });
+});
+
 app.get('/trustedShops', function(req, res){
     res.render('trustedShops');
 });
 
 app.get('/login', function(req, res){
     res.render('login');
+});
+
+app.post('/doLogin', function(req, res){
+    const email = req.body.email;
+    const password = req.body.password;
+    let sql2= `SELECT email FROM customers`
+    db.all(sql2,function(err,row){
+        valid=false;
+        for(i=0; i<row.length;i++){
+            if(email==row[i].email){
+                valid=true;
+            }
+        }
+        if(valid==true){
+            let sql = `SELECT * FROM customers WHERE email="${email}"`;
+            db.get(sql,function(err,row){
+                 req.session.email = row.email;
+                if (bcrypt.compareSync(password,row.password)){
+                    req.session["sessionVariable"]= "ist angemeldet";
+                    req.session["id"]= row.id;
+                    req.session["user"] = row.firstName +" "+ row.lastNname;
+                    req.session["firstName"] = row.firstName ;
+                    req.session["lastName"] = row.lastName ;
+                    req.session["email"] = row.email ;
+                    res.redirect("/"); 
+                }
+                else {
+                    res.render('false',{"message":"Wrong Password"})
+                };
+            })
+        }
+        else{
+            res.render('false',{"message":"Account doesn't exist"})
+        }
+    })
+});
+
+//Session abbrechen zum ausloggen
+app.get("/logout", function(req, res){
+    delete req.session["sessionVariable"];
+    delete req.session["user"];
+    delete req.session["id"];
+    delete req.session["firstname"];
+    delete req.session["lastName"];
+    delete req.session["email"];
+    
+    res.redirect("/");
 });
 
 app.get('/register', function(req, res){

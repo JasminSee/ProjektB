@@ -38,18 +38,16 @@
   
     <div class="login-box">
       <h2>Login</h2>
-      <form>
+      <form method="POST" action="/doLogin" name="login">
         <div class="user-box">
-          <input type="text" name="" required="">
-          <label>Benutzername oder E-Mail-Adresse</label>
+          <input type="text" name="email" required>
+          <label>E-Mail-Adresse</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="">
+          <input type="password" name="password" required>
           <label>Passwort</label>
         </div>
-        <a href="#">
-          Bestätigen
-        </a>
+        <button type="submit">Bestätigen</button>
         <a href="register">
           Registrieren
         </a>
