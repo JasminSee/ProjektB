@@ -43,6 +43,33 @@ app.get('/trustedShops', function(req, res){
     res.render('trustedShops');
 });
 
+app.get('/editAccount', function(req, res){
+  res.render('editAccount', {"message": "","firstName": req.session.firstName, "lastName": req.session.lastName, "email": req.session.email});
+});
+
+app.post('/edit', function(req, res){
+let firstName = req.body.firstName;
+let lastName = req.body.lastName;
+let email = req.body.email;
+
+if (firstName != "" || lastName != "" || emailName != "" || password != "") {
+  const editedFirstName = firstName = "" ? req.session.firstName : firstName;
+  const editedLastName = lastName = "" ? req.session.lastName : lastName;
+  const editedEmail = email = "" ? req.session.email : email;
+  let sql = `UPDATE customers SET 
+    firstName = "${editedFirstName}",
+    lastName = "${editedLastName}",
+    email = "${editedEmail}"
+    WHERE email = '${req.session.email}';`
+  db.all(sql, function(err, rows) {
+    req.session["firstName"] = editedFirstName ;
+    req.session["lastName"] = editedLastName ;
+    req.session["email"] = editedEmail ;
+    res.render('editAccount', {"message": "Erfolgreich geändert","firstName": editedFirstName, "lastName": editedLastName, "email": editedEmail});
+  });
+}
+});
+
 app.get('/login', function(req, res){
     res.render('login', {"message": ""});
 });
