@@ -70,6 +70,35 @@ if (firstName != "" || lastName != "" || emailName != "" || password != "") {
 }
 });
 
+
+app.get('/editPassword', function(req, res){
+  res.render('editPassword', {"message": ""});
+});
+
+app.post('/doEditPassword', function(req, res){
+  let password = req.body.password;
+  let confirm = req.body.confirm;
+
+  if (password != "") {
+    if (password == confirm) {
+      let hash = bcrypt.hashSync(password,10);
+      let sql = `UPDATE customers SET psword = "${hash}" WHERE email = '${req.session.email}';`
+      db.all (sql, function(err, rows) {
+        delete req.session["sessionVariable"];
+        delete req.session["id"];
+        delete req.session["firstName"];
+        delete req.session["lastName"];
+        delete req.session["email"];
+        res.render('home', {"message": "Passwort erfolgreich geändert! Logge Dich erneut ein!"});
+      });
+    } else {
+      res.render('editPassword', {"message": "Passwörter stimmen nicht überein!"});
+    }
+  } else {
+    res.render('editPassword', {"message": "keine Änderung"});
+  }
+});
+
 app.get('/login', function(req, res){
     res.render('login', {"message": ""});
 });
