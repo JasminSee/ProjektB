@@ -36,7 +36,7 @@ let db = new sqlite3.Database('collector.db', (err) => {
 app.use(express.static('stylesheets'));
 
 app.get('/', function(req, res){
-    res.render('home');
+    res.render('home', {"message": "Willkommen!"});
 });
 
 app.get('/trustedShops', function(req, res){
@@ -44,7 +44,7 @@ app.get('/trustedShops', function(req, res){
 });
 
 app.get('/login', function(req, res){
-    res.render('login');
+    res.render('login', {"message": ""});
 });
 
 app.post('/doLogin', function(req, res){
@@ -65,23 +65,18 @@ app.post('/doLogin', function(req, res){
                 if (bcrypt.compareSync(password, row.psword)){
                     req.session["sessionVariable"]= "ist angemeldet";
                     req.session["id"]= row.id;
-                    req.session["user"] = row.firstName +" "+ row.lastNname;
                     req.session["firstName"] = row.firstName ;
                     req.session["lastName"] = row.lastName ;
                     req.session["email"] = row.email ;
-                    res.render("home"); 
+                    res.render("home", {"message": "Willkommen" + " " + req.session.firstName + "!"}); 
                 }
                 else {
-                    //res.render('false',{"message":"Wrong Password"})
-                    console.log("falsches passwort")
-                    res.render("login"); 
+                    res.render("login", {"message": "Falsches Passwort"}); 
                 };
             })
         }
         else{
-            //res.render('false',{"message":"Account doesn't exist"})
-            console.log("account exisitiert nicht")
-            res.render("login"); 
+            res.render("login", {"message": "Account existiert nicht"});
         }
     })
 });
@@ -89,13 +84,26 @@ app.post('/doLogin', function(req, res){
 //Session abbrechen zum ausloggen
 app.get("/logout", function(req, res){
     delete req.session["sessionVariable"];
-    delete req.session["user"];
     delete req.session["id"];
-    delete req.session["firstname"];
+    delete req.session["firstName"];
     delete req.session["lastName"];
     delete req.session["email"];
     
-    res.redirect("/");
+    res.render("home", {"message": "Du hast dich erfolgreich ausgeloggt!"});
+});
+
+//Account löschen
+app.get("/deleteAccount", function(req, res){
+    let sql = `DELETE FROM customers WHERE email = '${req.session.email}';`;
+    db.all(sql, function(err, rows) {
+        delete req.session["sessionVariable"];
+        delete req.session["user"];
+        delete req.session["id"];
+        delete req.session["firstname"];
+        delete req.session["lastName"];
+        delete req.session["email"];
+        res.render('home', {collector: rows, "message": "Account erfolgreich gelöscht!"});
+    });
 });
 
 //Auswertung nach der Registrierung
@@ -115,9 +123,7 @@ app.post('/doRegister', function(req, res) {
             }
         }
         if(validy==true){
-            //res.render('registerfalse',{"message": "Account already exists"})
-            console.log("account existiert bereits")
-            res.render("register"); 
+            res.render("register", {"message": "Account existiert bereits!"}); 
 
         }
         else{
@@ -129,15 +135,12 @@ app.post('/doRegister', function(req, res) {
                     if (err) { 
                         console.error(err)
                     } else {
-                        res.render('home',{"message":"Congratulation you are a member now! Email: "+email,"message2":""}); 
-                        let sql3=`SELECT id FROM customers WHERE email="${email}";`
+                        res.render('login', {"message":"Du hast dich erfolgreich registriert!"}); 
                     }
                 })
             }
             else {
-                //res.render('registerfalse',{"message": "Passwords don't match"})
-                console.log("passwörter stimmen nicht überein")
-                res.render("register"); 
+                res.render("register", {"message": "Passwörter stimmen nicht überein!"}); 
             }
         }
     });
@@ -146,17 +149,16 @@ app.post('/doRegister', function(req, res) {
 
 //Anzeigen von meinKonto bzw umleiten zum login, wenn nicht angemeldet
 app.get("/myAccount", function(req, res){
-    console.log(req.session);
     if (!req.session["sessionVariable"]){
-        res.render('login');
+        res.render('login', {"message": ""});
     }
     else {
-        res.render('myAccount')
+        res.render('myAccount', {"message": req.session.firstName})
     }
 });
 
 app.get('/register', function(req, res){
-    res.render('register');
+    res.render('register', {"message": ""});
 });
 
 app.post('/search',function(req,res){
