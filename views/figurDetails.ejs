@@ -7,12 +7,22 @@
     <link rel="stylesheet" type="text/css" href="/body.css">
     <link rel="stylesheet" type="text/css" href="/columns.css">
     <link rel="stylesheet" type="text/css" href="/seriesDetails.css">
+    <link rel="stylesheet" type="text/css" href="/figurDetails.css">
     <style>
       * {
         box-sizing: border-box;
       }
       html {
         height: 100%;
+      }
+      .column {
+        width: 100%;
+      }
+      .descriptiontext{
+        font-size: large;
+      }
+      .link{
+        color: white;
       }
     </style>
   </head>
@@ -36,20 +46,68 @@
         </form>
       </div>
     </div>
-    
-    <div class="pic">
-  
+    <div class="row">
+      <div class="column">
+        <div class="infobox">
+          <div class="pic">
+ 
+            <img alt="<%=figurines.figurineName %>" src="<%=figurines.picture %>" width="250px">
+            
+          </div>
+          <div class="des">
+            <h2><%=figurines.figurineName %></h2>
+            <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>"> <%=series.seriesName %></a>
+              <br><b>Charakter:</b> <%=figurines.characterName %>
+              <br><b>Hersteller:</b> <a class="link" href="/hersteller/<%=figurines.company %>"> <%=company.companyName %></a>
+              <br><b>Klassifikation:</b> <%=figurines.classification %>
+              <br><b>Dimensionen:</b> <%=figurines.dimension %>
+              <br><b>Material:</b> <%=figurines.material %>
+              <br><b>Erscheinungsdatum:</b> <%=figurines.releaseDate %>
+              <br><b>Original Preis:</b> <%=figurines.originalPriceYen %> ¥
+              <br><b>ISBN:</b> <%=figurines.isbn %>
+            </p>
+            
+          </div>
+        </div>
         
-        <img alt="<%=figurines.figurineName %>" src="<%=figurines.picture %>" width="250px">
-        
-    
-        </p>
+      </div>
+      <div class="column">
+        <div class="infobox">
+          <% for (i=0; i<seller.length; i++){ %>
+            <div class="column">
+              <a href="<%=seller[i].link %>">click</a>
+              <%=seller[i].price.toFixed(2) %> €
+              
+            </div>
+          <% } %>
+        </div>
+      </div>
+      <div class="column">
+        <div class="infobox">
+          <% for (i=0; i<reviews.length; i++){ %>
+            <div class="column">
+              <%=reviews[i].user %>
+              <%=reviews[i].rating %>
+              
+            </div>
+          <% } %>
+          <div class="column">
+            <div class="card">
+              <div class="comment-box">
+                <h2>Add a comment</h2>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+
+                <button class="submitButton" type="submit">Send</button>
+            </div>
+            </div>
+          </div>
+            
+        </div>
+      </div>
     </div>
-    <div class="des">
-        <h2><%=figurines.figurineName %></h2>
     
-        </p>
-    </div>
+    
     
     
     <footer class="footer">
