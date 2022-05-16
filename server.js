@@ -105,7 +105,6 @@ app.post('/doRegister', function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
     const confirm = req.body.confirm;
-
     let hash = bcrypt.hashSync(password,10);
     let sql2=`SELECT email FROM customers;`
     db.all(sql2,function(err,row){

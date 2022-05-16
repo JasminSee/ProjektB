@@ -93,16 +93,17 @@ CREATE TABLE reviews (
 );
 
 INSERT INTO customers(email, psword, firstName, lastName) VALUES
-("Daniel.Sauter@klein.de", "TXI&Lo60", "Daniel", "Sauter"),
-("Joanna.Keßler@hubner.net", "eaLdt", "Joanna", "Keßler"),
-("Robert.Eichhorn@hotmail.de", "PfPzJGn", "Robert", "Eichhorn"),
-("Fabian.Richter@neubert.de", "}wu5TZk2WR|L:,", "Fabian", "Richter"),
-("Bianka.Neubert@john.com", "FJlpNV", "Bianka", "Neubert"),
+("Daniel.Sauter@klein.de", "1234", "Daniel", "Sauter"),
+("Joanna.Keßler@hubner.net", "abcd", "Joanna", "Keßler"),
+("Robert.Eichhorn@hotmail.de", "5678", "Robert", "Eichhorn"),
+("Fabian.Richter@neubert.de", "efgh", "Fabian", "Richter"),
+("Bianka.Neubert@john.com", "9abc9", "Bianka", "Neubert"),
 ("Monika.Feierabend@web.com", "1234abcd", "Monika", "Feierabend"),
 ("Petra.Meier@web.com", "123abc", "Petra", "Meier"),
 ("Andreas.Bergmann@web.com", "abc123", "Andreas", "Bergmann"),
 ("Lukas.Probst@web.com", "hallo123", "Lukas", "Probst"),
 ("Janina.Pfeffer@web.com", "password", "Janina", "Pfeffer");
+("test@test.de", "test", "Max", "Musterman");
 
 INSERT INTO wishlist(customerID, figuresID) VALUES
 (1, 1),
