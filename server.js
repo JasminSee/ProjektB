@@ -241,18 +241,33 @@ app.get('/serien/:seriesID', function(req, res){
 app.get('/figurDetails/:fid', function(req, res){
     let sql = "SELECT * FROM figurines ";
     var result;
+    var companyResult;
+    var serieResult;
     db.all(sql, function(err, rows){
+        
         rows.forEach((figur) => {
             if(figur.fid ==req.params.fid){
                 result = figur;
                 return true;
             }
         })
+        let sql2 = `SELECT * FROM (SELECT * FROM allBlueData WHERE id=${result.allBlueID} UNION SELECT * FROM mangaMafiaData WHERE id=${result.mangaMafiaID} UNION SELECT * FROM animeLeData WHERE id=${result.animeLeID} UNION SELECT * FROM figuyaData WHERE id=${result.figuyaID} ORDER BY price);`;
+        db.all(sql2, function(err, row){
+            sql3=`SELECT * FROM reviews WHERE fid=${result.fid}`;
+            db.get(`SELECT * FROM companies WHERE companyID=${result.company}`,(err,comp)=>{
+                db.get(`SELECT * FROM series WHERE seriesID=${result.origin}`,(err,ser)=>{
+                    db.all(sql3, function(err,rev){
+                        res.render('figurDetails', {collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev});
+                    })
+                })
+                
+            })
+
+        }) 
         
-        res.render('figurDetails', {collector: rows, figurines: result});
         
         
-      });
+    });
 });
 
 app.get('/allFigurines', function(req, res){
