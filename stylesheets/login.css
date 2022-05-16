@@ -1,10 +1,11 @@
 /*Login Style*/
 .login-box {
-  margin-top: 20%;
-  margin-left: 50%;
-  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 25%;
   padding: 40px;
-  transform: translate(-50%, -50%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -58,7 +59,6 @@
     width: 100%;
   }
 }
-
 .submitButton:hover {
   background: #4b9776;
   color: rgb(255, 255, 255);
