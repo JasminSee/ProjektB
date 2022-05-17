@@ -295,6 +295,7 @@ app.get('/serien/:seriesID', function(req, res){
 });
 
 app.get('/figurDetails/:fid', function(req, res){
+    var moment = require('moment');
     let sql = "SELECT * FROM figurines ";
     var result;
     var companyResult;
@@ -313,7 +314,7 @@ app.get('/figurDetails/:fid', function(req, res){
             db.get(`SELECT * FROM companies WHERE companyID=${result.company}`,(err,comp)=>{
                 db.get(`SELECT * FROM series WHERE seriesID=${result.origin}`,(err,ser)=>{
                     db.all(sql3, function(err,rev){
-                        res.render('figurDetails', {collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev});
+                        res.render('figurDetails', {collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev,moment: moment});
                     })
                 })
                 

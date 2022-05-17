@@ -24,6 +24,9 @@
       .link{
         color: white;
       }
+      .column2{
+        width: 25%;
+      }
     </style>
   </head>
   <body>
@@ -74,29 +77,65 @@
       <div class="column">
         <div class="infobox">
           <% for (i=0; i<seller.length; i++){ %>
-            <div class="column">
-              <a href="<%=seller[i].link %>">click</a>
-              <%=seller[i].price.toFixed(2) %> €
-              
+            <div class="column2">
+              <div class="card2">
+              <% if(i==0){%>
+                <h2>Bester Preis:</h2>
+              <% }%>
+              <% if (seller[i].seller==1){ %>
+                <img class="cover" src="https://www.allblue-world.de/media/image/c7/0a/65/jolly.png" width="200px">
+                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
+                <a class="button" type="submit" href="<%=seller[i].link %>">AllBlue World</a>
+                
+              <% }else if (seller[i].seller==2){ %>
+                <img class="cover" src="https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png" width="200px">
+                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
+                <a class="button" type="submit" href="<%=seller[i].link %>">Manga-Mafia</a>
+                
+              <% }else if (seller[i].seller==3){%>
+                <img class="cover" src="https://www.anime-le.de/media/image/6a/18/0b/logo.png" width="200px">
+                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
+                <a class="button" type="submit" href="<%=seller[i].link %>">AnimeLE</a>
+                
+              <% }else{%>
+                <img class="cover" src="https://figuya.com/dist/src/figuya.dd406080ad197ecf939e9843773d6e37.svg" width="200px">
+                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
+                <a class="button" type="submit" href="<%=seller[i].link %>">Figuya</a>
+                
+              <% } %>
+              </div>
             </div>
           <% } %>
         </div>
       </div>
       <div class="column">
         <div class="infobox">
-          <% for (i=0; i<reviews.length; i++){ %>
-            <div class="column">
-              <%=reviews[i].user %>
-              <%=reviews[i].rating %>
-              
-            </div>
-          <% } %>
+          <div class="column">
+            <div class="review-section">
+              <h2>Bewertungen</h2>
+            <% for (i=0; i<reviews.length; i++){ %>
+              <div class="review-box">
+                <%=reviews[i].userName %>
+                <br><h3><%=reviews[i].title %></h3>
+                <div class="rated-stars">
+                  <div class="star-ratings-css" data-rate="<%=reviews[i].rating %>"></div>
+                </div>
+                
+                <br><%=reviews[i].rDescription %>
+                <br><br><%=moment(reviews[i].date).format( 'MMM-DD-YYYY') %>
+                
+              </div>
+            <% } %>
+          </div>
+        </div>
+          
           <div class="column">
             <div class="card">
               <div class="comment-box">
-                <h2>Add a comment</h2>
+                <h2>Schreibe eine Bewertung</h2>
                 <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+                <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
+                <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?" rows="4"></textarea> </div>
 
                 <button class="submitButton" type="submit">Send</button>
             </div>

@@ -1,93 +1,255 @@
-
 .card {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
   padding: 40px;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, .5);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
-    }
-    .comment-box {
-    padding: 5px
-    }
-    .comment-area textarea {
-        width: 100%;
-        padding: 10px 0;
-        font-size: 16px;
-        color: #fff;
-        margin-bottom: 30px;
-        border: none;
-        border: 1px solid #fff;
-        outline: none;
-        background: transparent;
-    }
-    .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #346751;
-    outline: 0;
-    box-shadow: 0 0 0 1px #346751 !important
-    }
-    
-    .rating {
-    display: flex;
-    margin-top: -10px;
-    flex-direction: row-reverse;
-    margin-left: -4px;
-    float: left
-    }
-    .rating>input {
-    display: none
-    }
-    .rating>label {
-    position: relative;
-    width: 55px;
-    font-size: 50px;
-    padding: 10px;
-    color: #346751;
-    cursor: pointer
-    }
-    .rating>label::before {
-    content: "\2605";
-    position: absolute;
-    opacity: 0
-    }
-    .rating>label:hover:before,
-    .rating>label:hover~label:before {
-    opacity: 1 !important
-    }
-    .rating>input:checked~label:before {
-    opacity: 1
-    }
-    .rating:hover>input:checked~label:before {
-    opacity: 0.4
-    }
-    .submitButton:hover {
-        background: #4b9776;
-        color: rgb(255, 255, 255);
-        border-radius: 5px;
-        box-shadow: 0 0 5px #6ddead,
-                    0 0 10px #6ddead,
-                    0 0 15px #6ddead,
-                    0 0 20px #6ddead;
-      }
-      .submitButton {
-        position: relative;
-        background-color: #3b755b;
-        border: transparent;
-        border-radius: 5px;
-        display: inline-block;
-        padding: 10px 20px;
-        color: black;
-        font-size: 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        overflow: hidden;
-        transition: .5s;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        letter-spacing: 4px;
-      }
+}
+
+.comment-box {
+  padding: 5px
+}
+
+.comment-area textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #346751;
+  outline: 0;
+  box-shadow: 0 0 0 1px #346751 !important
+}
+
+.rating {
+  display: flex;
+  margin-top: -10px;
+  flex-direction: row-reverse;
+  margin-left: -4px;
+  float: left
+}
+
+.rating>input {
+  display: none
+}
+
+.rating>label {
+  position: relative;
+  width: 55px;
+  font-size: 50px;
+  padding: 10px;
+  color: #346751;
+  cursor: pointer
+}
+
+.rating>label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+  opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+  opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+  opacity: 0.4
+}
+
+.submitButton:hover {
+  background: #4b9776;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #6ddead,
+    0 0 10px #6ddead,
+    0 0 15px #6ddead,
+    0 0 20px #6ddead;
+}
+
+.submitButton {
+  position: relative;
+  background-color: #3b755b;
+  border: transparent;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #234536;
+  border-radius: 6px;
+  outline: none;
+  align-self: flex-end;
+}
+
+.active,
+.button:hover {
+  background-color: #346751;
+}
+
+.card2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 40px;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+  height: 500px;
+  text-align: center;
+  justify-content: center;
+  align-items: flex-end;
+  display: grid;
+}
+
+.cover {
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+}
+
+.review-section {
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.review-box{
+  padding: 40px;
+  background: transparent;
+  box-sizing: border-box;
+  border-top-style: solid ;
+  border-top-color: #346751;
+  border-top-width: 0.5px;
+  min-height: 100px;
+  overflow: hidden;
+}
+/*https://codepen.io/subarna/pen/zMaWjR*/
+
+.rated-stars-s .star-ratings-css {
+  font-size: 1rem;
+}
+
+.rated-stars-m .star-ratings-css {
+  font-size: 2rem;
+}
+
+.rated-stars-l .star-ratings-css {
+  font-size: 2.5rem;
+}
+
+.rated-stars {
+  width: 130px;
+  padding-bottom: 20px;
+}
+
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #346751;
+  font-size: 1rem;
+  height: 25px;
+  position: relative;
+}
+
+.star-ratings-css::before {
+  content: "☆☆☆☆☆";
+  opacity: 0.7;
+  font-size: xx-large;
+}
+
+[data-rate="0"]::after {
+  width: calc(0* 20%);
+}
+
+[data-rate="0.5"]::after {
+  width: calc(0.5* 20%);
+}
+
+[data-rate="1"]::after {
+  width: calc(1* 20%);
+}
+
+[data-rate="1.5"]::after {
+  width: calc(1.5* 20%);
+}
+
+[data-rate="2"]::after {
+  width: calc(2* 20%);
+}
+
+[data-rate="2.5"]::after {
+  width: calc(2.5* 20%);
+}
+
+[data-rate="3"]::after {
+  width: calc(3* 20%);
+}
+
+[data-rate="3.5"]::after {
+  width: calc(3.5* 20%);
+}
+
+[data-rate="4"]::after {
+  width: calc(4* 20%);
+}
+
+[data-rate="4.5"]::after {
+  width: calc(4.5* 20%);
+}
+
+[data-rate="5"]::after {
+  width: calc(5* 20%);
+}
+
+.star-ratings-css::after {
+  color: #346751;
+  content: "★★★★★";
+  position: absolute;
+  z-index: 1;
+  display: block;
+  left: 0;
+  top: 0;
+  width: attr(rating);
+  overflow: hidden;
+  font-size: xx-large;
+}
