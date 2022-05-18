@@ -154,16 +154,17 @@
   overflow: hidden;
 }
 
-.review-box{
+.review-box {
   padding: 40px;
   background: transparent;
   box-sizing: border-box;
-  border-top-style: solid ;
+  border-top-style: solid;
   border-top-color: #346751;
   border-top-width: 0.5px;
   min-height: 100px;
   overflow: hidden;
 }
+
 /*https://codepen.io/subarna/pen/zMaWjR*/
 
 .rated-stars-s .star-ratings-css {
@@ -179,8 +180,9 @@
 }
 
 .rated-stars {
-  width: 130px;
+  width: 132px;
   padding-bottom: 20px;
+  margin: 5px;
 }
 
 .star-ratings-css {
@@ -252,4 +254,36 @@
   width: attr(rating);
   overflow: hidden;
   font-size: xx-large;
+}
+
+.name-box {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.top-box {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.top-box-items {
+  text-align: start;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.desc-box {
+  overflow: hidden;
+  font-weight: lighter;
+  font-size: medium;
+  padding-bottom: 20px;
+  ;
+}
+
+.bottom-box {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: lighter;
 }

@@ -1,183 +1,242 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/header.css">
-    <link rel="stylesheet" type="text/css" href="/navbar.css">
-    <link rel="stylesheet" type="text/css" href="/footer.css">
-    <link rel="stylesheet" type="text/css" href="/body.css">
-    <link rel="stylesheet" type="text/css" href="/columns.css">
-    <link rel="stylesheet" type="text/css" href="/seriesDetails.css">
-    <link rel="stylesheet" type="text/css" href="/figurDetails.css">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        height: 100%;
-      }
-      .column {
-        width: 100%;
-      }
-      .descriptiontext{
-        font-size: large;
-      }
-      .link{
-        color: white;
-      }
-      .column2{
-        width: 25%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <p>Seitenname</p>
-    </div>
 
-    <div class="topnav">
-      <a href="../">Startseite</a>
-      <a href="../top10">Trending</a>
-      <a style="background-color: #234536;"  href="../allFigurines">Figuren</a>
-      <a href="../trustedShops">Shops</a>
-      <a href="../hersteller">Hersteller</a>
-      <a href="../serien">Serien</a>
-      <a href="../myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit">Suchen</button>
-        </form>
-      </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="/header.css">
+  <link rel="stylesheet" type="text/css" href="/navbar.css">
+  <link rel="stylesheet" type="text/css" href="/footer.css">
+  <link rel="stylesheet" type="text/css" href="/body.css">
+  <link rel="stylesheet" type="text/css" href="/columns.css">
+  <link rel="stylesheet" type="text/css" href="/seriesDetails.css">
+  <link rel="stylesheet" type="text/css" href="/figurDetails.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    .column {
+      width: 100%;
+    }
+
+    .descriptiontext {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+
+    .cover2 {
+      object-fit: contain;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .link {
+      color: white;
+    }
+
+    .column2 {
+      width: 25%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <p>Seitenname</p>
+  </div>
+
+  <div class="topnav">
+    <a href="../">Startseite</a>
+    <a href="../top10">Trending</a>
+    <a style="background-color: #234536;" href="../allFigurines">Figuren</a>
+    <a href="../trustedShops">Shops</a>
+    <a href="../hersteller">Hersteller</a>
+    <a href="../serien">Serien</a>
+    <a href="../myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Suchen</button>
+      </form>
     </div>
-    <div class="row">
-      <div class="column">
-        <div class="infobox">
-          <div class="pic">
- 
-            <img alt="<%=figurines.figurineName %>" src="<%=figurines.picture %>" width="250px">
-            
-          </div>
-          <div class="des">
-            <h2><%=figurines.figurineName %></h2>
-            <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>"> <%=series.seriesName %></a>
-              <br><b>Charakter:</b> <%=figurines.characterName %>
-              <br><b>Hersteller:</b> <a class="link" href="/hersteller/<%=figurines.company %>"> <%=company.companyName %></a>
-              <br><b>Klassifikation:</b> <%=figurines.classification %>
-              <br><b>Dimensionen:</b> <%=figurines.dimension %>
-              <br><b>Material:</b> <%=figurines.material %>
-              <br><b>Erscheinungsdatum:</b> <%=figurines.releaseDate %>
-              <br><b>Original Preis:</b> <%=figurines.originalPriceYen %> ¥
-              <br><b>ISBN:</b> <%=figurines.isbn %>
-            </p>
-            
-          </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="infobox">
+        <div class="pic">
+
+          <img alt="<%=figurines.figurineName %>" src="<%=figurines.picture %>" class="cover2">
+          <br><br><b>Bewertung: <%=actualRating.toFixed(1) %> / 5
+              <div class="rated-stars">
+                <div class="star-ratings-css" data-rate="<%=rating %>"></div>
+              </div>
         </div>
-        
+        <div class="des">
+          <h1>
+            <%=figurines.figurineName %>
+          </h1>
+          <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>">
+              <%=series.seriesName %>
+            </a>
+            <br><b>Charakter: </b>
+            <%=figurines.characterName %>
+              <br><b>Hersteller:</b> <a class="link" href="/hersteller/<%=figurines.company %>">
+                <%=company.companyName %>
+              </a>
+              <br><b>Klassifikation:</b>
+              <%=figurines.classification %>
+                <br><b>Dimensionen:</b>
+                <%=figurines.dimension %>
+                  <br><b>Material:</b>
+                  <%=figurines.material %>
+                    <br><b>Erscheinungsdatum:</b>
+                    <%=figurines.releaseDate %>
+                      <br><b>Original Preis:</b>
+                      <%=figurines.originalPriceYen %> ¥
+                        <br><b>ISBN:</b>
+                        <%=figurines.isbn %>
+
+          </p>
+
+        </div>
       </div>
-      <div class="column">
-        <div class="infobox">
-          <% for (i=0; i<seller.length; i++){ %>
-            <div class="column2">
-              <div class="card2">
+
+    </div>
+    <div class="column">
+      <div class="infobox">
+        <% for (i=0; i<seller.length; i++){ %>
+          <div class="column2">
+            <div class="card2">
               <% if(i==0){%>
                 <h2>Bester Preis:</h2>
-              <% }%>
-              <% if (seller[i].seller==1){ %>
-                <img class="cover" src="https://www.allblue-world.de/media/image/c7/0a/65/jolly.png" width="200px">
-                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
-                <a class="button" type="submit" href="<%=seller[i].link %>">AllBlue World</a>
-                
-              <% }else if (seller[i].seller==2){ %>
-                <img class="cover" src="https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png" width="200px">
-                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
-                <a class="button" type="submit" href="<%=seller[i].link %>">Manga-Mafia</a>
-                
-              <% }else if (seller[i].seller==3){%>
-                <img class="cover" src="https://www.anime-le.de/media/image/6a/18/0b/logo.png" width="200px">
-                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
-                <a class="button" type="submit" href="<%=seller[i].link %>">AnimeLE</a>
-                
-              <% }else{%>
-                <img class="cover" src="https://figuya.com/dist/src/figuya.dd406080ad197ecf939e9843773d6e37.svg" width="200px">
-                <h3><%=seller[i].price.toFixed(2) %> €<br><br></h3>
-                <a class="button" type="submit" href="<%=seller[i].link %>">Figuya</a>
-                
-              <% } %>
-              </div>
-            </div>
-          <% } %>
-        </div>
-      </div>
-      <div class="column">
-        <div class="infobox">
-          <div class="column">
-            <div class="review-section">
-              <h2>Bewertungen</h2>
-            <% for (i=0; i<reviews.length; i++){ %>
-              <div class="review-box">
-                <%=reviews[i].userName %>
-                <br><h3><%=reviews[i].title %></h3>
-                <div class="rated-stars">
-                  <div class="star-ratings-css" data-rate="<%=reviews[i].rating %>"></div>
-                </div>
-                
-                <br><%=reviews[i].rDescription %>
-                <br><br><%=moment(reviews[i].date).format( 'MMM-DD-YYYY') %>
-                
-              </div>
-            <% } %>
-          </div>
-        </div>
-          
-          <div class="column">
-            <div class="card">
-              <div class="comment-box">
-                <h2>Schreibe eine Bewertung</h2>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
-                <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?" rows="4"></textarea> </div>
+                <% }%>
+                  <% if (seller[i].seller==1){ %>
+                    <img class="cover" src="https://www.allblue-world.de/media/image/c7/0a/65/jolly.png" width="200px">
+                    <h3>
+                      <%=seller[i].price.toFixed(2) %> €<br><br>
+                    </h3>
+                    <a class="button" type="submit" href="<%=seller[i].link %>">AllBlue World</a>
 
-                <button class="submitButton" type="submit">Send</button>
-            </div>
+                    <% }else if (seller[i].seller==2){ %>
+                      <img class="cover"
+                        src="https://manga-mafia.de/skin/frontend/manga-mafia/default/images/logo_manga.png"
+                        width="200px">
+                      <h3>
+                        <%=seller[i].price.toFixed(2) %> €<br><br>
+                      </h3>
+                      <a class="button" type="submit" href="<%=seller[i].link %>">Manga-Mafia</a>
+
+                      <% }else if (seller[i].seller==3){%>
+                        <img class="cover" src="https://www.anime-le.de/media/image/6a/18/0b/logo.png" width="200px">
+                        <h3>
+                          <%=seller[i].price.toFixed(2) %> €<br><br>
+                        </h3>
+                        <a class="button" type="submit" href="<%=seller[i].link %>">AnimeLE</a>
+
+                        <% }else{%>
+                          <img class="cover"
+                            src="https://figuya.com/dist/src/figuya.dd406080ad197ecf939e9843773d6e37.svg" width="200px">
+                          <h3>
+                            <%=seller[i].price.toFixed(2) %> €<br><br>
+                          </h3>
+                          <a class="button" type="submit" href="<%=seller[i].link %>">Figuya</a>
+
+                          <% } %>
             </div>
           </div>
-            
-        </div>
+          <% } %>
       </div>
     </div>
-    
-    
-    
-    
-    <footer class="footer">
-      <div class="footer-row">
-        <div class="footer-column">
-          <p style="font-size: 20px">Service-Hotline</p>
-          <p>Wir beraten dich gerne:</p>
-          <p style="font-size: 22px">089/1234567-8</p>
-          <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+    <div class="column">
+      <div class="infobox">
+        <div class="column">
+          <div class="review-section">
+            <h2>Bewertungen</h2>
+            <% for (i=0; i<reviews.length; i++){ %>
+              <div class="review-box">
+                <div class="name-box">
+                  <%=reviews[i].userName %>
+                </div>
+                <div class="top-box">
+                  <div class="top-box-items">
+                    <h3>
+                      <%=reviews[i].title %>
+                    </h3>
+                  </div>
+                  <div class="rated-stars">
+                    <div class="star-ratings-css" data-rate="<%=reviews[i].rating %>"></div>
+                  </div>
+                </div>
+                <div class="desc-box">
+                  <%=reviews[i].rDescription %>
+                </div>
+                <div class="bottom-box">
+                  <%=moment(reviews[i].date).format( 'MMM-DD-YYYY' ) %>
+                </div>
+
+
+              </div>
+              <% } %>
+          </div>
         </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Impressum</p>
-          <p>Max Mustermann</p>
-          <p>Musterstraße 1</p>
-          <p>80999 München</p>
+
+        <div class="column">
+          <div class="card">
+            <div class="comment-box">
+              <h2>Schreibe eine Bewertung</h2>
+              <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                  type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
+                  value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
+                  for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+              <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
+              <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?"
+                  rows="4"></textarea> </div>
+
+              <button class="submitButton" type="submit">Send</button>
+            </div>
+          </div>
         </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Kontakt:</p>
-          <p>Telefon: 089/1234567-8</p>
-          <p>Telefax: 089/1234567-9</p>
-          <p>E-Mail: mail@mustermann.de</p>
-        </div>
-        <div class="footer-column">
-          <p><a style="color: white" href="../top10">Trending</a></p>
-          <p><a style="color: white" href="../allFigurines">Figuren</a></p>
-          <p><a style="color: white" href="../trustedShops">Shops</a></p>
-          <p><a style="color: white" href="../hersteller">Hersteller</a></p>
-          <p><a style="color: white" href="../serien">Serien</a></p>
-          <p><a style="color: white" href="../myAccount">Mein Konto</a></p>
-        </div>
+
       </div>
-    </footer>
-  </body>
+    </div>
+  </div>
+
+
+
+
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="../top10">Trending</a></p>
+        <p><a style="color: white" href="../allFigurines">Figuren</a></p>
+        <p><a style="color: white" href="../trustedShops">Shops</a></p>
+        <p><a style="color: white" href="../hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="../serien">Serien</a></p>
+        <p><a style="color: white" href="../myAccount">Mein Konto</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
 <html>

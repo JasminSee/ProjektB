@@ -17,6 +17,10 @@
       .column {
         width: 100%;
       }
+      .descriptiontext {
+      font-size: 20px;
+      font-weight: lighter;
+      }
       .column2 {
         width: 20%;
       }
@@ -55,8 +59,8 @@
               </p>
           </div>
           <div class="des">
-              <h2><%=series.seriesName %></h2>
-              <p><b>Alternative Namen:</b> <%=series.altName %>
+              <h1><%=series.seriesName %></h1>
+              <p class="descriptiontext"><b>Alternative Namen:</b> <%=series.altName %>
               <br><b>Typ:</b> <%=series.seriesType %>
               <br><b>Ausstrahlung:</b> <%=series.release %>
               <br><b>Beschreibung:</b> <br><%=series.sDescription %>

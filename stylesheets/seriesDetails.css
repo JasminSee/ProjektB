@@ -5,31 +5,37 @@
   padding: 20px;
   padding-top: 40px;
   justify-items: center;
+  font-size: large;
 }
+
 .des {
   margin-left: 50px;
   float: left;
   width: 78%;
-  padding: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
 }
-.infobox{
-    margin-top: 40%;
-    margin-left: 50%;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 80%;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
-    
+
+.infobox {
+  margin-top: 40%;
+  margin-left: 50%;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+
   min-height: 100px;
   overflow: hidden;
 }
+
 .cover {
   object-fit: contain;
   width: 300px;
   height: 300px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .column2 {
@@ -43,7 +49,8 @@
   display: table;
   clear: both;
 }
-.figbox{
+
+.figbox {
   margin-top: 40%;
   margin-left: 50%;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
@@ -56,9 +63,10 @@
   border-radius: 10px;
   text-align: center;
 }
-.figcov{
+
+.figcov {
   object-fit: contain;
-    width: 250px;
-    height: 250px;
-    background-color: black;
+  width: 250px;
+  height: 250px;
+  background-color: black;
 }
