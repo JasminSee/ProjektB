@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="/columns.css">
   <link rel="stylesheet" type="text/css" href="/seriesDetails.css">
   <link rel="stylesheet" type="text/css" href="/figurDetails.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -40,6 +41,29 @@
 
     .column2 {
       width: 25%;
+    }
+
+    .fa {
+      font-size: 50px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .fa:hover {
+      color: #346751;
+    }
+
+    .title-des {
+      width: 90%;
+    }
+    .mark{
+      width: 10%;
+      padding-top: 20px;
+    }
+
+    .top {
+      display: flex;
+      flex-wrap: wrap;
     }
   </style>
 </head>
@@ -76,9 +100,15 @@
               </div>
         </div>
         <div class="des">
-          <h1>
-            <%=figurines.figurineName %>
-          </h1>
+          <div class="top">
+            <h1 class="title-des">
+              <%=figurines.figurineName %>
+            </h1>
+            <dev class="mark">
+              <i onclick="myBookmark(this)" class="fa fa-bookmark-o"></i>
+            </dev>
+          </div>
+
           <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>">
               <%=series.seriesName %>
             </a>
@@ -103,6 +133,7 @@
           </p>
 
         </div>
+
       </div>
 
     </div>
@@ -238,5 +269,11 @@
       </div>
     </div>
   </footer>
+  <script>
+    function myBookmark(x) {
+      x.classList.toggle("fa-bookmark-o");
+      x.classList.toggle("fa-bookmark");
+    }
+  </script>
 </body>
 <html>
