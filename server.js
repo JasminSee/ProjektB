@@ -299,6 +299,11 @@ app.get('/figurDetails/:fid', function (req, res) {
     let sql = "SELECT * FROM figurines ";
     var result;
     var averageReviews = 0;
+    var isLoggedIn;
+    if (!req.session["sessionVariable"]) {
+        isLoggedIn = false;
+    }
+    else { isLoggedIn = true; }
     db.all(sql, function (err, rows) {
 
         rows.forEach((figur) => {
@@ -316,7 +321,26 @@ app.get('/figurDetails/:fid', function (req, res) {
                         rev.forEach((review) => {
                             averageReviews += review.rating;
                         })
-                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length });
+                        if (isLoggedIn == true) {
+                            let sql5 = `SELECT id FROM customers WHERE email='${req.session.email}';`;
+                            db.get(sql5, function (err, userId) {
+                                let sql4 = `SELECT * FROM wishlist WHERE customerId=${userId.id} AND figuresId=${result.fid};`;
+                                db.all(sql4, function (err, wish) {
+                                    console.log(wish);
+                                    if (wish.length !=0) {
+                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: true });
+                                    }
+                                    else {
+                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: false });
+                                    }
+
+                                })
+                            })
+
+                        }
+                        else {
+                            res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn });
+                        }
                     })
                 })
 
@@ -334,6 +358,17 @@ app.get('/allFigurines', function (req, res) {
     db.all(sql, function (err, rows) {
         res.render('allFigurines', { collector: rows });
     });
+});
+
+app.put('/addedBookmark/:fid', function (req, res) {
+    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.id},${req.body.fid});`;
+    db.all(sql, function (err, rows) {
+        res.send('added to wishlist!');
+    });
+});
+
+app.post('/postReview', function (req, res) {
+
 });
 
 //Filter

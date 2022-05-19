@@ -104,9 +104,17 @@
             <h1 class="title-des">
               <%=figurines.figurineName %>
             </h1>
-            <dev class="mark">
-              <i onclick="myBookmark(this)" class="fa fa-bookmark-o"></i>
-            </dev>
+            <% if(isLogged == true){ %>
+              <% if(inWishlist==true){ %>
+                <dev class="mark">
+                  <i onclick="myBookmark(this)" class="fa fa-bookmark"></i>
+                </dev>
+              <%}else{%>
+                <dev class="mark">
+                  <i onclick="myBookmark(this)" class="fa fa-bookmark-o"></i>
+                </dev>
+              <%} %>
+            <%} %>
           </div>
 
           <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>">
@@ -217,18 +225,26 @@
 
         <div class="column">
           <div class="card">
-            <div class="comment-box">
-              <h2>Schreibe eine Bewertung</h2>
-              <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                  type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
-                  value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
-                  for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-              <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
-              <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?"
-                  rows="4"></textarea> </div>
+            <% if(isLogged == true){ %>
+              <div class="comment-box">
+                <h2>Schreibe eine Bewertung</h2>
+                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+                    type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
+                    value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
+                    for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
+                <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?"
+                    rows="4"></textarea> </div>
 
-              <button class="submitButton" type="submit">Send</button>
-            </div>
+                <button class="submitButton" type="submit">Send</button>
+              </div>
+            <% }else{ %>
+              <div class="comment-box">
+                <h2>Um eine Bewertung zu schreiben, musst du registriert und eingeloggt sein!</h2>
+                <button class="submitButton" type="submit">Login</button>
+                <br><button class="submitButton" type="submit">Registrierung</button>
+              </div>
+            <% } %>
           </div>
         </div>
 
