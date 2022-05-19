@@ -85,7 +85,7 @@ app.post('/doEditPassword', function (req, res) {
             let sql = `UPDATE customers SET psword = "${hash}" WHERE email = '${req.session.email}';`
             db.all(sql, function (err, rows) {
                 delete req.session["sessionVariable"];
-                delete req.session["id"];
+                delete req.session["cid"];
                 delete req.session["firstName"];
                 delete req.session["lastName"];
                 delete req.session["email"];
@@ -120,7 +120,7 @@ app.post('/doLogin', function (req, res) {
                 req.session.email = row.email;
                 if (bcrypt.compareSync(password, row.psword)) {
                     req.session["sessionVariable"] = "ist angemeldet";
-                    req.session["id"] = row.id;
+                    req.session["cid"] = row.id;
                     req.session["firstName"] = row.firstName;
                     req.session["lastName"] = row.lastName;
                     req.session["email"] = row.email;
@@ -267,6 +267,24 @@ app.get('/hersteller/:companyID', function (req, res) {
         })
 
     });
+});
+app.get('/wunschliste', function(req, res){
+    let sql = `SELECT * FROM wishlist WHERE customerID=${req.session.cid}`;
+    let sql2 = `SELECT * from figurines`;
+    var row = [];
+    db.all(sql, function(err, rows){     
+        db.all(sql2, function (err, result) {
+            result.forEach((figure) => { 
+                rows.forEach((listItem) => {
+                    if (figure.fid == listItem.figuresId) {
+                    row.push(figure);
+                    return true;
+                    }
+                })
+            })
+            res.render('wishlist', { list: rows, figurines: result, collector: row });
+        })
+      });
 });
 
 app.get('/serien', function (req, res) {
