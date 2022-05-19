@@ -157,27 +157,31 @@
             </div>
           </form>
 
-          <form action="/allFigurines/filterHeight" method="POST">
-            <button type="button" class="collapsible">Höhe</button>
+          <form action="/allFigurines/filterRating" method="POST">
+            <button type="button" class="collapsible">Bewertung</button>
             <div class="content">
-              <label class="container">kleiner als 160 mm
-                <input type="checkbox" name="MM160">
+              <label class="container">0 Sterne
+                <input type="checkbox" name="Zero">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">170 mm bis 180 mm
-                <input type="checkbox" name="MM170">
+              <label class="container">1 Stern
+                <input type="checkbox" name="One">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">190 mm bis 250 mm
-                <input type="checkbox" name="MM190">
+              <label class="container">2 Sterne
+                <input type="checkbox" name="Two">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">260 mm bis 300 mm
-                <input type="checkbox" name="MM260">
+              <label class="container">3 Sterne
+                <input type="checkbox" name="Three">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">größer als 300 mm
-                <input type="checkbox" name="MM300">
+              <label class="container">4 Sterne
+                <input type="checkbox" name="Four">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">5 Sterne
+                <input type="checkbox" name="Five">
                 <span class="checkmark"></span>
               </label>
               <button class="submitButton" type="submit" name="heightButton">Anwenden</button>

@@ -234,11 +234,11 @@ app.post('/search', function (req, res) {
 
 app.get('/top10', function (req, res) {
     let sql =
-        `select wishlist.id, wishlist.customerId, wishlist.figuresId, count(wishlist.figuresId), figurines.figurineName ,figurines.picture 
-        from wishlist, figurines 
-        where figurines.fid = wishlist.figuresId 
-        group BY wishlist.figuresId 
-        order by count(wishlist.figuresId) DESC;`
+        `select reviews.rid, reviews.fid, round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture 
+        from reviews, figurines
+        where figurines.fid = reviews.fid 
+        group BY reviews.fid
+        order by rating DESC;`
     db.all(sql, function (err, rows) {
         res.render('top10', { collector: rows });
     });
@@ -512,21 +512,26 @@ app.post('/allFigurines/filterMaterial', function (req, res) {
 });
 
 app.post('/allFigurines/filterHeight', function (req, res) {
-    const filterHeight = [];
+    const filterRating = [];
 
     //Hoehe
-    const MM160 = req.body.MM160;
-    const MM170 = req.body.MM170;
-    const MM190 = req.body.MM190;
-    const MM260 = req.body.MM260;
-    const MM300 = req.body.MM300;
-    filterMaterial.push({ checked: MM160, height: "160" }, { checked: MM170, height: "170" }, { checked: MM190, height: "190" }, { checked: MM260, height: "260" },
-        { checked: MM300, height: "Height=300" });
+    const Zero = req.body.Zero;
+    const One = req.body.One;
+    const Two = req.body.Two;
+    const Three = req.body.Three;
+    const Four = req.body.Four;
+    const Five = req.body.Five;
+    filterRating.push({ checked: One, sterne: "0" }, { checked: Zero, sterne: "0" }, { checked: Two, sterne: "2" }, { checked: Three, sterne: "3" },
+        { checked: Four, sterne: "4" }, { checked: Five, sterne: "5" });
 
-    for (i = 0; i <= filterHeight.length; i++) {
-        if (filterHeight[i].checked !== undefined) {
-            if (filterHeight[i].checked == "on") {
-                let sql = `select * from figurines where dimension like ${filterHeight[i].height};`
+    for (i = 0; i <= filterRating.length; i++) {
+        if (filterRating[i].checked !== undefined) {
+            if (filterRating[i].checked == "on") {
+                let sql = `select reviews.rid, reviews.fid, round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture 
+                from reviews, figurines
+                where figurines.fid = reviews.fid 
+                group BY reviews.fid
+                order by rating DESC;`
                 db.all(sql, function (err, rows) {
                     res.render('filter', { collector: rows });
                 });
