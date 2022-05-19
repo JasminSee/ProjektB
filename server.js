@@ -326,12 +326,11 @@ app.get('/figurDetails/:fid', function (req, res) {
                             db.get(sql5, function (err, userId) {
                                 let sql4 = `SELECT * FROM wishlist WHERE customerId=${userId.id} AND figuresId=${result.fid};`;
                                 db.all(sql4, function (err, wish) {
-                                    console.log(wish);
                                     if (wish.length !=0) {
-                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: true });
+                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: true , user: userId.id});
                                     }
                                     else {
-                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: false });
+                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: false, user: userId.id });
                                     }
 
                                 })
@@ -360,8 +359,8 @@ app.get('/allFigurines', function (req, res) {
     });
 });
 
-app.put('/addedBookmark/:fid', function (req, res) {
-    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.id},${req.body.fid});`;
+app.put('/addedBookmark/:fid/:userId', function (req, res) {
+    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.body.userId},${req.body.fid});`;
     db.all(sql, function (err, rows) {
         res.send('added to wishlist!');
     });
