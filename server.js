@@ -375,12 +375,23 @@ app.get('/allFigurines', function (req, res) {
     });
 });
 
-app.put('/addedBookmark/:fid', function (req, res) {
-    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.cid},${req.body.fid});`;
+app.post('/addBookmark', function (req, res) {
+    const fid= req.body.fid;
+    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.cid},${fid});`;
     db.all(sql, function (err, rows) {
-        res.send('added to wishlist!');
+        res.redirect(`/figurDetails/${fid}`);
     });
 });
+
+app.post("/removeBookmark", function (req, res) {
+    const fid= req.body.fid;
+    let sql = `DELETE FROM wishlist WHERE customerId=${req.session.cid} AND figuresId=${fid};`;
+    db.all(sql, function (err, rows) {
+        res.redirect(`/figurDetails/${fid}`);
+    });
+});
+
+
 
 app.post('/postReview', function (req, res) {
 

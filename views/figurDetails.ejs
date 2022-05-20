@@ -65,6 +65,10 @@
       display: flex;
       flex-wrap: wrap;
     }
+    .iconbutton{
+      background-color: transparent;
+      color: #346751;
+    }
   </style>
 </head>
 
@@ -107,11 +111,15 @@
             <% if(isLogged == true){ %>
               <% if(inWishlist==true){ %>
                 <dev class="mark">
-                  <i onclick="myBookmark(this)" class="fa fa-bookmark"></i>
+                  <form method="POST" action="/removeBookmark">
+                    <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
+                  <button class="iconbutton" type="submit" ><i class="fa fa-bookmark"></i></button></form>
                 </dev>
               <%}else{%>
                 <dev class="mark">
-                  <i onclick="myBookmark(this)" class="fa fa-bookmark-o"></i>
+                  <form method="POST" action="/addBookmark">
+                    <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
+                  <button class="iconbutton" type="submit" ><i class="fa fa-bookmark-o"></i></button></form>
                 </dev>
               <%} %>
             <%} %>
@@ -285,11 +293,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    function myBookmark(x) {
-      x.classList.toggle("fa-bookmark-o");
-      x.classList.toggle("fa-bookmark");
-    }
-  </script>
+  
 </body>
 <html>
