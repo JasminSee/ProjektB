@@ -369,7 +369,7 @@ app.get('/figurDetails/:fid', function (req, res) {
 });
 
 app.get('/allFigurines', function (req, res) {
-    let sql = `select * from figurines;`
+    let sql = `select * from figurines, series where figurines.origin = series.seriesID;`
     db.all(sql, function (err, rows) {
         res.render('allFigurines', { collector: rows });
     });
@@ -413,6 +413,57 @@ app.post('/postReview', function (req, res) {
 
 //Filter
 //---------------------------------------------------------------------------------------------
+app.post('/allFigurines/sort', function (req, res) {
+    const sort = [];
+
+    //Sortieren
+    const alphabeticalSort = req.body.alphabeticalSort;
+    const seriesSort = req.body.seriesSort;
+    const releaseSortDESC = req.body.releaseSortDESC;
+    const releaseSortASC = req.body.releaseSortASC;
+    const priceSortDESC = req.body.priceSortDESC;
+    const priceSortASC = req.body.priceSortASC;
+    const ratingSortDESC = req.body.ratingSortDESC;
+    const ratingSortASC = req.body.ratingSortASC;
+
+    sort.push({ checked: alphabeticalSort, orderBy: "characterName"}, { checked: seriesSort, orderBy: "series.seriesName ASC"}, { checked: releaseSortDESC, orderBy: "substr(releaseDate, 4,5) DESC"},
+        { checked: priceSortDESC, orderBy: "originalPriceYen DESC"}, { checked: priceSortASC, orderBy: "originalPriceYen ASC"}, { checked: ratingSortDESC, orderBy: "rating DESC"},
+        { checked: ratingSortASC, orderBy: "rating ASC"}, { checked: releaseSortASC, orderBy: "substr(releaseDate, 4,5) ASC"});
+
+    for (i = 0; i <= sort.length; i++) {
+        if (sort[i].checked !== undefined) {
+            if (sort[i].checked == "on") {
+                if (sort[i].orderBy == "rating ASC" || sort[i].orderBy == "rating DESC") {
+                    let sqlRating =
+                        `select reviews.rid, reviews.fid, round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture, series.seriesID, series.seriesName, figurines.origin
+                        from reviews, figurines, series
+                        where figurines.fid = reviews.fid AND figurines.origin = series.seriesID
+                        group BY reviews.fid
+                        order by ${sort[i].orderBy};`
+                    db.all(sqlRating, function (err, rows) {
+                        res.render('filter', { collector: rows , "message": "Sortiert nach Bewertung"});
+                    });
+                } else if (sort[i].orderBy == "substr(releaseDate, 4,5) ASC" || sort[i].orderBy == "substr(releaseDate, 4,5) DESC") {
+                    let sqlRating = `SELECT * FROM figurines, series where figurines.origin = series.seriesID ORDER BY ${sort[i].orderBy};`
+                    db.all(sqlRating, function (err, rows) {
+                        res.render('filter', { collector: rows , "message": "Sortiert nach Erscheinungsdatum"});
+                    });
+                } else {
+                    let sql = `select * from figurines, series where figurines.origin = series.seriesID order by ${sort[i].orderBy};`
+                    db.all(sql, function (err, rows) {
+                        res.render('filter', { collector: rows  , "message": ""});
+                    });
+                }
+                break;
+            } else {
+                continue
+            }
+        } else {
+
+        }
+    }
+});
+
 app.post('/allFigurines/filterSeries', function (req, res) {
     const filterSeries = [];
 
@@ -444,9 +495,9 @@ app.post('/allFigurines/filterSeries', function (req, res) {
     for (i = 0; i <= filterSeries.length; i++) {
         if (filterSeries[i].checked !== undefined) {
             if (filterSeries[i].checked == "on") {
-                let sql = `SELECT * FROM figurines WHERE origin = ${filterSeries[i].id};`
+                let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND origin = ${filterSeries[i].id};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -476,9 +527,9 @@ app.post('/allFigurines/filterRelease', function (req, res) {
     for (i = 0; i <= filterRelease.length; i++) {
         if (filterRelease[i].checked !== undefined) {
             if (filterRelease[i].checked == "on") {
-                let sql = `Select * from figurines where releaseDate like '%${filterRelease[i].year}%';`
+                let sql = `Select * from figurines, series where figurines.origin = series.seriesID AND releaseDate like '%${filterRelease[i].year}%';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -511,9 +562,9 @@ app.post('/allFigurines/filterClassification', function (req, res) {
     for (i = 0; i <= filterClassification.length; i++) {
         if (filterClassification[i].checked !== undefined) {
             if (filterClassification[i].checked == "on") {
-                let sql = `SELECT * FROM figurines WHERE classification = '${filterClassification[i].name}';`
+                let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND classification = '${filterClassification[i].name}';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -538,9 +589,9 @@ app.post('/allFigurines/filterMaterial', function (req, res) {
     for (i = 0; i <= filterMaterial.length; i++) {
         if (filterMaterial[i].checked !== undefined) {
             if (filterMaterial[i].checked == "on") {
-                let sql = `SELECT * FROM figurines WHERE material LIKE '%${filterMaterial[i].name}%';`
+                let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND  material LIKE '%${filterMaterial[i].name}%';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -569,9 +620,9 @@ app.post('/allFigurines/filterRating', function (req, res) {
     for (i = 0; i <= filterRating.length; i++) {
         if (filterRating[i].checked !== undefined) {
             if (filterRating[i].checked == "on") {
-                let sql = `select reviews.rid, reviews.fid, round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture 
-                from reviews, figurines
-                where figurines.fid = reviews.fid 
+                let sql = `select reviews.rid, reviews.fid, round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture, figurines.fid, figurines.origin, series.seriesID, series.seriesName
+                from reviews, figurines, series
+                where figurines.fid = reviews.fid AND figurines.fid = series.seriesID
                 group BY reviews.fid
                 order by rating DESC;`
                 db.all(sql, function (err, rows) {
@@ -580,7 +631,7 @@ app.post('/allFigurines/filterRating', function (req, res) {
                             rowsResult.push(rows[j])
                         }
                     }
-                    res.render('filter', { collector: rowsResult });
+                    res.render('filter', { collector: rowsResult  , "message": "" + rowsResult.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -610,9 +661,9 @@ app.post('/allFigurines/filterPrice', function (req, res) {
     for (i = 0; i <= filterPrice.length; i++) {
         if (filterPrice[i].checked !== undefined) {
             if (filterPrice[i].checked == "on") {
-                let sql = `select * from figurines where originalPriceYen >= ${filterPrice[i].min} AND originalPriceYen <= ${filterPrice[i].max};`
+                let sql = `select * from figurines, series where figurines.origin = series.seriesID AND originalPriceYen >= ${filterPrice[i].min} AND originalPriceYen <= ${filterPrice[i].max};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {
@@ -641,9 +692,9 @@ app.post('/allFigurines/filterCompanies', function (req, res) {
     for (i = 0; i <= filterCompanies.length; i++) {
         if (filterCompanies[i].checked !== undefined) {
             if (filterCompanies[i].checked == "on") {
-                let sql = `SELECT * FROM figurines WHERE company = ${filterCompanies[i].id};`
+                let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND  company = ${filterCompanies[i].id};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
                 });
                 break;
             } else {

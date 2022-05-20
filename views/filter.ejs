@@ -45,7 +45,7 @@
     </div>
 
     <div style="text-align:center;">
-      <p style=" font-size: 24px"><%=collector.length %> Suchergebniss(e)</p>
+      <p style=" font-size: 24px"><%=message%></p>
       <a href="/allFigurines">
         <button class="submitButton">Zurücksetzen</button>
       </a>
@@ -55,10 +55,11 @@
       <% for (i=0; i<collector.length; i++){ %>
         <div class="column"  style="width: 33.33%;">
           <div class="card">
-            <p><%=collector[i].figurineName %></p>
+            <p><%=collector[i].characterName %></p>
             <a href="/figurDetails/<%=collector[i].fid %>">
-              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
-            </a><h2><%=collector[i].seriesName %></h2>
+              <img alt="<%=collector[i].characterName %>" src="<%=collector[i].picture %>" class="cover">
+            </a>
+            <p><%=collector[i].seriesName %></p>
           </div>
         </div>
       <% } %>
