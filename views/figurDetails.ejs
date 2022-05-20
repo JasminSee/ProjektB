@@ -56,7 +56,8 @@
     .title-des {
       width: 90%;
     }
-    .mark{
+
+    .mark {
       width: 10%;
       padding-top: 20px;
     }
@@ -65,7 +66,8 @@
       display: flex;
       flex-wrap: wrap;
     }
-    .iconbutton{
+
+    .iconbutton {
       background-color: transparent;
       color: #346751;
     }
@@ -108,21 +110,23 @@
             <h1 class="title-des">
               <%=figurines.figurineName %>
             </h1>
-            <% if(isLogged == true){ %>
+            <% if(isLogged==true){ %>
               <% if(inWishlist==true){ %>
                 <dev class="mark">
                   <form method="POST" action="/removeBookmark">
                     <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
-                  <button class="iconbutton" type="submit" ><i class="fa fa-bookmark"></i></button></form>
+                    <button class="iconbutton" type="submit"><i class="fa fa-bookmark"></i></button>
+                  </form>
                 </dev>
-              <%}else{%>
-                <dev class="mark">
-                  <form method="POST" action="/addBookmark">
-                    <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
-                  <button class="iconbutton" type="submit" ><i class="fa fa-bookmark-o"></i></button></form>
-                </dev>
-              <%} %>
-            <%} %>
+                <%}else{%>
+                  <dev class="mark">
+                    <form method="POST" action="/addBookmark">
+                      <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
+                      <button class="iconbutton" type="submit"><i class="fa fa-bookmark-o"></i></button>
+                    </form>
+                  </dev>
+                  <%} %>
+                    <%} %>
           </div>
 
           <p class="descriptiontext"><b>Serie:</b> <a class="link" href="/serien/<%=figurines.origin %>">
@@ -233,26 +237,33 @@
 
         <div class="column">
           <div class="card">
-            <% if(isLogged == true){ %>
-              <div class="comment-box">
-                <h2>Schreibe eine Bewertung</h2>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
-                    type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
-                    value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
-                    for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1"></textarea> </div>
-                <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?"
-                    rows="4"></textarea> </div>
+            <% if(isLogged==true){ %>
+              <form method="POST" action="/postReview" name="postReview">
+                <div class="comment-box">
+                  <h2>Schreibe eine Bewertung</h2>
 
-                <button class="submitButton" type="submit">Send</button>
-              </div>
-            <% }else{ %>
-              <div class="comment-box">
-                <h2>Um eine Bewertung zu schreiben, musst du registriert und eingeloggt sein!</h2>
-                <button class="submitButton" type="submit">Login</button>
-                <br><button class="submitButton" type="submit">Registrierung</button>
-              </div>
-            <% } %>
+                  <div class="rating"> <input type="radio" name="rating" value="5" id="5" required="required"><label for="5">☆</label>
+                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio"
+                      name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating"
+                      value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1"
+                      id="1"><label for="1">☆</label>
+                  </div>
+                  <div class="comment-area"> <textarea class="form-control" placeholder=" Titel" rows="1" name="title"
+                      required></textarea> </div>
+                  <div class="comment-area"> <textarea class="form-control" placeholder=" Wie findest du die Figur?"
+                      rows="4" name="rDescription" required></textarea> </div>
+                  <input type="hidden" id="fid" name="fid" value="<%=figurines.fid %>">
+                  <button class="submitButton" type="submit">Send</button>
+
+                </div>
+              </form>
+              <% }else{ %>
+                <div class="comment-box">
+                  <h2>Um eine Bewertung zu schreiben, musst du registriert und eingeloggt sein!</h2>
+                  <a class="submitButton" type="submit" href="/login">Login</a>
+                  <br><a class="submitButton" type="submit" href="/register">Registrierung</a>
+                </div>
+                <% } %>
           </div>
         </div>
 
@@ -293,6 +304,6 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
 <html>

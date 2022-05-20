@@ -398,14 +398,17 @@ app.post('/postReview', function (req, res) {
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const fid = req.body.fid;
     const userId = req.session.cid;
-    const userName = req.session.firstName+" "+ req.session.lastName;
+    const userName = req.session.firstName + " " + req.session.lastName;
     const rating = req.body.rating;
     const title = req.body.title;
     const rDescription = req.body.rDescription;
-    let sql = `INSERT INTO reviews(fid,userId,userName, postDate, rating, title, rDescription) VALUES (${fid},${userId},${userName}, ${date}, ${rating}, ${title}, ${rDescription});`;
+
+    let sql = `INSERT INTO reviews(fid,userId,userName, postDate, rating, title, rDescription) VALUES (${fid},${userId},"${userName}", "${date}", ${rating}, "${title}", "${rDescription}");`;
     db.all(sql, function (err, rows) {
         res.redirect(`/figurDetails/${fid}`);
     });
+
+
 });
 
 //Filter
