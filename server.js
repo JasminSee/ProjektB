@@ -268,23 +268,23 @@ app.get('/hersteller/:companyID', function (req, res) {
 
     });
 });
-app.get('/wunschliste', function(req, res){
+app.get('/wunschliste', function (req, res) {
     let sql = `SELECT * FROM wishlist WHERE customerID=${req.session.cid}`;
     let sql2 = `SELECT * from figurines`;
     var row = [];
-    db.all(sql, function(err, rows){     
+    db.all(sql, function (err, rows) {
         db.all(sql2, function (err, result) {
-            result.forEach((figure) => { 
+            result.forEach((figure) => {
                 rows.forEach((listItem) => {
                     if (figure.fid == listItem.figuresId) {
-                    row.push(figure);
-                    return true;
+                        row.push(figure);
+                        return true;
                     }
                 })
             })
             res.render('wishlist', { list: rows, figurines: result, collector: row });
         })
-      });
+    });
 });
 
 app.get('/serien', function (req, res) {
@@ -340,19 +340,17 @@ app.get('/figurDetails/:fid', function (req, res) {
                             averageReviews += review.rating;
                         })
                         if (isLoggedIn == true) {
-                            let sql5 = `SELECT id FROM customers WHERE email='${req.session.email}';`;
-                            db.get(sql5, function (err, userId) {
-                                let sql4 = `SELECT * FROM wishlist WHERE customerId=${userId.id} AND figuresId=${result.fid};`;
-                                db.all(sql4, function (err, wish) {
-                                    if (wish.length !=0) {
-                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: true , user: userId.id});
-                                    }
-                                    else {
-                                        res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: false, user: userId.id });
-                                    }
+                            let sql4 = `SELECT * FROM wishlist WHERE customerId=${req.session.cid} AND figuresId=${result.fid};`;
+                            db.all(sql4, function (err, wish) {
+                                if (wish.length != 0) {
+                                    res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: true, user: req.session.cid });
+                                }
+                                else {
+                                    res.render('figurDetails', { collector: rows, figurines: result, series: ser, company: comp, seller: row, reviews: rev, moment: moment, rating: Math.round((averageReviews / rev.length) * 2) / 2, actualRating: averageReviews / rev.length, isLogged: isLoggedIn, inWishlist: false, user: req.session.cid });
+                                }
 
-                                })
                             })
+
 
                         }
                         else {
@@ -377,8 +375,8 @@ app.get('/allFigurines', function (req, res) {
     });
 });
 
-app.put('/addedBookmark/:fid/:userId', function (req, res) {
-    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.body.userId},${req.body.fid});`;
+app.put('/addedBookmark/:fid', function (req, res) {
+    let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.cid},${req.body.fid});`;
     db.all(sql, function (err, rows) {
         res.send('added to wishlist!');
     });
