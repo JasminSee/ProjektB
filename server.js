@@ -552,18 +552,19 @@ app.post('/allFigurines/filterMaterial', function (req, res) {
     }
 });
 
-app.post('/allFigurines/filterHeight', function (req, res) {
+app.post('/allFigurines/filterRating', function (req, res) {
     const filterRating = [];
+    const rowsResult = [];
 
-    //Hoehe
+    //Bewertung
     const Zero = req.body.Zero;
     const One = req.body.One;
     const Two = req.body.Two;
     const Three = req.body.Three;
     const Four = req.body.Four;
     const Five = req.body.Five;
-    filterRating.push({ checked: One, sterne: "0" }, { checked: Zero, sterne: "0" }, { checked: Two, sterne: "2" }, { checked: Three, sterne: "3" },
-        { checked: Four, sterne: "4" }, { checked: Five, sterne: "5" });
+    filterRating.push({ checked: One, von: 1, bis: 2 }, { checked: Zero, von: 0, bis: 1 }, { checked: Two, von: 2, bis: 3 }, { checked: Three, von: 3, bis: 4 },
+        { checked: Four, von: 4, bis: 5 }, { checked: Five, von: 5, bis: 6 });
 
     for (i = 0; i <= filterRating.length; i++) {
         if (filterRating[i].checked !== undefined) {
@@ -574,7 +575,12 @@ app.post('/allFigurines/filterHeight', function (req, res) {
                 group BY reviews.fid
                 order by rating DESC;`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows });
+                    for (j = 0; j < rows.length; j++) {
+                        if (rows[j].rating >= filterRating[i].von && rows[j].rating < filterRating[i].bis) {
+                            rowsResult.push(rows[j])
+                        }
+                    }
+                    res.render('filter', { collector: rowsResult });
                 });
                 break;
             } else {
