@@ -234,7 +234,7 @@ app.post('/search', function (req, res) {
 
 app.get('/top10', function (req, res) {
     let sql =
-        `select reviews.rid, reviews.fid, count(figurines.fid), round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture 
+        `select reviews.rid, reviews.fid, count(figurines.fid), round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture, figurines.characterName 
         from reviews, figurines 
         where figurines.fid = reviews.fid
         group BY reviews.fid

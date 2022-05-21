@@ -2,8 +2,8 @@
   margin-top: 40%;
   margin-left: 50%;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
-  width: 440px;
-  height: 550px; 
+  width: 500px;
+  height: 700px; 
   margin: auto;
   text-align: center;
   padding: 10px;
@@ -12,8 +12,8 @@
 }
 .cover {
   object-fit: contain;
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   background-color: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
 }
 
