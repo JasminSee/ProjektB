@@ -35,7 +35,7 @@
       <a href="myAccount">Mein Konto</a>
       <div class="search-container">
         <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search">
+          <input type="text" placeholder="Search.." name="search" required>
           <button type="submit">Suchen</button>
         </form>
       </div>
@@ -43,7 +43,7 @@
 
     <div class="row" style="text-align: center;">
       <p style="font-size: 26px">Beliebteste Figuren</p>
-      <% for (i=0; i<9; i++){ %>
+      <% for (i=0; i<3; i++){ %>
         <div class="column">
           <div class="card">
             <p><%=collector[i].figurineName %></p>
