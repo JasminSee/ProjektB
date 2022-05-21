@@ -451,7 +451,7 @@ app.post('/allFigurines/sort', function (req, res) {
                 } else {
                     let sql = `select * from figurines, series where figurines.origin = series.seriesID order by ${sort[i].orderBy};`
                     db.all(sql, function (err, rows) {
-                        res.render('filter', { collector: rows  , "message": ""});
+                        res.render('filter', { collector: rows  , "message": "Sortierte Figuren"});
                     });
                 }
                 break;
