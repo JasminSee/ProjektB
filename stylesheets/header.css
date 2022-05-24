@@ -6,3 +6,17 @@
   color: white;
   font-size: 22px;
 }
+
+/*test! richtiger banner kommt noch*/
+.banner {
+  background: no-repeat center/contain url('/media/test.jpg');
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  height: 170px;
+  background-color: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+}
