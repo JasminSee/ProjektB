@@ -6,15 +6,13 @@
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" type="text/css" href="body.css">
     <link rel="stylesheet" type="text/css" href="columns.css">
+    <link rel="stylesheet" type="text/css" href="myAccount.css">
     <style>
       * {
         box-sizing: border-box;
       }
       html {
         height: 100%;
-      }
-      .column {
-        width: 33.33%;
       }
     </style>
   </head>
@@ -39,24 +37,23 @@
       </div>
     </div>
 
-    <div>
+    <div class="column" style="width: 20%;">
+      <div class="sidenav">
+        <a  href="/wunschliste">Wunschliste</a>
+        <a  href="/editAccount">Daten ändern</a>
+        <a  href="/editPassword">Passwort ändern</a>
+        <a  href="/logout">Ausloggen</a><br>
+        <a  href="/deleteAccount">Account löschen</a>
+      </div>
+    </div>
+
+    <div class="column" style="width: 80%; margin-top: 20px;">
       <h1>Mein Konto</h1>
-      <p>Willkommen <%=message%>!</p>
-      <li style="float: left">
-        <a style="color: white" class="active" href="/wunschliste">Wunschliste</a>
-      </li><br>
-      <li style="float: left">
-        <a style="color: white" class="active" href="/editAccount">Daten ändern</a>
-      </li><br>
-      <li style="float: left">
-        <a style="color: white" class="active" href="/editPassword">Passwort ändern</a>
-      </li><br>
-      <li style="float: left">
-        <a style="color: white" class="active" href="/logout">Ausloggen</a>
-      </li><br><br><br><br>
-      <li style="float: left">
-        <a style="color: white" class="active" href="/deleteAccount">Account löschen</a>
-      </li>
+      <p style="font-size: 22px; font-weight: bold;">Willkommen <%=message%>!</p><br><br>
+      <% for (i=0; i<collector.length; i++){ %>
+        <p><b>Name:</b> <%=collector[i].firstName%> <%=collector[i].lastName%></p>
+        <p><b>E-Mail:</b> <%=collector[i].email%></p><br>
+      <% } %>
     </div>
 
     <footer class="footer">

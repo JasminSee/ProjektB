@@ -210,7 +210,10 @@ app.get("/myAccount", function (req, res) {
         res.render('login', { "message": "" });
     }
     else {
-        res.render('myAccount', { "message": req.session.firstName })
+        let sql = `SELECT * FROM customers WHERE id = ${req.session.cid}`
+        db.all(sql, function(err, rows) {
+            res.render('myAccount', { "message": req.session.firstName, collector: rows })
+        })
     }
 });
 
