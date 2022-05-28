@@ -149,18 +149,33 @@ app.get("/logout", function (req, res) {
     res.render("home", { "message": "Du hast dich erfolgreich ausgeloggt!" });
 });
 
+app.get('/deleteAccount', function (req, res) {
+    res.render('deleteAccount', { "message": "" });
+});
+
 //Account löschen
-app.get("/deleteAccount", function (req, res) {
-    let sql = `DELETE FROM customers WHERE email = '${req.session.email}';`;
-    db.all(sql, function (err, rows) {
-        delete req.session["sessionVariable"];
-        delete req.session["user"];
-        delete req.session["id"];
-        delete req.session["firstname"];
-        delete req.session["lastName"];
-        delete req.session["email"];
-        res.render('home', { collector: rows, "message": "Account erfolgreich gelöscht!" });
-    });
+app.post("/doDeleteAccount", function (req, res) {
+    let password = req.body.password;
+    let confirm = req.body.confirm;
+
+    if (password != "") {
+        if (password == confirm) {
+            let sql = `DELETE FROM customers WHERE email = '${req.session.email}';`;
+            db.all(sql, function (err, rows) {
+                delete req.session["sessionVariable"];
+                delete req.session["user"];
+                delete req.session["id"];
+                delete req.session["firstname"];
+                delete req.session["lastName"];
+                delete req.session["email"];
+                res.render('home', { collector: rows, "message": "Account erfolgreich gelöscht!" });
+            });
+        } else {
+            res.render('deleteAccount', { "message": "Passwörter stimmen nicht überein!" });
+        }
+    } else {
+        res.render('editPassword', { "message": "Gib dein Passwort ein!" });
+    }
 });
 
 //Auswertung nach der Registrierung
