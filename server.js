@@ -283,7 +283,7 @@ app.get('/wunschliste', function (req, res) {
                     }
                 })
             })
-            res.render('wishlist', { list: rows, figurines: result, collector: row });
+            res.render('wishlist', { "message": (rows.length > 0 ? "Wunschliste" : "Du hast noch keine Figuren auf deiner Wunschliste!"), list: rows, figurines: result, collector: row });
         })
     });
 });
