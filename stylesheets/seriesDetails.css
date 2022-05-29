@@ -66,6 +66,12 @@
 
 .figcov {
   object-fit: contain;
+  width: 250px;
+  height: 250px;
+  background-color: black;
+}
+.figcov2 {
+  object-fit: contain;
   width: 200px;
   height: 200px;
   background-color: black;
