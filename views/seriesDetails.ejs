@@ -73,11 +73,12 @@
         <div class="figbox">
           <% for (i=0; i<figurines.length; i++){ %>
             <div class="column2">
+              <div class="cardf">
               <a href="/figurDetails/<%=figurines[i].fid %>">
               <img alt="<%=figurines[i].figurineName %>" src="<%=figurines[i].picture %>" class="figcov">
               </a>
               <p><%=figurines[i].figurineName %></p>
-              
+              </div>
             </div>
           <% } %>
         </div>
