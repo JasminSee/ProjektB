@@ -166,6 +166,10 @@ INSERT INTO companies(companyName, banner, link) VALUES
 ("Bandai / Banpresto","https://www.banpresto.jp/img/ico-logo.png","https://www.banpresto.jp/"),
 ("Max Factory","https://images.goodsmile.info/media/mxf_logo-69d28fa57d11c2fa5f5deac7fbdf2d3b.jpg","https://www.maxfactory.jp/en/mxf/"),
 ("MegaHouse", "https://cdn.shopify.com/s/files/1/1843/8169/t/7/assets/logo.svg?v=12938583478828802353","https://en.megahobby.jp/");
+('FREEing', 'http://www.hobbyfanclub.com/manufacture/FREEing.jpg', 'www.freeing.co.jp');
+('Kadokawa', 'https://ani-culture-production.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2015/08/08172737/Kadokawa-logo.png', 'www.kadokawa.co.jp');
+('FuRyu', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Furyu_logo.svg/1200px-Furyu_logo.svg.png', 'www.furyu.jp');
+('Bandai Spirits', 'https://static.myfigurecollection.net/upload/entries/169939.jpg?rev=1556497994', 'www.bandaispirits.co.jp');
 
 INSERT INTO series(seriesName,altName,icon,seriesType,release,sDescription) VALUES
 ("Demon Slayer", "鬼滅の刃 / Kimetsu no Yaiba","https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/media/library-400/28_637635175735318571DS-DE_Small_hq.jpg", "TV-Serie","06.04.2019 - 28.09.2019","Japan in der Taishō-Ära (1912-1926). Viel passiert nicht im Leben des gutherzigen Jungen Tanjirō, seinen friedlichen Alltag verbringt er damit Kohle zu verkaufen. Doch plötzlich verändert eine Tragödie alles: Ein blutrünstiger Teufel tötet seine gesamte Familie. Die einzige Überlebende, seine kleine Schwester Nezuko, verwandelt sich jedoch selbst auch in einen gewalttätigen Teufel. Um einen Weg zu finden Nezuko zurückzuverwandeln und Rache für ihre Familie zu nehmen, brechen die beiden zu einer langen Reise auf. Seid gespannt auf ein Abenteuer voller blutiger Kämpfe, Schwertkämpfer und Teufel aus der Feder eines Genies!"),
@@ -213,6 +217,35 @@ INSERT INTO allBlueData(link, price, seller) VALUES
 ("https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/1675/digimon-adventure-wizardmon-gatomon-statue/g.e.m.-serie-megahouse?c=0",69.90,1),
 ("https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13074/naruto-shippuden-uchiha-itachi-statue/g.e.m.-serie-precious-susanoo-version-megahouse?c=0",489.90,1),
 ("https://www.allblue-world.de/anime-manga/13215/evangelion-3.0-1.0-thrice-upon-a-time-rei-ayanami-statue/g.e.m.-megahouse?c=0",234.90,1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12236/attack-on-titan-eren-yaeger-statue/pop-up-parade-version-2-good-smile-company', 44.9, 1);
+('https://www.allblue-world.de/anime-manga/13206/demon-slayer-mitsuri-kanroji-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13214/demon-slayer-kimetsu-no-yaiba-nezuko-kamado-statue/kimetsu-no-yaiba-gals-megahouse', 234.9, 1);
+('https://www.allblue-world.de/anime-manga/12504/my-hero-academia-himiko-toga-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12882/my-hero-academia-dabi-figur/pop-up-parade-takara-tomy-a.r.t.s?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13620/that-time-i-got-reincarnated-as-a-slime-rimuru-tempest-statue/pop-up-parade-good-smile-company?c=0', 47.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12889/that-time-i-got-reincarnated-as-a-slime-milim-statue/bare-leg-bunny-version-freeing?c=0', 339.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13607/that-time-i-got-reincarnated-as-a-slime-millim-statue/pop-up-parade-good-smile-company?c=0', 47.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12868/that-time-i-got-reincarnated-shion-statue/bunny-version-freeing?c=0', 375.9, 1);
+('https://www.allblue-world.de/anime-manga/13514/rebuild-of-evangelion-rei-ayanami-figur/pop-up-parade-long-hair-version-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12103/konosuba-yunyun-statue/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13386/konosuba-kazuma-statue/pop-up-parade-max-factory?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/12967/konosuba-aqua-statue/pop-up-parade-aqua-version-max-factory?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/11109/kono-subarashii-sekai-ni-shukufuku-wo-megumin-statue/china-dressversion-kadokawa?c=0', 209.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/11802/inuyasha-sessshomaru-statue/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13050/digimon-adventure-angemon-amp-t.k.-statue-g.e.m.-serie-megahouse?c=0', 214.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13584/digimon-adventure-greymon-tai-statue/g.e.m.-serie-neuauflage.-megahouse?c=0', 179.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/11429/darling-in-the-franxx-zero-two-statue/for-my-darling-version-good-smile-company', 319.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13278/black-rock-shooter-black-rock-shooter-statue/bunny-version-freeing?c=0', 479.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/10692/black-rock-shooter-black-rock-shooter-statue/inexhaustible-version-good-smile-company?c=0', 249.9, 1);
+('https://www.allblue-world.de/anime-manga/13008/attack-on-titan-the-final-season-levi-statue/birthday-furyu?c=0', 364.9, 1);
+('https://www.allblue-world.de/shop/h-n/nendoroid-figuren/8081/demon-slayer-nezuko-kamado-nendoroid-good-smile-company?c=0', 62.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13614/demon-slayer-kimetsu-no-yaiba-tanjiro-kamado-statue/total-concentration-paint-version-aniplex?c=0', 319.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13543/demon-slayer-kimetsu-no-yaiba-nezuko-kamado-statue/entertainment-district-arc-demon-form-adv?c=0', 229.9, 1);
+('https://www.allblue-world.de/anime-manga/12503/demon-slayer-giyu-tomioka-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13320/jujutsu-kaisen-panda-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13506/jujutsu-kaisen-maki-zen-in-statue/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13321/jujutsu-kaisen-toge-inumaki-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
+('https://www.allblue-world.de/shop/a-c/anime-prize-figuren/12458/one-piece-nami-figur/eiichiro-oda-illustration-figuartszero-tamashii?c=0', 56.9, 1);
 
 INSERT INTO mangaMafiaData(link, price,seller) VALUES
 ("https://manga-mafia.de/preorder-demon-slayer-tengen-uzui-pop-up-parade-18cm-pvc-statue.html",49.99,2),
@@ -240,6 +273,35 @@ INSERT INTO mangaMafiaData(link, price,seller) VALUES
 ("https://manga-mafia.de/collector-digimon-adventure-wizardmon-gatomon-g-e-m-18cm-pvc-statue.html",119.99,2),
 ("https://manga-mafia.de/preorder-naruto-shippuden-uchiha-itachi-susano-ver-38cm-pvc-statue.html",449.99,2),
 ("https://manga-mafia.de/preorder-evangelion-3-0-1-0-rei-ayanami-thrice-upon-a-time-g-e-m-22cm-pvc-statue.html",219.99,2);
+('https://manga-mafia.de/attack-on-titan-eren-yeager-pop-up-parade-19cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-demon-slayer-mitsuri-kanroji-pop-up-parade-16cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-demon-slayer-nezuko-kamado-18cm-pvc-statue.html', 224.99, 2);
+('https://manga-mafia.de/my-hero-academia-himiko-toga-pop-up-parade-16cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-my-hero-academia-dabi-pop-up-parade-18cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-that-time-i-got-reincarnated-as-a-slime-rimuru-pop-up-parade-16cm-pvc-statue.html', 59.99, 2);
+('https://manga-mafia.de/preorder-that-time-i-got-reincarnated-as-a-slime-millim-bare-leg-bunny-ver-30cm-1-4-pvc-statue.html', 299.99, 2);
+('https://manga-mafia.de/preorder-that-time-i-got-reincarnated-as-a-slime-millim-pop-up-parade-16cm-pvc-statue.html', 59.99, 2);
+('https://manga-mafia.de/preorder-that-time-i-got-reincarnated-as-a-slime-shion-bunny-ver-51cm-1-4-pvc-statue.html', 319.99, 2);
+('https://manga-mafia.de/preorder-rebuild-of-evangelion-rei-ayanami-long-hair-ver-pop-up-parade-17cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/konosuba-yunyun-pop-up-parade-18cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-konosuba-kazuma-pop-up-parade-18cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-konosuba-aqua-swimsuit-ver-pop-up-parade-18cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/collector-konosuba-megumin-light-novel-china-dress-ver-22cm-1-7-statue.html', 189.99, 2);
+('https://manga-mafia.de/inu-yasha-sesshomaru-pop-up-parade-18cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-digimon-adventure-angemon-t-k-22cm-pvc-statue.html', 199.99, 2);
+('https://manga-mafia.de/preorder-digimon-adventure-greymon-tai-g-e-m-25cm-pvc-statue.html', 169.99, 2);
+('https://manga-mafia.de/preorder-darling-in-the-franxx-zero-two-for-my-darling-27cm-1-7-pvc-statue.html', 289.99, 2);
+('https://manga-mafia.de/preorder-black-rock-shooter-black-rock-shooter-bunny-ver-47cm-1-4-pvc-statue.html', 439.99, 2);
+('https://manga-mafia.de/preorder-black-rock-shooter-black-rock-shooter-inexhaustible-ver-46cm-pvc-statue.html', 249.99, 2);
+('https://manga-mafia.de/preorder-attack-on-titan-levi-ackermann-birthday-30cm-1-7-pvc-statue.html', 319.99, 2);
+('https://manga-mafia.de/demon-slayer-nezuko-kamado-nendoroid-10cm-actionfigur.html', 79.99, 2);
+('https://manga-mafia.de/preorder-demon-slayer-tanjiro-kamado-total-concentration-paint-ver-19cm-pvc-statue.html', 284.99, 2);
+('https://manga-mafia.de/preorder-demon-slayer-nezuko-kamado-demon-form-advancing-ver-12cm-1-8-pvc-statue.html', 209.99, 2);
+('https://manga-mafia.de/demon-slayer-giyu-tomioka-pop-up-parade-17cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-jujutsu-kaisen-panda-pop-up-parade-cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-jujutsu-kaisen-maki-zen-in-pop-up-parade-17cm-pvc-figure.html', 49.99, 2);
+('https://manga-mafia.de/preorder-jujutsu-kaisen-toge-inumaki-pop-up-parade-17cm-pvc-statue.html', 49.99, 2);
+('https://manga-mafia.de/preorder-one-piece-nami-wt100-figuartszero-28cm-pvc-statue.html', 69.99, 2);
 
 INSERT INTO animeLeData(link, price) VALUES
 ("https://www.anime-le.de/detail/index/sArticle/11772",44.90,3),
@@ -267,6 +329,35 @@ INSERT INTO animeLeData(link, price) VALUES
 ("https://www.anime-le.de/detail/index/sArticle/9381",99.90,3),
 ("https://www.anime-le.de/detail/index/sArticle/11305",479.90,3),
 ("https://www.anime-le.de/detail/index/sArticle/11466/sCategory/0",219.90,3);
+('https://www.anime-le.de/detail/index/sArticle/9773', 49.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/5850', 34.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11465/sCategory/0', 249.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10245', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10796/sCategory/0', 49.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/12007/sCategory/0', 49.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10788', 339.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/12008', 49.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10733', 369.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11834/sCategory/0', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/9596', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11694/sCategory/0', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10995', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/7723/sCategory/0', 229.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/9189', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11310', 199.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11964/sCategory/0', 174.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/8412', 319.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11595', 449.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/6858', 249.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11128/sCategory/0', 349.9, 3);
+('https://www.anime-le.de/coming-soon/2005/kimetsu-no-yaiba-demon-slayer-nendoroid-nezuko-kamado', 64.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11998/sCategory/0', 299.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11942/sCategory/0', 239.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10241', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11643', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11848', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/11644', 44.9, 3);
+('https://www.anime-le.de/detail/index/sArticle/10212', 69.9, 3);
 
 INSERT INTO figuyaData(link, price) VALUES
 ("https://figuya.com/de/produkte/tengen-uzui-demon-slayer-pop-up-parade-good-smile-company-37987-de",39.90,4),
@@ -294,6 +385,35 @@ INSERT INTO figuyaData(link, price) VALUES
 ("https://figuya.com/de/produkte/wizardmon-und-gatomon-g-e-m-serie-megahouse-neuauflage-5895-de",99.90,4),
 ("https://figuya.com/de/produkte/itachi-uchiha-susanoo-precious-g-e-m-megahouse-36379-de",499.90,4),
 ("https://figuya.com/de/produkte/rei-ayanami-thrice-upon-a-time-precious-g-e-m-series-megahouse-36991-de",249.90,4);
+('https://figuya.com/de/produkte/eren-yeager-jacke-attack-on-titan-pop-up-parade-good-smile-company-34003-de', 49.9, 4);
+('https://figuya.com/de/produkte/mitsuri-kanroji-demon-slayer-kimetsu-no-yaiba-vol-13-banpresto-27986-de?newsletterSubscription', 32.9, 4);
+('https://figuya.com/de/produkte/nezuko-kamado-demon-slayer-gals-megahouse-36984-de', 249.9, 4);
+('https://figuya.com/de/produkte/himiko-toga-my-hero-academia-pop-up-parade-good-smile-company-34561-de', 49.9, 4);
+('https://figuya.com/de/produkte/dabi-my-hero-academia-pop-up-parade-good-smile-company-35718-de', 39.9, 4);
+('https://figuya.com/de/produkte/rimuru-that-time-i-got-reincarnated-as-a-slime-pop-up-parade-good-smile-company-38662-de', 44.9, 4);
+('https://figuya.com/de/produkte/millim-nava-1-4-b-style-bunny-bare-leg-freeing-35709-de', 339.9, 4);
+('https://figuya.com/de/produkte/millim-that-time-i-got-reincarnated-as-a-slime-pop-up-parade-good-smile-company-38663-de', 44.9, 4);
+('https://figuya.com/de/produkte/shion-1-4-style-bunny-freeing-35572-de', 349.9, 4);
+('https://figuya.com/de/produkte/rei-ayanami-long-hair-neon-genesis-evangelion-pop-up-parade-38078-de', 39.9, 4);
+('https://figuya.com/de/produkte/yunyun-konosuba-pop-up-parade-max-factory-33645-de', 49.9, 4);
+('https://figuya.com/de/produkte/kazuma-satou-konosuba-pop-up-parade-max-factory-37687-de', 39.9, 4);
+('https://figuya.com/de/produkte/aqua-swimsuit-konosuba-pop-up-parade-max-factory-36095-de', 39.9, 4);
+('https://figuya.com/de/produkte/megumin-light-novel-china-dress-kd-colle-kadokawa-30182-de', 209.9, 4);
+('https://figuya.com/de/produkte/sesshomaru-inuyasha-the-final-act-pop-up-parade-good-smile-company-32897-de', 49.9, 4);
+('https://figuya.com/de/produkte/angemon-und-takeru-t-k-takaichi-takaishi-megahouse-g-e-m-neuauflage-5080-de', 219.9, 4);
+('https://figuya.com/de/produkte/tai-taichi-yagami-und-greymon-g-e-m-series-neuauflage-8422-de', 179.9, 4);
+('https://figuya.com/de/produkte/zero-two-for-my-darling-good-smile-31453-de', 319.9, 4);
+('https://figuya.com/de/produkte/black-rock-shooter-1-4-b-style-bunny-freeing-37332-de', 449.9, 4);
+('https://figuya.com/de/produkte/black-rock-shooter-inexhaustible-good-smile-company-28657-de', 269.9, 4);
+('https://figuya.com/de/produkte/levi-birthday-f-nex-furyu-36248-de', 349.9, 4);
+('https://figuya.com/de/produkte/nendoroid-1194-nezuko-kamado-neuauflage-17017-de', 59.9, 4);
+('https://figuya.com/de/produkte/tanjiro-kamado-total-concentration-paint-aniplex-38660-de', 309.9, 4);
+('https://figuya.com/de/produkte/nezuko-kamado-onika-shinkouji-demon-form-advancing-aniplex-wing-38244-de', 229.9, 4);
+('https://figuya.com/de/produkte/giyu-tomioka-demon-slayer-pop-up-parade-good-smile-company-34555-de', 49.9, 4);
+('https://figuya.com/de/produkte/panda-jujutsu-kaisen-pop-up-parade-good-smile-company-37552-de', 39.9, 4);
+('https://figuya.com/de/produkte/maki-zenin-jujutsu-kaisen-pop-up-parade-good-smile-company-38196-de', 39.9, 4);
+('https://figuya.com/de/produkte/toge-inumaki-jujutsu-kaisen-pop-up-parade-good-smile-company-37551-de', 39.9, 4);
+('https://figuya.com/de/produkte/nami-wt100-special-illustration-figuarts-zero-daikaizoku-hyakkei-bandai-spirits-34472-de', 54.9, 4);
 
 /*wird noch verändert!!!: bewertung + KommentarIDs kommt noch dazu*/
 INSERT INTO figurines(figurineName, picture,isbn,origin,characterName,company,classification,dimension,material,releaseDate,originalPriceYen,allBlueID,mangaMafiaID,animeLeID,figuyaID) VALUES
@@ -322,6 +442,36 @@ INSERT INTO figurines(figurineName, picture,isbn,origin,characterName,company,cl
 ("Digimon Adventure - Wizardmon & Gatomon - G.E.M.","https://static.myfigurecollection.net/upload/items/large/362389.jpg","4535123831041",17,"Wizardmon, Tailmon",7,"G.E.M","Height= 145mm","ABS, PVC","05/2016",6800,23,23,23,23),
 ("Naruto Shippuden - Uchiha Itachi Susano Version - Precious G.E.M.","https://static.myfigurecollection.net/upload/items/large/1392334.jpg","4535123832598",5,"Uchiha Itachi",7,"Precious G.E.M.","Height= 380mm Width=350mm Length=280mm","ABS, PVC, LED","08/2022",37500,24,24,24,24),
 ("Evangelion: Thrice Upon a Time - Rei Ayanami Statue - Precious G.E.M.","https://static.myfigurecollection.net/upload/items/large/1394910.jpg","4535123833441",18,"Ayanami Rei",7,"Precious G.E.M.","Height= 225mm","ABS, PVC","09/2022",15800,25,25,25,25);
+('Attack on Titan - Eren Yaeger Statue / Pop Up Parade - Version 2: Good Smile Company', 'https://static.myfigurecollection.net/upload/items/large/1243357.jpg', '4580416943918', 8, 'Eren Yeager', 1, 'Pop Up Parade', 'Height=190mm', 'ABS, PVC', '12/2021', 3545, 26, 26, 26, 26);
+('Demon Slayer - Mitsuri Kanroji Figur / Pop Up Parade: Good Smile Company', 'https://static.myfigurecollection.net/upload/items/large/1087578.jpg', '4580416944793', 1, 'Kanroji Mitsuri', 1, 'Pop Up Parade', 'Height=160mm', 'ABS, PVC', '06/2022', 3545, 27, 27, 27, 27);
+('Demon Slayer Kimetsu no Yaiba - Nezuko Kamado Statue / Kimetsu no Yaiba Gals: MegaHouse', 'https://static.myfigurecollection.net/upload/items/large/1388094.jpg', '4535123833052', 1, 'Kamado Nezuko', 7, 'Gals Series', 'Height=185mm', 'ABS, PVC', '08/2022', 15800, 28, 28, 28, 28);
+('My Hero Academia - Himiko Toga Figur / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1144039.jpg', '4580416943710', 7, 'Toga Himiko', 7, 'Pop Up Parade', 'Height=160mm', 'ABS, PVC', '02/2022', 3545, 29, 29, 29, 29);
+('My Hero Academia - Dabi Figur / Pop Up Parade: Takara Tomy A.R.T.S', 'https://static.myfigurecollection.net/upload/items/large/1144037.jpg', '4580416943512', 7, 'Dabi', 1, 'Pop Up Parade', 'Height=160mm', 'ABS, PVC', '04/2022', 3545, 30, 30, 30, 30);
+('That Time I Got Reincarnated as a Slime - Rimuru Tempest Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1326031.jpg', '4580416945295', 9, 'Rimuru Tempest', 1, 'Pop Up Parade', 'Height=160mm', 'ABS, PVC', '08/2022', 4364, 31, 31, 31, 31);
+('That Time I Got Reincarnated as a Slime - Milim Statue / Bare Leg Bunny Version', 'https://static.myfigurecollection.net/upload/items/large/1387572.jpg', '4570001510649', 9, 'Milim Nava', 8, 'B-style', 'Height=300mm', 'ABS, PVC', '06/2022', 26000, 32, 32, 32, 32);
+('That Time I Got Reincarnated as a Slime - Millim Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1326020.jpg', '4580416945301', 9, 'Milim Nava', 1, 'Pop Up Parade', 'Height=160mm', 'ABS, PVC', '08/2022', 4364, 32, 33, 33, 33);
+('That Time I Got Reincarnated - Shion Statue / Bunny Version', 'https://static.myfigurecollection.net/upload/items/large/1292327.jpg', '4570001510632', 9, 'Shion', 8, 'B-style', 'Height=510mm', 'ABS, PVC', '07/2022', 28000, 33, 33, 33, 33);
+('Rebuild of Evangelion - Rei Ayanami Figur / Pop Up Parade - Long Hair Version', 'https://static.myfigurecollection.net/upload/items/large/1464704.jpg', '4580416945141', 18, 'Ayanami Rei', 1, 'Pop Up Parade', 'Height=170mm', 'ABS, PVC', '08/2022', 3545, 35, 35, 35, 35);
+('KonoSuba - Yunyun Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1213407.jpg', '4545784043080', 15, 'Yunyun', 6, 'Pop Up Parade', 'Height=180mm', 'ABS, PVC', '11/2021', 3545, 36, 36, 36, 36);
+('KonoSuba - Kazuma Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1464645.jpg', '4545784043264', 15, 'Satou Kazuma', 6, 'Pop Up Parade', 'Height=180mm', 'ABS, PVC', '07/2022', 3545, 37, 37, 37, 37);
+('KonoSuba - Aqua Statue / Pop Up Parade - Aqua Version', 'https://static.myfigurecollection.net/upload/items/large/1131805.jpg', '4545784043202', 15, 'Aqua', 6, 'Pop Up Parade', 'Height=180mm', 'ABS, PVC', '05/2022', 3545, 38, 38, 38, 38);
+('Kono Subarashii Sekai ni Shukufuku wo! - Megumin Statue / China DressVersion', 'https://static.myfigurecollection.net/upload/items/large/1055757.jpg', '4935228258154', 15, 'Megumin', 9, 'KDcolle', 'Height=220mm', 'ABS, PVC', '12/2021', 16800, 39, 39, 39, 39);
+('Inuyasha - Sessshomaru Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1213434.jpg', '4580416943499', 3, 'Sesshoumaru', 1, 'Pop Up Parade', 'Height=180mm', 'ABS, PVC', '11/2021', 3545, 40, 40, 40, 40);
+('Digimon Adventure - Angemon & T.K. Statue - G.E.M. Serie', 'https://static.myfigurecollection.net/upload/items/large/315819.jpg', '4535123832802', 17, 'Angemon, Takaishi Takeru', 7, 'G.E.M.', 'Height=220mm', 'ABS, PVC', '09/2022', 11000, 41, 41, 41, 41);
+('Digimon Adventure - Greymon & Tai Statue / G.E.M. Serie', 'https://static.myfigurecollection.net/upload/items/large/520671.jpg', '4535123832208', 17, 'Greymon, Yagami Taichi', 7, NULL, 'G.E.M.', 'ABS, PVC', '07/2017', 9259, 42, 42, 42, 42);
+( 'Darling in the Franxx - Zero Two Statue / For My Darling Version', 'https://static.myfigurecollection.net/upload/items/large/1064642.jpg', '4580416943116', 2, 'Zero Two', 1, '/', 'Height=270mm', 'ABS, PVC', '07/2022', 27273, 43, 43, 43, 43);
+('Black Rock Shooter - Black Rock Shooter Statue / Bunny Version', 'https://static.myfigurecollection.net/upload/items/large/1326058.jpg', '4570001510779', 14, 'Black Rock Shooter', 8, 'B-style', 'Height=470mm', 'ABS, PVC', '12/2022', 32000, 44, 44, 44, 44);
+('Black Rock Shooter - Black Rock Shooter Statue / Inexhaustible Version', 'https://static.myfigurecollection.net/upload/items/large/675843.jpg', '4580416942409', 14, 'Black Rock Shooter', 1, '/', 'Height=460mm', 'ABS, LED, PVC', '07/2022', 22545, 45, 45, 45, 45);
+('Attack on Titan The Final Season - Levi Statue / Birthday', 'https://static.myfigurecollection.net/upload/items/large/1103263.jpg', '4589584957376', 8, 'Levi Ackerman', 10, 'F:Nex', 'Height=300mm', 'ABS, PVC', '12/2022', 22700, 46, 46, 46, 46);
+('Demon Slayer - Nezuko Kamado Nendoroid', 'https://static.myfigurecollection.net/upload/items/large/813029.jpg', '4580590120082', 1, 'Kamado Nezuko', 1, 'Nendoroid', 'Height=100mm', 'ABS, PVC', '12/2021', 5000, 47, 47, 47, 47);
+('Demon Slayer: Kimetsu no Yaiba - Tanjiro Kamado Statue / Total Concentration Paint Version', 'https://static.myfigurecollection.net/upload/items/large/1411049.jpg', '4534530741325', 1, 'Kamado Tanjirou', 3, '/', 'Height=187mm', 'ABS, PVC', '01/2023', 20909, 48, 48, 48, 48);
+('Demon Slayer: Kimetsu no Yaiba - Nezuko Kamado Statue / Entertainment District Arc - Demon Form', 'https://static.myfigurecollection.net/upload/items/large/1359352.jpg', '4534530746702', 1, 'Kamado Nezuko', 3, '/', 'Height=121mm', 'ABS, PVC', '02/2023', 15000, 49, 49, 49, 49);
+('Demon Slayer - Giyu Tomioka Figur / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1087569.jpg', '4580416944113', 1, 'Tomioka Giyuu', 1, 'Pop Up Parade', 'Height=170mm', 'ABS, PVC', '01/2022', 3545, 50, 50, 50, 50);
+('Jujutsu Kaisen - Panda Figur / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1427015.jpg', '4580416944854', 6, 'Panda', 1, 'Pop Up Parade', 'Height=180mm', 'ABS, PVC', '07/2022', 3545, 51, 51, 51, 51);
+('Jujutsu Kaisen - Maki Zen''in Statue / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1427014.jpg', '4580416945165', 6, 'Zenin Maki', 1, 'Pop Up Parade', 'Height=175mm', 'ABS, PVC', '07/2022', 3545, 52, 52, 52, 52);
+('Jujutsu Kaisen - Toge Inumaki Figur / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1427016.jpg', '4580416944847', 6, 'Inumaki Toge', 1, 'Pop Up Parade', 'Height=170mm', 'ABS, PVC', '07/2022', 3545, 53, 53, 53, 53);
+('One Piece - Nami Figur / Eiichiro Oda Illustration FiguartsZERO', 'https://static.myfigurecollection.net/upload/items/large/1308998.jpg', '4573102630025', 11, 'Nami', 11, 'Figuarts ZERO', 'Height=280mm', 'ABS, PVC', '03/2022', 5500, 54, 54, 54, 54);
+
 
 INSERT INTO reviews(fid,userId,userName, postDate, rating, title, rDescription) VALUES
 (1,1,"Daniel Sauter", "2008-11-11", 5, "Best Fig Ever", "test text"),
