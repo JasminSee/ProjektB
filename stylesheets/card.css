@@ -1,18 +1,26 @@
 .card {
-    margin-top: 40%;
-    margin-left: 50%;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
-    width: 340px;
-    height: 400px; 
-    margin: auto;
-    text-align: center;
-    padding: 10px;
-    padding-top: 20px;
-    border-radius: 10px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+  width: 18vw;
+  height: 23vw;
+  text-align: center;
+  align-items: center;
+  padding-top: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
   }
   .cover {
     object-fit: contain;
-    width: 250px;
-    height: 250px;
-    background-color: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 14vw;
+  height: 14vw;
+  margin: auto;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color:rgba(0, 0, 0, 0.6);
   }
