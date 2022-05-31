@@ -1,10 +1,10 @@
 .card {
-  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.5);
   padding-left: 10px;
   padding-right: 10px;
   margin: auto;
   width: 18vw;
-  height: 23vw;
+  height: 24vw;
   text-align: center;
   align-items: center;
   padding-top: 40px;

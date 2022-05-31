@@ -1,6 +1,6 @@
 /* Style the header */
 .header {
-  background-color: #0F0E0E;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 5px;
   text-align: center;
   color: white;
@@ -9,7 +9,7 @@
 
 /*test! richtiger banner kommt noch*/
 .banner {
-  background: no-repeat center/contain url('/media/test.jpg');
+  background: no-repeat center/contain url('/media/bannerorange.png');
   display: flex;
   align-items: center;
   padding: 5px;
