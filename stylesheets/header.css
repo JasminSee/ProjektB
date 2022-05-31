@@ -9,7 +9,7 @@
 
 /*test! richtiger banner kommt noch*/
 .banner {
-  background: no-repeat center/contain url('/media/bannerorange.png');
+  background: no-repeat center/contain url('/media/banner.png');
   display: flex;
   align-items: center;
   padding: 5px;
