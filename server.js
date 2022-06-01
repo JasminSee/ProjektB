@@ -58,16 +58,18 @@ app.post('/edit', function (req, res) {
         const editedLastName = lastName = "" ? req.session.lastName : lastName;
         const editedEmail = email = "" ? req.session.email : email;
         let sql = `UPDATE customers SET 
-    firstName = "${editedFirstName}",
-    lastName = "${editedLastName}",
-    email = "${editedEmail}"
-    WHERE email = '${req.session.email}';`
+            firstName = "${editedFirstName}",
+            lastName = "${editedLastName}",
+            email = "${editedEmail}"
+            WHERE email = '${req.session.email}';`
         db.all(sql, function (err, rows) {
             req.session["firstName"] = editedFirstName;
             req.session["lastName"] = editedLastName;
             req.session["email"] = editedEmail;
             res.render('editAccount', { "message": "Erfolgreich geändert", "firstName": editedFirstName, "lastName": editedLastName, "email": editedEmail });
         });
+    } else {
+        res.render('editAccount', { "message": "Keine Änderung!" });
     }
 });
 
@@ -243,7 +245,7 @@ app.post('/search', function (req, res) {
     db.all(sql, function (err, rows) {
         let sql2 = `SELECT * FROM companies WHERE companyName LIKE '%${search}%';`
         db.all(sql2, function (err, rows2) {
-            let sql3 = `SELECT * FROM series WHERE seriesName LIKE '%${search}%' OR altName LIKE '%${search}%' OR sDescription LIKE '%${search}%';`
+            let sql3 = `SELECT * FROM series WHERE seriesName LIKE '%${search}%' OR altName LIKE '%${search}%';`
             db.all(sql3, function (err, rows3) {
                 res.render('search', { collectorFigures: rows, collectorCompanies: rows2, collectorSeries: rows3, search: search })
             })
