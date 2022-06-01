@@ -575,10 +575,16 @@ app.post('/allFigurines/filterClassification', function (req, res) {
     const NarutoGals = req.body.NarutoGals;
     const CharactersCollectionDX = req.body.CharactersCollectionDX;
     const GEM = req.body.GEM;
+    const BStyle = req.body.BStyle;
+    const Zero = req.body.Zero;
+    const FNex = req.body.FNex;
+    const Gals = req.body.Gals;
+    const KDcolle = req.body.KDcolle;
     const PreciousGEM = req.body.PreciousGEM;
     filterClassification.push({ checked: PopUpParade, name: "Pop Up Parade" }, { checked: Nendroid, name: "Nendroid" }, { checked: ArtfxJ, name: "ARTFX J" }, { checked: BendaiSpirits, name: "Bandai Spirits" },
         { checked: ShibuyaScrample, name: "Shibuya Scramble Figure" }, { checked: Figma, name: "Figma" }, { checked: NarutoGals, name: "Naruto Gals DX" }, { checked: CharactersCollectionDX, name: "Game Characters Collection DX" },
-        { checked: GEM, name: "G.E.M" }, { checked: PreciousGEM, name: "Precious G.E.M." });
+        { checked: GEM, name: "G.E.M" }, { checked: PreciousGEM, name: "Precious G.E.M." }, { checked: BStyle, name: "B-style" }, { checked: Zero, name: "Figuarts ZERO" },
+        { checked: FNex, name: "F:Nex" }, { checked: Gals, name: "Gals Series" }, { checked: KDcolle, name: "KDcolle" });
 
     for (i = 0; i <= filterClassification.length; i++) {
         if (filterClassification[i].checked !== undefined) {
@@ -706,9 +712,14 @@ app.post('/allFigurines/filterCompanies', function (req, res) {
     const Bandai = req.body.Bandai;
     const eStream = req.body.eStream;
     const MaxFactory = req.body.MaxFactory;
+    const FreeIng = req.body.FreeIng;
+    const Kadokawa = req.body.Kadokawa;
+    const FuRyu = req.body.FuRyu;
+    const BandaiSpirits = req.body.BandaiSpirits;
     const MegaHouse = req.body.MegaHouse;
     filterCompanies.push({ checked: GoodSmile, id: 1 }, { checked: Kotobukiya, id: 2 }, { checked: Aniplex, id: 3 }, { checked: Bandai, id: 5 }, { checked: eStream, id: 4 },
-        { checked: MaxFactory, id: 6 }, { checked: MegaHouse, id: 7 });
+        { checked: MaxFactory, id: 6 }, { checked: MegaHouse, id: 7 }, { checked: FreeIng, id: 8 }, { checked: Kadokawa, id: 9 }, { checked: FuRyu, id: 10 },
+        { checked: BandaiSpirits, id: 11 });
 
     for (i = 0; i <= filterCompanies.length; i++) {
         if (filterCompanies[i].checked !== undefined) {
