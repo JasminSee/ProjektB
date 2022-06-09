@@ -432,6 +432,14 @@ app.post('/postReview', function (req, res) {
 
 });
 
+app.get('/myReviews', function (req, res) {
+    let sql = `select reviews.rid, reviews.fid, reviews. userId, reviews.userName, reviews.postDate, reviews.rating, reviews.title, reviews.rDescription, figurines.characterName, figurines.picture from reviews, figurines where userId = ${req.session.cid} AND reviews.fid = figurines.fid;`;
+    var moment = require('moment');
+    db.all(sql, function (err, rows) {
+        res.render('myReviews', { collector: rows, moment: moment });
+    });
+});
+
 //Filter
 //---------------------------------------------------------------------------------------------
 app.post('/allFigurines/sort', function (req, res) {

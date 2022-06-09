@@ -1,0 +1,133 @@
+.infobox {
+  margin-top: 40%;
+  margin-left: 50%;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 100px;
+  overflow: hidden;
+}
+.review-box:hover {
+  background-color:#244637;
+  color: white;
+}
+.review-section {
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 100px;
+  overflow: hidden;
+}
+.review-box {
+  padding: 40px;
+  background: transparent;
+  box-sizing: border-box;
+  border-top-style: solid;
+  border-top-color: #346751;
+  border-top-width: 0.5px;
+  min-height: 100px;
+  overflow: hidden;
+}
+.name-box {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.top-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.top-box-items {
+  text-align: start;
+  padding-right: 10px;
+  font-weight: bold;
+}
+.desc-box {
+  overflow: hidden;
+  font-weight: lighter;
+  font-size: medium;
+  padding-bottom: 20px;
+  ;
+}
+.bottom-box {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: lighter;
+}
+.rated-stars-s .star-ratings-css {
+  font-size: 1rem;
+}
+.rated-stars-m .star-ratings-css {
+  font-size: 2rem;
+}
+.rated-stars-l .star-ratings-css {
+  font-size: 2.5rem;
+}
+.rated-stars {
+  width: 132px;
+  padding-bottom: 20px;
+  margin: 5px;
+}
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #346751;
+  font-size: 1rem;
+  height: 25px;
+  position: relative;
+}
+.star-ratings-css::before {
+  content: "☆☆☆☆☆";
+  opacity: 0.7;
+  font-size: xx-large;
+}
+[data-rate="0"]::after {
+  width: calc(0* 20%);
+}
+[data-rate="0.5"]::after {
+  width: calc(0.5* 20%);
+}
+[data-rate="1"]::after {
+  width: calc(1* 20%);
+}
+[data-rate="1.5"]::after {
+  width: calc(1.5* 20%);
+}
+[data-rate="2"]::after {
+  width: calc(2* 20%);
+}
+[data-rate="2.5"]::after {
+  width: calc(2.5* 20%);
+}
+[data-rate="3"]::after {
+  width: calc(3* 20%);
+}
+[data-rate="3.5"]::after {
+  width: calc(3.5* 20%);
+}
+[data-rate="4"]::after {
+  width: calc(4* 20%);
+}
+[data-rate="4.5"]::after {
+  width: calc(4.5* 20%);
+}
+[data-rate="5"]::after {
+  width: calc(5* 20%);
+}
+.star-ratings-css::after {
+  color: #346751;
+  content: "★★★★★";
+  position: absolute;
+  z-index: 1;
+  display: block;
+  left: 0;
+  top: 0;
+  width: attr(rating);
+  overflow: hidden;
+  font-size: xx-large;
+}
