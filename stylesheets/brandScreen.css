@@ -1,0 +1,24 @@
+.card2 {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    display: grid;
+    width: 28vw;
+    height: 10vw;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  .cover2 {
+    object-fit: contain;
+  width: 100%;
+  height: 8vw;
+  margin: auto;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+  }

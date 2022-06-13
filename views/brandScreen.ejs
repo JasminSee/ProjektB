@@ -7,6 +7,7 @@
       <link rel="stylesheet" type="text/css" href="footer.css">
       <link rel="stylesheet" type="text/css" href="body.css">
       <link rel="stylesheet" type="text/css" href="columns.css">
+      <link rel="stylesheet" type="text/css" href="brandScreen.css">
       <style>
         * {
           box-sizing: border-box;
@@ -45,9 +46,10 @@
      <h1>Sieh dir alle Figuren deines Lieblingsherstellers an!</h1>
       <% for (i=0; i<collector.length; i++){ %>
         <div class="column">
+          <div class="card2">
           <a href="/hersteller/<%=collector[i].companyID %>">
-          <img alt="<%=collector[i].companyName %>" src="<%=collector[i].banner %>" height="80px">
-          </a>
+          <img alt="<%=collector[i].companyName %>" src="<%=collector[i].banner %>" class="cover2">
+          </a></div>
         </div>
       <% } %>
 
