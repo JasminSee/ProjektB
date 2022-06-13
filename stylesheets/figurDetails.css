@@ -134,13 +134,21 @@
   justify-content: center;
   align-items: flex-end;
   display: grid;
+  width: 18vw;
+  height: 26vw;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .cover {
   object-fit: contain;
-  width: 200px;
-  height: 200px;
+  width: 11vw;
+  height: 11vw;
   background-color: transparent;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .review-section {
