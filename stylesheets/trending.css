@@ -3,7 +3,7 @@
   margin-left: 50%;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.6);
   width: 26vw;
-  height: 36vw; 
+  height: 36vw;
   margin: auto;
   text-align: center;
   padding: 10px;
@@ -13,6 +13,7 @@
   overflow-x: auto;
   overflow-y: auto;
 }
+
 .cover {
   object-fit: contain;
   width: 23vw;

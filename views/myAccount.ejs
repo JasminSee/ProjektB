@@ -1,91 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="body.css">
-    <link rel="stylesheet" type="text/css" href="columns.css">
-    <link rel="stylesheet" type="text/css" href="myAccount.css">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <div class="banner"></div>
-    </div>
 
-    <div class="topnav">
-      <a href="/">Startseite</a>
-      <a href="trending">Trending</a>
-      <a href="allFigurines">Figuren</a>
-      <a href="trustedShops">Shops</a>
-      <a href="hersteller">Hersteller</a>
-      <a href="serien">Serien</a>
-      <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search" required>
-          <button type="submit">Suchen</button>
-        </form>
-      </div>
-    </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="body.css">
+  <link rel="stylesheet" type="text/css" href="columns.css">
+  <link rel="stylesheet" type="text/css" href="myAccount.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <div class="column" style="width: 20%;">
-      <div class="sidenav">
-        <a  href="/wunschliste">Wunschliste</a>
-        <a  href="/myReviews">Meine Bewertungen</a><br>
-        <a  href="/editAccount">Daten ändern</a>
-        <a  href="/editPassword">Passwort ändern</a>
-        <a  href="/deleteAccount">Account löschen</a><br><br><br>
-        <a  href="/logout">Ausloggen</a><br>
-      </div>
-    </div>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
 
-    <div class="column" style="width: 80%; margin-top: 20px;">
-      <h1>Mein Konto</h1>
-      <p style="font-size: 22px; font-weight: bold;">Willkommen <%=message%>!</p><br><br>
-      <% for (i=0; i<collector.length; i++){ %>
-        <p><b>Name:</b> <%=collector[i].firstName%> <%=collector[i].lastName%></p>
-        <p><b>E-Mail:</b> <%=collector[i].email%></p><br>
+<body>
+  <div class="header">
+    <div class="banner"></div>
+  </div>
+
+  <div class="topnav">
+    <a href="/">Startseite</a>
+    <a href="trending">Trending</a>
+    <a href="allFigurines">Figuren</a>
+    <a href="trustedShops">Shops</a>
+    <a href="hersteller">Hersteller</a>
+    <a href="serien">Serien</a>
+    <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search" required>
+        <button type="submit">Suchen</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="column" style="width: 20%;">
+    <div class="sidenav">
+      <a href="/wunschliste">Wunschliste</a>
+      <a href="/myReviews">Meine Bewertungen</a><br>
+      <a href="/editAccount">Daten ändern</a>
+      <a href="/editPassword">Passwort ändern</a>
+      <a href="/deleteAccount">Account löschen</a><br><br><br>
+      <a href="/logout">Ausloggen</a><br>
+    </div>
+  </div>
+
+  <div class="column" style="width: 80%; margin-top: 20px;">
+    <h1>Mein Konto</h1>
+    <p style="font-size: 22px; font-weight: bold;">Willkommen <%=message%>!</p><br><br>
+    <% for (i=0; i<collector.length; i++){ %>
+      <p><b>Name:</b>
+        <%=collector[i].firstName%>
+          <%=collector[i].lastName%>
+      </p>
+      <p><b>E-Mail:</b>
+        <%=collector[i].email%>
+      </p><br>
       <% } %>
-    </div>
+  </div>
 
-    <footer class="footer">
-      <div class="footer-row">
-        <div class="footer-column">
-          <p style="font-size: 20px">Service-Hotline</p>
-          <p>Wir beraten dich gerne:</p>
-          <p style="font-size: 22px">089/1234567-8</p>
-          <p>Mo-Fr 09.00 - 16.00 Uhr</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Impressum</p>
-          <p>Max Mustermann</p>
-          <p>Musterstraße 1</p>
-          <p>80999 München</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Kontakt:</p>
-          <p>Telefon: 089/1234567-8</p>
-          <p>Telefax: 089/1234567-9</p>
-          <p>E-Mail: mail@mustermann.de</p>
-        </div>
-        <div class="footer-column">
-          <p><a style="color: white" href="trending">Trending</a></p>
-          <p><a style="color: white" href="allFigurines">Figuren</a></p>
-          <p><a style="color: white" href="trustedShops">Shops</a></p>
-          <p><a style="color: white" href="hersteller">Hersteller</a></p>
-          <p><a style="color: white" href="serien">Serien</a></p>
-          <p><a style="color: white" href="myAccount">Mein Konto</a></p>
-        </div>
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
       </div>
-    </footer>
-  </body>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="trending">Trending</a></p>
+        <p><a style="color: white" href="allFigurines">Figuren</a></p>
+        <p><a style="color: white" href="trustedShops">Shops</a></p>
+        <p><a style="color: white" href="hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="serien">Serien</a></p>
+        <p><a style="color: white" href="myAccount">Mein Konto</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
 <html>

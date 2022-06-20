@@ -1,45 +1,52 @@
-.slide-content { 
-  margin-left:auto;
-  margin-right:auto;
-}
 .slide-content {
-  max-width:980px
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.slide-content {
+  max-width: 980px
+}
+
 .slide-display-container {
-  position:relative
+  position: relative
 }
+
 button {
-  border:none;
-  display:inline-block;
-  padding:8px 16px;
-  vertical-align:middle;
-  overflow:hidden;
-  text-decoration:none;
-  color:inherit;
-  background-color:inherit;
-  text-align:center;
-  cursor:pointer;
-  white-space:nowrap
-}  
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
+
 .button-black {
-  color:#fff;
-  background-color:#000
+  color: #fff;
+  background-color: #000
 }
+
 .slide-display-left {
-  position:absolute;
-  top:50%;
-  left:0%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%)
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(-0%, -50%)
 }
+
 .slide-display-right {
-  position:absolute;
-  top:50%;
-  right:0%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(0%,-50%)
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%)
 }
+
 button:hover {
-  color:#000;
-  background-color:#ccc
+  color: #000;
+  background-color: #ccc
 }

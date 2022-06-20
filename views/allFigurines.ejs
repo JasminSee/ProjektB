@@ -1,491 +1,498 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="body.css">
-    <link rel="stylesheet" type="text/css" href="columns.css">
-    <link rel="stylesheet" type="text/css" href="trending.css">
-    <link rel="stylesheet" type="text/css" href="/card.css">
-    <link rel="stylesheet" type="text/css" href="/allFigurines.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        height: 100%;
-      }
-      /* Create three equal columns that floats next to each other */
-      .column {
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <div class="banner"></div>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="body.css">
+  <link rel="stylesheet" type="text/css" href="columns.css">
+  <link rel="stylesheet" type="text/css" href="trending.css">
+  <link rel="stylesheet" type="text/css" href="/card.css">
+  <link rel="stylesheet" type="text/css" href="/allFigurines.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    .column {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="banner"></div>
+  </div>
+
+  <div class="topnav">
+    <a href="/">Startseite</a>
+    <a href="trending">Trending</a>
+    <a style="background-color: #234536;" href="allFigurines">Figuren</a>
+    <a href="trustedShops">Shops</a>
+    <a href="hersteller">Hersteller</a>
+    <a href="serien">Serien</a>
+    <a href="myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search" required>
+        <button type="submit">Suchen</button>
+      </form>
     </div>
+  </div>
 
-    <div class="topnav">
-      <a href="/">Startseite</a>
-      <a href="trending">Trending</a>
-      <a style="background-color: #234536;" href="allFigurines">Figuren</a>
-      <a href="trustedShops">Shops</a>
-      <a href="hersteller">Hersteller</a>
-      <a href="serien">Serien</a>
-      <a href="myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search" required>
-          <button type="submit">Suchen</button>
-        </form>
-      </div>
-    </div>
+  <div class="row">
+    <button type="button" class="collapsible" style="margin: 20px; width: 95%">Filter</button>
 
-    <div class="row">
-      <button type="button" class="collapsible" style="margin: 20px; width: 95%">Filter</button>
+    <div class="content">
+      <div class="column">
 
-      <div class="content">
-        <div class="column">
-
-          <form action="/allFigurines/sort" method="POST">
-            <button type="button" class="collapsible">Sortieren nach</button>
-              <div class="content">
-                <label class="container">Charaktername
-                  <input class="radio" type="checkbox" name="alphabeticalSort" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Serien
-                  <input class="radio" type="checkbox" name="seriesSort" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Erscheinungsjahr aufsteigend
-                  <input class="radio" type="checkbox" name="releaseSortASC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Erscheinungsjahr absteigend
-                  <input class="radio" type="checkbox" name="releaseSortDESC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Preis aufsteigend
-                  <input class="radio" type="checkbox" name="priceSortASC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Preis absteigend
-                  <input class="radio" type="checkbox" name="priceSortDESC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Bewertung aufsteigend
-                  <input class="radio" type="checkbox" name="ratingSortASC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">Bewertung absteigend
-                  <input class="radio" type="checkbox" name="ratingSortDESC" onclick="onlyOne(this)">
-                  <span class="checkmark"></span>
-                </label>
-                <button class="submitButton" type="submit" name="releaseButton">Anwenden</button>
-              </div>
-            </form>
-
-          <form action="/allFigurines/filterRelease" method="POST">
-          <button type="button" class="collapsible">Erscheinungsdatum</button>
-            <div class="content">
-              <label class="container">2016
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2016">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2017
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2017">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2018
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2018">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2019
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2019">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2020
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2020">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2021
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2021">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2022
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2022">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2023
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="release2023">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="releaseButton">Anwenden</button>
-            </div>
-          </form>
-
-          <form action="/allFigurines/filterClassification" method="POST">
-            <button type="button" class="collapsible">Klassifikation</button>
-            <div class="content">
-              <label class="container">Pop Up Parade
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="PopUpParade">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Nendroid
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Nendroid">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">ARTFX J
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="ArtfxJ">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Bandai Spirits
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="BendaiSpirits">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Shibuya Scramble Figure
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="ShibuyaScrample">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Figma
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Figma">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Naruto Gals DX
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="NarutoGals">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Game Characters Collection DX
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="CharactersCollectionDX">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">G.E.M
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="GEM">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Precious G.E.M.
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="PreciousGEM">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">B-style
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="BStyle">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Figuarts ZERO
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Zero">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">F:Nex
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="FNex">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Gals Series
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Gals">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">KDcolle
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="KDcolle">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="classificationButton">Anwenden</button>
-            </div>
-          </form>
-
-          <form action="/allFigurines/filterMaterial" method="POST">
-            <button type="button" class="collapsible">Material</button>
-            <div class="content">
-              <label class="container">ABS
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="ABS">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">PVC
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="PVC">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Acryl
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Acryl">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">LED
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="LED">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="materialButton">Anwenden</button>
-            </div>
-          </form>
-
-          <form action="/allFigurines/filterRating" method="POST">
-            <button type="button" class="collapsible">Bewertung</button>
-            <div class="content">
-              <label class="container">1 Stern
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="One">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">2 Sterne
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Two">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">3 Sterne
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Three">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">4 Sterne
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Four">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">5 Sterne
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Five">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="heightButton">Anwenden</button>
-            </div>
-          </form>
-
-          <form action="/allFigurines/filterPrice" method="POST">
-            <button type="button" class="collapsible">Originalpreis</button>
-            <div class="content">
-              <label class="container">unter 3000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen3000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">3000 bis 6000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen6000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">6000 bis 10.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen10000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">10.000 bis 16.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen16000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">17.000 Yen bis 20.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen20000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">21.000 Yen bis 25.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen25000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">26.000 Yen bis 30.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Yen30000">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">über 30.000 Yen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="YenMax">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="priceButton">Anwenden</button>
-            </div>
-          </form>
-          
-          <form action="/allFigurines/filterSeries" method="POST">
-            <button type="button" class="collapsible">Serien</button>
-            <div class="content">
-              <label class="container">Attack On Titan
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="AOT">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Demon Slayer
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="DemonSlayer">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Black Rock Shooter
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="BlackRockShooter">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Danganronpa
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Danganronpa">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Darling In The FranXX
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="DarlingInTheFranXX">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Digimon Adventure
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Digimon">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Hololive
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Hololive">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">InuYasha
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Inuyasha">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Jujutsu Kaisen
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="JujutsuKaisen">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">KonoSuba
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="KonoSuba">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">My Hero Academia
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="MyHeroAcademia">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Naruto Shippuuden
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Naruto">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Neon Genesis Evangelion
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="NeonGenesis">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">One Piece
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="OnePiece">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Persona 5
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Persona">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Shaman King
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="ShamanKing">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Tokyo Revengers
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="TokyoRevengers">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">That Time I Got Reincarnated As A Slime
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Slime">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="seriessButton">Anwenden</button>
-            </div>
-          </form>
-
-          <form action="/allFigurines/filterCompanies" method="POST">
-            <button type="button" class="collapsible">Hersteller</button>
-            <div class="content">
-              <label class="container">Good Smile Company
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="GoodSmile">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Kotobukiya
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Kotobukiya">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Aniplex
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Aniplex">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">eStream
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="eStream">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Bandai / Banpresto
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Bandai">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Max Factory
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="MaxFactory">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">MegaHouse
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="MegaHouse">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">FREEing
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="FreeIng">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Kadokawa
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="Kadokawa">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">FuRyu
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="FuRyu">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Bandai Spirits
-                <input class="radio" onclick="onlyOne(this)"  type="checkbox" name="BandaiSpirits">
-                <span class="checkmark"></span>
-              </label>
-              <button class="submitButton" type="submit" name="companyButton">Anwenden</button>
-            </div>
-          </form>
-
-        </form>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-      
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
-      }
-
-      function onlyOne(checkbox) {
-        var checkboxes = Array.from(document.getElementsByClassName('radio'))
-        checkboxes.forEach((item) => {
-          if (item !== checkbox) item.checked = false
-        })
-      }
-    </script>
-
-    <div class="row" style="text-align: center;">
-      <% for (i=0; i<collector.length; i++){ %>
-        <div class="column"  style="width: 33.33%;">
-          <div class="card">
-            <p style="font-size: 20px; font-weight: bold"><%=collector[i].characterName %></p>
-            <a href="/figurDetails/<%=collector[i].fid %>">
-              <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
-            </a>
-            <p><%=collector[i].seriesName %></p>
+        <form action="/allFigurines/sort" method="POST">
+          <button type="button" class="collapsible">Sortieren nach</button>
+          <div class="content">
+            <label class="container">Charaktername
+              <input class="radio" type="checkbox" name="alphabeticalSort" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Serien
+              <input class="radio" type="checkbox" name="seriesSort" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Erscheinungsjahr aufsteigend
+              <input class="radio" type="checkbox" name="releaseSortASC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Erscheinungsjahr absteigend
+              <input class="radio" type="checkbox" name="releaseSortDESC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Preis aufsteigend
+              <input class="radio" type="checkbox" name="priceSortASC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Preis absteigend
+              <input class="radio" type="checkbox" name="priceSortDESC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bewertung aufsteigend
+              <input class="radio" type="checkbox" name="ratingSortASC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bewertung absteigend
+              <input class="radio" type="checkbox" name="ratingSortDESC" onclick="onlyOne(this)">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="releaseButton">Anwenden</button>
           </div>
-        </div>
-      <% } %>
-    </div>
+        </form>
 
-    <footer class="footer">
-      <div class="footer-row">
-        <div class="footer-column">
-          <p style="font-size: 20px">Service-Hotline</p>
-          <p>Wir beraten dich gerne:</p>
-          <p style="font-size: 22px">089/1234567-8</p>
-          <p>Mo-Fr 09.00 - 16.00 Uhr</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Impressum</p>
-          <p>Max Mustermann</p>
-          <p>Musterstraße 1</p>
-          <p>80999 München</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Kontakt:</p>
-          <p>Telefon: 089/1234567-8</p>
-          <p>Telefax: 089/1234567-9</p>
-          <p>E-Mail: mail@mustermann.de</p>
-        </div>
-        <div class="footer-column">
-          <p><a style="color: white" href="trending">Trending</a></p>
-          <p><a style="color: white" href="allFigurines">Figuren</a></p>
-          <p><a style="color: white" href="trustedShops">Shops</a></p>
-          <p><a style="color: white" href="hersteller">Hersteller</a></p>
-          <p><a style="color: white" href="serien">Serien</a></p>
-          <p><a style="color: white" href="myAccount">Mein Konto</a></p>
+        <form action="/allFigurines/filterRelease" method="POST">
+          <button type="button" class="collapsible">Erscheinungsdatum</button>
+          <div class="content">
+            <label class="container">2016
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2016">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2017
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2017">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2018
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2018">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2019
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2019">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2020
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2020">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2021
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2021">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2022
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2022">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2023
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="release2023">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="releaseButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterClassification" method="POST">
+          <button type="button" class="collapsible">Klassifikation</button>
+          <div class="content">
+            <label class="container">Pop Up Parade
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="PopUpParade">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Nendroid
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Nendroid">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">ARTFX J
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="ArtfxJ">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bandai Spirits
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="BendaiSpirits">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Shibuya Scramble Figure
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="ShibuyaScrample">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Figma
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Figma">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Naruto Gals DX
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="NarutoGals">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Game Characters Collection DX
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="CharactersCollectionDX">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">G.E.M
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="GEM">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Precious G.E.M.
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="PreciousGEM">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">B-style
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="BStyle">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Figuarts ZERO
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Zero">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">F:Nex
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="FNex">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Gals Series
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Gals">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">KDcolle
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="KDcolle">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="classificationButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterMaterial" method="POST">
+          <button type="button" class="collapsible">Material</button>
+          <div class="content">
+            <label class="container">ABS
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="ABS">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">PVC
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="PVC">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Acryl
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Acryl">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">LED
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="LED">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="materialButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterRating" method="POST">
+          <button type="button" class="collapsible">Bewertung</button>
+          <div class="content">
+            <label class="container">1 Stern
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="One">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">2 Sterne
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Two">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">3 Sterne
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Three">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">4 Sterne
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Four">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">5 Sterne
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Five">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="heightButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterPrice" method="POST">
+          <button type="button" class="collapsible">Originalpreis</button>
+          <div class="content">
+            <label class="container">unter 3000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen3000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">3000 bis 6000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen6000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">6000 bis 10.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen10000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">10.000 bis 16.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen16000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">17.000 Yen bis 20.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen20000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">21.000 Yen bis 25.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen25000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">26.000 Yen bis 30.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Yen30000">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">über 30.000 Yen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="YenMax">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="priceButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterSeries" method="POST">
+          <button type="button" class="collapsible">Serien</button>
+          <div class="content">
+            <label class="container">Attack On Titan
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="AOT">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Demon Slayer
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="DemonSlayer">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Black Rock Shooter
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="BlackRockShooter">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Danganronpa
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Danganronpa">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Darling In The FranXX
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="DarlingInTheFranXX">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Digimon Adventure
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Digimon">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Hololive
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Hololive">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">InuYasha
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Inuyasha">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Jujutsu Kaisen
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="JujutsuKaisen">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">KonoSuba
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="KonoSuba">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">My Hero Academia
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="MyHeroAcademia">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Naruto Shippuuden
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Naruto">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Neon Genesis Evangelion
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="NeonGenesis">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">One Piece
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="OnePiece">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Persona 5
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Persona">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Shaman King
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="ShamanKing">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Tokyo Revengers
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="TokyoRevengers">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">That Time I Got Reincarnated As A Slime
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Slime">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="seriessButton">Anwenden</button>
+          </div>
+        </form>
+
+        <form action="/allFigurines/filterCompanies" method="POST">
+          <button type="button" class="collapsible">Hersteller</button>
+          <div class="content">
+            <label class="container">Good Smile Company
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="GoodSmile">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Kotobukiya
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Kotobukiya">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Aniplex
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Aniplex">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">eStream
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="eStream">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bandai / Banpresto
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Bandai">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Max Factory
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="MaxFactory">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">MegaHouse
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="MegaHouse">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">FREEing
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="FreeIng">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Kadokawa
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="Kadokawa">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">FuRyu
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="FuRyu">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Bandai Spirits
+              <input class="radio" onclick="onlyOne(this)" type="checkbox" name="BandaiSpirits">
+              <span class="checkmark"></span>
+            </label>
+            <button class="submitButton" type="submit" name="companyButton">Anwenden</button>
+          </div>
+        </form>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+
+    function onlyOne(checkbox) {
+      var checkboxes = Array.from(document.getElementsByClassName('radio'))
+      checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+      })
+    }
+  </script>
+
+  <div class="row" style="text-align: center;">
+    <% for (i=0; i<collector.length; i++){ %>
+      <div class="column" style="width: 33.33%;">
+        <div class="card">
+          <p style="font-size: 20px; font-weight: bold">
+            <%=collector[i].characterName %>
+          </p>
+          <a href="/figurDetails/<%=collector[i].fid %>">
+            <img alt="<%=collector[i].figurineName %>" src="<%=collector[i].picture %>" class="cover">
+          </a>
+          <p>
+            <%=collector[i].seriesName %>
+          </p>
         </div>
       </div>
-    </footer>
-  </body>
+      <% } %>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="trending">Trending</a></p>
+        <p><a style="color: white" href="allFigurines">Figuren</a></p>
+        <p><a style="color: white" href="trustedShops">Shops</a></p>
+        <p><a style="color: white" href="hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="serien">Serien</a></p>
+        <p><a style="color: white" href="myAccount">Mein Konto</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
 <html>

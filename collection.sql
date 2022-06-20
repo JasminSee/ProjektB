@@ -157,7 +157,7 @@ INSERT INTO wishlist(customerID, figuresID) VALUES
 (9,6),
 (10,5);
 
-
+/*Hersteller*/
 INSERT INTO companies(companyName, banner, link) VALUES
 ("Good Smile Company","https://cf.goodsmile.jp/GSCSite/gsc_logo.png", "https://www.goodsmile.info/en/"),
 ("Kotobukiya","https://en.kotobukiya.co.jp/wp-content/themes/kotobukiya/images/logo.png", "https://en.kotobukiya.co.jp/"),
@@ -171,6 +171,7 @@ INSERT INTO companies(companyName, banner, link) VALUES
 ('FuRyu', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Furyu_logo.svg/1200px-Furyu_logo.svg.png', 'www.furyu.jp');
 ('Bandai Spirits', 'https://static.myfigurecollection.net/upload/entries/169939.jpg?rev=1556497994', 'www.bandaispirits.co.jp');
 
+/*Serien*/
 INSERT INTO series(seriesName,altName,icon,seriesType,release,sDescription) VALUES
 ("Demon Slayer", "鬼滅の刃 / Kimetsu no Yaiba","https://d2y6mqrpjbqoe6.cloudfront.net/image/upload/f_auto,q_auto/media/library-400/28_637635175735318571DS-DE_Small_hq.jpg", "TV-Serie","06.04.2019 - 28.09.2019","Japan in der Taishō-Ära (1912-1926). Viel passiert nicht im Leben des gutherzigen Jungen Tanjirō, seinen friedlichen Alltag verbringt er damit Kohle zu verkaufen. Doch plötzlich verändert eine Tragödie alles: Ein blutrünstiger Teufel tötet seine gesamte Familie. Die einzige Überlebende, seine kleine Schwester Nezuko, verwandelt sich jedoch selbst auch in einen gewalttätigen Teufel. Um einen Weg zu finden Nezuko zurückzuverwandeln und Rache für ihre Familie zu nehmen, brechen die beiden zu einer langen Reise auf. Seid gespannt auf ein Abenteuer voller blutiger Kämpfe, Schwertkämpfer und Teufel aus der Feder eines Genies!"),
 ("Darling in the FranXX", "ダーリン・イン・ザ・フランキス / Dārin In Za Furankisu","https://cdn.anisearch.com/images/anime/cover/full/12/12599.webp", "TV-Serie","13.01.2018 - 07.07.2018","Sie träumen davon, durch den freien, weiten Himmel zu fliegen – ein Traum, von dem sie wissen, dass er niemals in Erfüllung gehen wird… <br>In einer fernen Zukunft, in der die Erde weitgehend zerstört und ein Großteil der menschlichen Zivilisation ausgelöscht wurde, errichteten die wenigen Überlebenden wandelnde Festungsstädte – die „Plantations“ –, um sich selbst und die wenigen Reste der Zivilisation am Leben zu halten. Die Kinder der Bewohner leben in einer Trainingseinrichtung, die weithin als „Vogelkäfig“ bekannt ist. Ohne je mit der Außenwelt in Berührung gekommen zu sein, werden sie dort für den Kampf gegen die mysteriösen Lebensformen ausgebildet, die die Menschheit so dezimierten. So lernen die Kinder, wie man die riesigen Roboter, die „Franxx“, steuert und wie man in ihnen kämpft – denn nur Pilot eines „Franxx“ zu sein, ist ein Beweis für die eigene Existenz. <br>Code-Nummer 016 – Hiro – wurde einst als Wunderkind angesehen, doch als er mit seinen Kameraden nicht mehr mithalten konnte und es ihm nicht mehr möglich war, einen „Franxx“ zu steuern, verlor seine Existenz jegliche Bedeutung … schließlich ist es fast dasselbe als würde er gar nicht existieren. Eines Tages jedoch erscheint ein mysteriöses Mädchen vor ihm. Zero Two, so ihr Name, schaut ihn mit vertrautem Blick an und während Lichtreflexe mit den zwei glänzenden Hörnern auf ihrer Stirn spielen, sagt sie: „Ich habe dich gefunden, mein Darling.“"),
@@ -191,6 +192,7 @@ INSERT INTO series(seriesName,altName,icon,seriesType,release,sDescription) VALU
 ("Digimon Adventure","デジモンアドベンチャー","https://cdn.anisearch.de/images/anime/cover/full/14/14907.webp","TV-Serie","07.03.1999 - 26.03.2000","Sieben Kinder, die sich in den Sommerferien in einem Zeltlager treffen, werden Zeuge von seltsamen Wettererscheinungen, welche in einer riesigen Flutwelle gipfeln. Kaum wieder zu sich gekommen, folgt jedem von ihnen ein kleines Wesen. Selbige stellen sich sogleich als „Digitale Monster“, kurz Digimon, vor. Noch bevor sie sich in der fremden Umgebung zurechtfinden können, werden sie auch schon von einem bösartigen Vertreter angegriffen…"),
 ("Neon Genesis Evangelion","Shinseiki Evangelion / 新世紀エヴァンゲリオン","https://cdn.anisearch.de/images/anime/cover/full/0/345.webp","TV-Serie","04.10.1995 - 27.03.1996","Am 13. September 2000 schlägt ein Meteorit in der Antarktis ein. Die Polkappen schmelzen und es folgen Fluten, Elend, Unruhen und Bürgerkriege, denen die Hälfte der Weltbevölkerung zum Opfer fällt.<br>15 Jahre später wird der 14-jährige Shinji Ikari von seinem Vater Gendou, nach über drei Jahren Abwesenheit, zu sich gerufen. Glücklich darüber, Anerkennung zu finden und in Selbstzweifel, ob er die an ihn gestellten Erwartungen erfüllen könne, stellt er bei seiner Ankunft fest, dass Neo Tokyo-3 bedroht wird. Den Mut verliert er, als er erfährt, dass ausgerechnet er in einen von seinem Vater bereitgestellten Mecha, genannt Evangelion, steigen und gegen die feindlich gesinnten „Engel“, welche die Stadt attackieren, kämpfen soll. Schließlich entscheidet sich Shinji dazu, den Evangelion zu steuern und den Kampf gegen die „Engel“ aufzunehmen.");
 
+/*Links und Preise für AllBlue*/
 INSERT INTO allBlueData(link, price, seller) VALUES
 ("https://www.allblue-world.de/anime-manga/13464/demon-slayer-kimetsu-no-yaiba-tengen-uzui-figur/pop-up-parade-good-smile-company?c=0",44.90,1),
 ("https://www.allblue-world.de/shop/a-c/action-figuren/4462/darling-in-the-franxx-zero-two-nendoroid-good-smile-company?c=0",56.90,1),
@@ -247,6 +249,7 @@ INSERT INTO allBlueData(link, price, seller) VALUES
 ('https://www.allblue-world.de/shop/o-s/statuen-buesten-figuren/13321/jujutsu-kaisen-toge-inumaki-figur/pop-up-parade-good-smile-company?c=0', 44.9, 1);
 ('https://www.allblue-world.de/shop/a-c/anime-prize-figuren/12458/one-piece-nami-figur/eiichiro-oda-illustration-figuartszero-tamashii?c=0', 56.9, 1);
 
+/*Links und Preise für manga MAfia*/
 INSERT INTO mangaMafiaData(link, price,seller) VALUES
 ("https://manga-mafia.de/preorder-demon-slayer-tengen-uzui-pop-up-parade-18cm-pvc-statue.html",49.99,2),
 ("https://manga-mafia.de/figuren/collector-darling-in-the-franxx-zero-two-nendoroid-10cm-actionfigur.html",69.99,2),
@@ -303,6 +306,7 @@ INSERT INTO mangaMafiaData(link, price,seller) VALUES
 ('https://manga-mafia.de/preorder-jujutsu-kaisen-toge-inumaki-pop-up-parade-17cm-pvc-statue.html', 49.99, 2);
 ('https://manga-mafia.de/preorder-one-piece-nami-wt100-figuartszero-28cm-pvc-statue.html', 69.99, 2);
 
+/*Links und Preise für Anime LE*/
 INSERT INTO animeLeData(link, price) VALUES
 ("https://www.anime-le.de/detail/index/sArticle/11772",44.90,3),
 ("https://www.anime-le.de/detail/index/sArticle/8421",56.90,3),
@@ -359,6 +363,7 @@ INSERT INTO animeLeData(link, price) VALUES
 ('https://www.anime-le.de/detail/index/sArticle/11644', 44.9, 3);
 ('https://www.anime-le.de/detail/index/sArticle/10212', 69.9, 3);
 
+/*Links und Preise für Figuya*/
 INSERT INTO figuyaData(link, price) VALUES
 ("https://figuya.com/de/produkte/tengen-uzui-demon-slayer-pop-up-parade-good-smile-company-37987-de",39.90,4),
 ("https://figuya.com/de/produkte/nendoroid-952-zero-two-neuauflage-11950-de",59.90,4),
@@ -415,7 +420,7 @@ INSERT INTO figuyaData(link, price) VALUES
 ('https://figuya.com/de/produkte/toge-inumaki-jujutsu-kaisen-pop-up-parade-good-smile-company-37551-de', 39.9, 4);
 ('https://figuya.com/de/produkte/nami-wt100-special-illustration-figuarts-zero-daikaizoku-hyakkei-bandai-spirits-34472-de', 54.9, 4);
 
-/*wird noch verändert!!!: bewertung + KommentarIDs kommt noch dazu*/
+/*Figuren*/
 INSERT INTO figurines(figurineName, picture,isbn,origin,characterName,company,classification,dimension,material,releaseDate,originalPriceYen,allBlueID,mangaMafiaID,animeLeID,figuyaID) VALUES
 ("Demon Slayer - Uzui Tengen - Pop Up Parade","https://static.myfigurecollection.net/upload/items/large/1087573.jpg","4580416945110",1,"Uzui Tengen",1,"Pop Up Parade","Height=180mm","ABS, PVC"," 08/2022",3545,1,1,1,1),
 ("Darling in the Franxx - Zero Two - Nendoroid #952","https://static.myfigurecollection.net/upload/items/large/675280.jpg","4580590124585",2,"Zero Two",1,"Nendroid","Height=100mm","ABS, PVC","12/2018",4818,2,2,2,2),
@@ -472,7 +477,7 @@ INSERT INTO figurines(figurineName, picture,isbn,origin,characterName,company,cl
 ('Jujutsu Kaisen - Toge Inumaki Figur / Pop Up Parade', 'https://static.myfigurecollection.net/upload/items/large/1427016.jpg', '4580416944847', 6, 'Inumaki Toge', 1, 'Pop Up Parade', 'Height=170mm', 'ABS, PVC', '07/2022', 3545, 53, 53, 53, 53);
 ('One Piece - Nami Figur / Eiichiro Oda Illustration FiguartsZERO', 'https://static.myfigurecollection.net/upload/items/large/1308998.jpg', '4573102630025', 11, 'Nami', 11, 'Figuarts ZERO', 'Height=280mm', 'ABS, PVC', '03/2022', 5500, 54, 54, 54, 54);
 
-
+/*Bewertungen*/
 INSERT INTO reviews(fid,userId,userName, postDate, rating, title, rDescription) VALUES
 (1,1,"Daniel Sauter", "2008-11-11", 5, "Best Fig Ever", "test text"),
 (1,2,"Joanna Keßler", "2008-11-15", 5, "I LOVE THIS", "This looks so cool!!!! I've had mine preordered for over a year now and am dying to get her from Otaku Mode lol. this just made me so hyped"),

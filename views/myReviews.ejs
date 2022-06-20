@@ -1,115 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <head>
-      <link rel="stylesheet" type="text/css" href="header.css">
-      <link rel="stylesheet" type="text/css" href="navbar.css">
-      <link rel="stylesheet" type="text/css" href="footer.css">
-      <link rel="stylesheet" type="text/css" href="body.css">
-      <link rel="stylesheet" type="text/css" href="columns.css">
-      <link rel="stylesheet" type="text/css" href="/myReviews.css">
-      <style>
-        * {
-          box-sizing: border-box;
-        }
-        html {
-          height: 100%;
-        }
-        .column {
-          width: 100%;
-        }
-      </style>
-    </head>
-  </head>
-  <body>
-    <div class="header">
-      <div class="banner"></div>
-    </div>
 
-    <div class="topnav">
-      <a href="/">Startseite</a>
-      <a href="trending">Trending</a>
-      <a href="allFigurines">Figuren</a>
-      <a href="trustedShops">Shops</a>
-      <a  href="hersteller">Hersteller</a>
-      <a href="serien">Serien</a>
-      <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search" required>
-          <button type="submit">Suchen</button>
-        </form>
-      </div>
+<head>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <link rel="stylesheet" type="text/css" href="columns.css">
+    <link rel="stylesheet" type="text/css" href="/myReviews.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      .column {
+        width: 100%;
+      }
+    </style>
+  </head>
+</head>
+
+<body>
+  <div class="header">
+    <div class="banner"></div>
+  </div>
+
+  <div class="topnav">
+    <a href="/">Startseite</a>
+    <a href="trending">Trending</a>
+    <a href="allFigurines">Figuren</a>
+    <a href="trustedShops">Shops</a>
+    <a href="hersteller">Hersteller</a>
+    <a href="serien">Serien</a>
+    <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search" required>
+        <button type="submit">Suchen</button>
+      </form>
     </div>
-    
-    <div class="row">
-      <div class="column">
-        <div class="infobox">
-          <div class="review-section">
-            <h2><%=collector.length %> Bewertungen</h2>
-            <% for (i=0; i<collector.length; i++){ %>
-              <a style="text-decoration: none; color: white;" href="/figurDetails/<%=collector[i].fid %>">
-                <div class="review-box">
-                  <div class="column" style="width: 80%;">
-                    <div class="name-box">
-                      <%=collector[i].userName %>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <div class="infobox">
+        <div class="review-section">
+          <h2>
+            <%=collector.length %> Bewertungen
+          </h2>
+          <% for (i=0; i<collector.length; i++){ %>
+            <a style="text-decoration: none; color: white;" href="/figurDetails/<%=collector[i].fid %>">
+              <div class="review-box">
+                <div class="column" style="width: 80%;">
+                  <div class="name-box">
+                    <%=collector[i].userName %>
+                  </div>
+                  <div class="top-box">
+                    <div class="top-box-items">
+                      <h3>
+                        <%=collector[i].title %>
+                      </h3>
                     </div>
-                    <div class="top-box">
-                      <div class="top-box-items">
-                        <h3>
-                          <%=collector[i].title %>
-                        </h3>
-                      </div>
-                      <div class="rated-stars">
-                        <div class="star-ratings-css" data-rate="<%=collector[i].rating %>"></div>
-                      </div>
-                    </div>
-                    <div class="desc-box">
-                      <%=collector[i].rDescription %>
-                    </div>
-                    <div class="bottom-box">
-                      <%=moment(collector[i].date).format( 'MMM-DD-YYYY' ) %>
+                    <div class="rated-stars">
+                      <div class="star-ratings-css" data-rate="<%=collector[i].rating %>"></div>
                     </div>
                   </div>
-                  <div class="column" style="width: 20%;">
-                    <img src="<%=collector[i].picture %>" class="cover" style="width: 230px;">
+                  <div class="desc-box">
+                    <%=collector[i].rDescription %>
+                  </div>
+                  <div class="bottom-box">
+                    <%=moment(collector[i].date).format( 'MMM-DD-YYYY' ) %>
                   </div>
                 </div>
-              </a>
+                <div class="column" style="width: 20%;">
+                  <img src="<%=collector[i].picture %>" class="cover" style="width: 230px;">
+                </div>
+              </div>
+            </a>
             <% } %>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 
-      <footer class="footer">
-        <div class="footer-row">
-          <div class="footer-column">
-            <p style="font-size: 20px">Service-Hotline</p>
-            <p>Wir beraten dich gerne:</p>
-            <p style="font-size: 22px">089/1234567-8</p>
-            <p>Mo-Fr 09.00 - 16.00 Uhr</p>
-          </div>
-          <div class="footer-column">
-            <p style="font-size: 20px">Impressum</p>
-            <p>Max Mustermann</p>
-            <p>Musterstraße 1</p>
-            <p>80999 München</p>
-          </div>
-          <div class="footer-column">
-            <p style="font-size: 20px">Kontakt:</p>
-            <p>Telefon: 089/1234567-8</p>
-            <p>Telefax: 089/1234567-9</p>
-            <p>E-Mail: mail@mustermann.de</p>
-          </div>
-          <div class="footer-column">
-            <p><a style="color: white" href="trending">Top 10</a></p>
-            <p><a style="color: white" href="trustedShops">Shops</a></p>
-            <p><a style="color: white" href="hersteller">Hersteller</a></p>
-            <p><a style="color: white" href="serien">Serien</a></p>
-            <p><a style="color: white" href="login">Mein Konto</a></p>
-          </div>
-        </div>
-      </footer>
-  </body>
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="trending">Top 10</a></p>
+        <p><a style="color: white" href="trustedShops">Shops</a></p>
+        <p><a style="color: white" href="hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="serien">Serien</a></p>
+        <p><a style="color: white" href="login">Mein Konto</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
 <html>

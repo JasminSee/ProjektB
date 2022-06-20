@@ -1,17 +1,17 @@
-/* Create three equal columns that floats next to each other */
+/* Erstellt 3 gleichgroße Spalten nebeneinander */
 .column {
   float: left;
   padding: 15px;
 }
 
-/* Clear floats after the columns */
+/* Clear floats nach den Spalten */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+/* Responsive layout - lässt die 3 Kolonnen aufeinanderstapeln statt nebeneinander liegen */
 @media screen and (max-width:600px) {
   .column {
     width: 100%;

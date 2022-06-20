@@ -6,20 +6,23 @@
   margin-bottom: 5%;
   width: 25%;
   padding: 40px;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, .5);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
 }
+
 .login-box h2 {
   margin: 0 0 30px;
   padding: 0;
   color: #fff;
   text-align: center;
 }
+
 .login-box .user-box {
   position: relative;
 }
+
 .login-box .user-box input {
   width: 100%;
   padding: 10px 0;
@@ -31,9 +34,10 @@
   outline: none;
   background: transparent;
 }
+
 .login-box .user-box label {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   padding: 10px 0;
   font-size: 16px;
@@ -41,33 +45,37 @@
   pointer-events: none;
   transition: .5s;
 }
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
   top: -20px;
   left: 0;
   color: #6ddead;
   font-size: 12px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/* Ändert styles für span und cancel button auf extra kleinen screens */
 @media screen and (max-width:600px) {
   span.psw {
     display: block;
     float: none;
   }
+
   .cancelbtn {
     width: 100%;
   }
 }
+
 .submitButton:hover {
   background: #4b9776;
   color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 0 0 5px #6ddead,
-              0 0 10px #6ddead,
-              0 0 15px #6ddead,
-              0 0 20px #6ddead;
+    0 0 10px #6ddead,
+    0 0 15px #6ddead,
+    0 0 20px #6ddead;
 }
+
 .submitButton {
   position: relative;
   background-color: #3b755b;

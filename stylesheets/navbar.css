@@ -1,4 +1,4 @@
-/* The navbar container */
+/* navbar container */
 .topnav {
   overflow: hidden;
   background-color: transparent;
@@ -14,11 +14,12 @@
   text-decoration: none;
 }
 
-/* Links - change color on hover */
+/* Links - ändert Farbe beim hovern */
 .topnav a:hover {
   background-color: #234536;
   color: white;
 }
+
 .topnav .search-container {
   float: right;
 }
@@ -43,6 +44,5 @@
 
 .topnav .search-container button:hover {
   background: #397058;
-  color:white;
+  color: white;
 }
-

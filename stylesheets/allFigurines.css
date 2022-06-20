@@ -1,4 +1,4 @@
-/* The container */
+/* der Behälter */
 .container {
   display: block;
   position: relative;
@@ -12,7 +12,7 @@
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
+/* Versteckt default Ankreuzfeld */
 .container input {
   position: absolute;
   opacity: 0;
@@ -21,7 +21,7 @@
   width: 0;
 }
 
-/* Create a custom checkbox */
+/* custom Ankreuzfeld */
 .checkmark {
   position: absolute;
   top: 0;
@@ -32,26 +32,26 @@
   border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
+/* Bei mouse-over, ändern des Hintergrundes in grau */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* Wenn Ankreuzbox ausgewählt, änderung der Box in grün */
 .container input:checked ~ .checkmark {
   background-color: #346751;
 }
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Erstellung der checkmark/indicator (Versteckt wenn nicht ausgewählt) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-/* Show the checkmark when checked */
+/* Zeigt Ankreuzbox beim Auswählen */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
-/* Style the checkmark/indicator */
+/* Stil des checkmark/indicator */
 .container .checkmark:after {
   top: 9px;
 	left: 9px;
@@ -80,7 +80,7 @@
 .active, .submitButton:hover {
     background-color: #346751;
   }
-/* Style the button that is used to open and close the collapsible content */
+/* Stil des buttons das benutzt wird um den collapsible content zu öffnen und zu schließen */
 .collapsible {
   background-color: #234536;
   color: #ddd;
@@ -93,7 +93,7 @@
   font-size: 20px;
   font-weight: bold;
 }
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Farbenänderung beim hovern und Clicken des Buttons */
 .active, .collapsible:hover {
   background-color: #346751;
 }

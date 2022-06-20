@@ -1,88 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="body.css">
-    <link rel="stylesheet" type="text/css" href="columns.css">
-    <link rel="stylesheet" type="text/css" href="register.css">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <div class="banner"></div>
-    </div>
 
-    <div class="topnav">
-      <a href="/">Startseite</a>
-      <a href="trending">Trending</a>
-      <a href="allFigurines">Figuren</a>
-      <a href="trustedShops">Shops</a>
-      <a href="hersteller">Hersteller</a>
-      <a href="serien">Serien</a>
-      <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search" required>
-          <button type="submit">Suchen</button>
-        </form>
-      </div>
-    </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="body.css">
+  <link rel="stylesheet" type="text/css" href="columns.css">
+  <link rel="stylesheet" type="text/css" href="register.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <div class="register-box">
-      <h2>Lösche deinen Account</h2>
-      <form method="POST" action="/doDeleteAccount" name="register">
-        <div class="user-box">
-          <input type="password" name="password" required>
-          <label>Passwort</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="confirm" required>
-          <label>Passwort wiederholen</label>
-        </div><br>
-        <p style="font-size: 12px; color:red;"><%=message%></p>
-        <button class="submitButton" type="submit">Endgültig löschen</button><br>
-        <a  class="submitButton" href="myAccount">Abbrechen</a>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="banner"></div>
+  </div>
+
+  <div class="topnav">
+    <a href="/">Startseite</a>
+    <a href="trending">Trending</a>
+    <a href="allFigurines">Figuren</a>
+    <a href="trustedShops">Shops</a>
+    <a href="hersteller">Hersteller</a>
+    <a href="serien">Serien</a>
+    <a style="background-color: #234536;" href="myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search" required>
+        <button type="submit">Suchen</button>
       </form>
     </div>
+  </div>
 
-    <footer class="footer">
-      <div class="footer-row">
-        <div class="footer-column">
-          <p style="font-size: 20px">Service-Hotline</p>
-          <p>Wir beraten dich gerne:</p>
-          <p style="font-size: 22px">089/1234567-8</p>
-          <p>Mo-Fr 09.00 - 16.00 Uhr</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Impressum</p>
-          <p>Max Mustermann</p>
-          <p>Musterstraße 1</p>
-          <p>80999 München</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Kontakt:</p>
-          <p>Telefon: 089/1234567-8</p>
-          <p>Telefax: 089/1234567-9</p>
-          <p>E-Mail: mail@mustermann.de</p>
-        </div>
-        <div class="footer-column">
-          <p><a style="color: white" href="trending">Trending</a></p>
-          <p><a style="color: white" href="allFigurines">Figuren</a></p>
-          <p><a style="color: white" href="trustedShops">Shops</a></p>
-          <p><a style="color: white" href="hersteller">Hersteller</a></p>
-          <p><a style="color: white" href="serien">Serien</a></p>
-          <p><a style="color: white" href="myAccount">Mein Konto</a></p>
-        </div>
+  <div class="register-box">
+    <h2>Lösche deinen Account</h2>
+    <form method="POST" action="/doDeleteAccount" name="register">
+      <div class="user-box">
+        <input type="password" name="password" required>
+        <label>Passwort</label>
       </div>
-    </footer>
-  </body>
+      <div class="user-box">
+        <input type="password" name="confirm" required>
+        <label>Passwort wiederholen</label>
+      </div><br>
+      <p style="font-size: 12px; color:red;">
+        <%=message%>
+      </p>
+      <button class="submitButton" type="submit">Endgültig löschen</button><br>
+      <a class="submitButton" href="myAccount">Abbrechen</a>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="trending">Trending</a></p>
+        <p><a style="color: white" href="allFigurines">Figuren</a></p>
+        <p><a style="color: white" href="trustedShops">Shops</a></p>
+        <p><a style="color: white" href="hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="serien">Serien</a></p>
+        <p><a style="color: white" href="myAccount">Mein Konto</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
 <html>

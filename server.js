@@ -1,3 +1,4 @@
+// Initialisierung bodyParser etc.
 const express = require('express');
 const app = express();
 const bcrypt = require('bcrypt');
@@ -36,18 +37,22 @@ let db = new sqlite3.Database('collector.db', (err) => {
 //CSS files laden
 app.use(express.static('stylesheets'));
 
+//Startseite
 app.get('/', function (req, res) {
     res.render('home', { "message": "Willkommen!" });
 });
 
+//Shops/Reseller Info
 app.get('/trustedShops', function (req, res) {
     res.render('trustedShops');
 });
 
+//Formular für Account Daten ändern
 app.get('/editAccount', function (req, res) {
     res.render('editAccount', { "message": "", "firstName": req.session.firstName, "lastName": req.session.lastName, "email": req.session.email });
 });
 
+//Ändert die Daten in der Datenbank
 app.post('/edit', function (req, res) {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
@@ -73,11 +78,12 @@ app.post('/edit', function (req, res) {
     }
 });
 
-
+//Formular zum Passwort ändern
 app.get('/editPassword', function (req, res) {
     res.render('editPassword', { "message": "" });
 });
 
+//Ändert Passwort - überprüft, ob das Bestätigen mit dem alten Passwort zustimmt
 app.post('/doEditPassword', function (req, res) {
     let password = req.body.password;
     let confirm = req.body.confirm;
@@ -102,10 +108,12 @@ app.post('/doEditPassword', function (req, res) {
     }
 });
 
+//Login Formular
 app.get('/login', function (req, res) {
     res.render('login', { "message": "" });
 });
 
+//Anmeldung + überprüfung 
 app.post('/doLogin', function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
@@ -228,16 +236,19 @@ app.get("/myAccount", function (req, res) {
     }
     else {
         let sql = `SELECT * FROM customers WHERE id = ${req.session.cid}`
-        db.all(sql, function(err, rows) {
+        db.all(sql, function (err, rows) {
             res.render('myAccount', { "message": req.session.firstName, collector: rows })
         })
     }
 });
 
+//Formular zum Registrieren
 app.get('/register', function (req, res) {
     res.render('register', { "message": "" });
 });
 
+
+//Suche
 app.post('/search', function (req, res) {
     const search = req.body.search;
 
@@ -253,6 +264,7 @@ app.post('/search', function (req, res) {
     });
 });
 
+//Trending bzw. beliebtesten Figuren
 app.get('/trending', function (req, res) {
     let sql =
         `select reviews.rid, reviews.fid, count(figurines.fid), round(avg(reviews.rating),1) as rating, figurines.figurineName ,figurines.picture, figurines.characterName 
@@ -265,6 +277,7 @@ app.get('/trending', function (req, res) {
     });
 });
 
+//Hersteller Aufzählung
 app.get('/hersteller', function (req, res) {
     let sql = "SELECT * FROM companies";
     db.all(sql, function (err, rows) {
@@ -272,6 +285,7 @@ app.get('/hersteller', function (req, res) {
     });
 });
 
+//Einzelne Seiten für die Hersteller mit Figuren
 app.get('/hersteller/:companyID', function (req, res) {
     let sql = "SELECT * FROM companies ";
     var result;
@@ -289,6 +303,8 @@ app.get('/hersteller/:companyID', function (req, res) {
 
     });
 });
+
+//eigene Wunschliste bzw. bookmarked
 app.get('/wunschliste', function (req, res) {
     let sql = `SELECT * FROM wishlist WHERE customerID=${req.session.cid}`;
     let sql2 = `SELECT * from figurines`;
@@ -308,6 +324,7 @@ app.get('/wunschliste', function (req, res) {
     });
 });
 
+//Aufzählung aller Serien
 app.get('/serien', function (req, res) {
     let sql = "SELECT * FROM series ORDER BY seriesName ASC";
     db.all(sql, function (err, rows) {
@@ -315,6 +332,7 @@ app.get('/serien', function (req, res) {
     });
 });
 
+//Einzelne Seite für die Serien mit Figuren der Serie
 app.get('/serien/:seriesID', function (req, res) {
     let sql = "SELECT * FROM series ";
     var result;
@@ -333,6 +351,7 @@ app.get('/serien/:seriesID', function (req, res) {
     });
 });
 
+//Figuren Details mit Preisvergleich, Kommentarfunktion(muss eingeloggt sein) und bookmark funktion(Muss eingeloggt sein)
 app.get('/figurDetails/:fid', function (req, res) {
     var moment = require('moment');
     let sql = "SELECT * FROM figurines ";
@@ -389,6 +408,7 @@ app.get('/figurDetails/:fid', function (req, res) {
     });
 });
 
+//alle Figuren aufgelistet mit Filter Formular
 app.get('/allFigurines', function (req, res) {
     let sql = `select * from figurines, series where figurines.origin = series.seriesID;`
     db.all(sql, function (err, rows) {
@@ -396,6 +416,7 @@ app.get('/allFigurines', function (req, res) {
     });
 });
 
+//Fügt die Figur in die Wunschliste hinzu
 app.post('/addBookmark', function (req, res) {
     const fid = req.body.fid;
     let sql = `INSERT INTO wishlist(customerId, figuresId) VALUES (${req.session.cid},${fid});`;
@@ -404,6 +425,7 @@ app.post('/addBookmark', function (req, res) {
     });
 });
 
+//Entfernt Figur von der Wunschliste
 app.post("/removeBookmark", function (req, res) {
     const fid = req.body.fid;
     let sql = `DELETE FROM wishlist WHERE customerId=${req.session.cid} AND figuresId=${fid};`;
@@ -413,7 +435,7 @@ app.post("/removeBookmark", function (req, res) {
 });
 
 
-
+//Fügt Bewertung in die Datenbank ein
 app.post('/postReview', function (req, res) {
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -432,6 +454,7 @@ app.post('/postReview', function (req, res) {
 
 });
 
+//Zeigt eigene Bewertungen an
 app.get('/myReviews', function (req, res) {
     let sql = `select reviews.rid, reviews.fid, reviews. userId, reviews.userName, reviews.postDate, reviews.rating, reviews.title, reviews.rDescription, figurines.characterName, figurines.picture from reviews, figurines where userId = ${req.session.cid} AND reviews.fid = figurines.fid;`;
     var moment = require('moment');
@@ -455,9 +478,9 @@ app.post('/allFigurines/sort', function (req, res) {
     const ratingSortDESC = req.body.ratingSortDESC;
     const ratingSortASC = req.body.ratingSortASC;
 
-    sort.push({ checked: alphabeticalSort, orderBy: "characterName"}, { checked: seriesSort, orderBy: "series.seriesName ASC"}, { checked: releaseSortDESC, orderBy: "substr(releaseDate, 4,5) DESC"},
-        { checked: priceSortDESC, orderBy: "originalPriceYen DESC"}, { checked: priceSortASC, orderBy: "originalPriceYen ASC"}, { checked: ratingSortDESC, orderBy: "rating DESC"},
-        { checked: ratingSortASC, orderBy: "rating ASC"}, { checked: releaseSortASC, orderBy: "substr(releaseDate, 4,5) ASC"});
+    sort.push({ checked: alphabeticalSort, orderBy: "characterName" }, { checked: seriesSort, orderBy: "series.seriesName ASC" }, { checked: releaseSortDESC, orderBy: "substr(releaseDate, 4,5) DESC" },
+        { checked: priceSortDESC, orderBy: "originalPriceYen DESC" }, { checked: priceSortASC, orderBy: "originalPriceYen ASC" }, { checked: ratingSortDESC, orderBy: "rating DESC" },
+        { checked: ratingSortASC, orderBy: "rating ASC" }, { checked: releaseSortASC, orderBy: "substr(releaseDate, 4,5) ASC" });
 
     for (i = 0; i <= sort.length; i++) {
         if (sort[i].checked !== undefined) {
@@ -470,17 +493,17 @@ app.post('/allFigurines/sort', function (req, res) {
                         group BY reviews.fid
                         order by ${sort[i].orderBy};`
                     db.all(sqlRating, function (err, rows) {
-                        res.render('filter', { collector: rows , "message": "Sortiert nach Bewertung"});
+                        res.render('filter', { collector: rows, "message": "Sortiert nach Bewertung" });
                     });
                 } else if (sort[i].orderBy == "substr(releaseDate, 4,5) ASC" || sort[i].orderBy == "substr(releaseDate, 4,5) DESC") {
                     let sqlRating = `SELECT * FROM figurines, series where figurines.origin = series.seriesID ORDER BY ${sort[i].orderBy};`
                     db.all(sqlRating, function (err, rows) {
-                        res.render('filter', { collector: rows , "message": "Sortiert nach Erscheinungsdatum"});
+                        res.render('filter', { collector: rows, "message": "Sortiert nach Erscheinungsdatum" });
                     });
                 } else {
                     let sql = `select * from figurines, series where figurines.origin = series.seriesID order by ${sort[i].orderBy};`
                     db.all(sql, function (err, rows) {
-                        res.render('filter', { collector: rows  , "message": "Sortierte Figuren"});
+                        res.render('filter', { collector: rows, "message": "Sortierte Figuren" });
                     });
                 }
                 break;
@@ -493,6 +516,7 @@ app.post('/allFigurines/sort', function (req, res) {
     }
 });
 
+//Serien Filter
 app.post('/allFigurines/filterSeries', function (req, res) {
     const filterSeries = [];
 
@@ -526,7 +550,7 @@ app.post('/allFigurines/filterSeries', function (req, res) {
             if (filterSeries[i].checked == "on") {
                 let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND origin = ${filterSeries[i].id};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -538,6 +562,7 @@ app.post('/allFigurines/filterSeries', function (req, res) {
     }
 });
 
+//Erscheinungsdatum Filter
 app.post('/allFigurines/filterRelease', function (req, res) {
     const filterRelease = [];
 
@@ -558,7 +583,7 @@ app.post('/allFigurines/filterRelease', function (req, res) {
             if (filterRelease[i].checked == "on") {
                 let sql = `Select * from figurines, series where figurines.origin = series.seriesID AND releaseDate like '%${filterRelease[i].year}%';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -570,6 +595,7 @@ app.post('/allFigurines/filterRelease', function (req, res) {
     }
 });
 
+//Klassifikationsfilter
 app.post('/allFigurines/filterClassification', function (req, res) {
     const filterClassification = [];
 
@@ -599,7 +625,7 @@ app.post('/allFigurines/filterClassification', function (req, res) {
             if (filterClassification[i].checked == "on") {
                 let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND classification = '${filterClassification[i].name}';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -611,6 +637,7 @@ app.post('/allFigurines/filterClassification', function (req, res) {
     }
 });
 
+//Materialfilter
 app.post('/allFigurines/filterMaterial', function (req, res) {
     const filterMaterial = [];
 
@@ -626,7 +653,7 @@ app.post('/allFigurines/filterMaterial', function (req, res) {
             if (filterMaterial[i].checked == "on") {
                 let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND  material LIKE '%${filterMaterial[i].name}%';`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -638,6 +665,7 @@ app.post('/allFigurines/filterMaterial', function (req, res) {
     }
 });
 
+//Bewertungsfilter
 app.post('/allFigurines/filterRating', function (req, res) {
     const filterRating = [];
     const rowsResult = [];
@@ -666,7 +694,7 @@ app.post('/allFigurines/filterRating', function (req, res) {
                             rowsResult.push(rows[j])
                         }
                     }
-                    res.render('filter', { collector: rowsResult  , "message": "" + rowsResult.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rowsResult, "message": "" + rowsResult.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -678,6 +706,7 @@ app.post('/allFigurines/filterRating', function (req, res) {
     }
 });
 
+//Preisfilter
 app.post('/allFigurines/filterPrice', function (req, res) {
     const filterPrice = [];
 
@@ -698,7 +727,7 @@ app.post('/allFigurines/filterPrice', function (req, res) {
             if (filterPrice[i].checked == "on") {
                 let sql = `select * from figurines, series where figurines.origin = series.seriesID AND originalPriceYen >= ${filterPrice[i].min} AND originalPriceYen <= ${filterPrice[i].max};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {
@@ -710,6 +739,7 @@ app.post('/allFigurines/filterPrice', function (req, res) {
     }
 });
 
+//Hersteller Filter
 app.post('/allFigurines/filterCompanies', function (req, res) {
     const filterCompanies = [];
 
@@ -734,7 +764,7 @@ app.post('/allFigurines/filterCompanies', function (req, res) {
             if (filterCompanies[i].checked == "on") {
                 let sql = `SELECT * FROM figurines, series WHERE figurines.origin = series.seriesID AND  company = ${filterCompanies[i].id};`
                 db.all(sql, function (err, rows) {
-                    res.render('filter', { collector: rows  , "message": "" + rows.length + " Suchergebniss(e)"});
+                    res.render('filter', { collector: rows, "message": "" + rows.length + " Suchergebniss(e)" });
                 });
                 break;
             } else {

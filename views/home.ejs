@@ -1,161 +1,191 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="body.css">
-    <link rel="stylesheet" type="text/css" href="slideshow.css">
-    <style>
-      * {
-        box-sizing: border-box;
+
+<head>
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+  <link rel="stylesheet" type="text/css" href="body.css">
+  <link rel="stylesheet" type="text/css" href="slideshow.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="banner"></div>
+  </div>
+
+  <div class="topnav">
+    <a style="background-color: #234536;" href="/">Startseite</a>
+    <a href="trending">Trending</a>
+    <a href="allFigurines">Figuren</a>
+    <a href="trustedShops">Shops</a>
+    <a href="hersteller">Hersteller</a>
+    <a href="serien">Serien</a>
+    <a href="myAccount">Mein Konto</a>
+    <div class="search-container">
+      <form action="/search" method="POST">
+        <input type="text" placeholder="Search.." name="search" required>
+        <button type="submit">Suchen</button>
+      </form>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h2 style="font-size: 40px">
+      <%=message%>
+    </h2>
+    <p style="font-size: 25px">Bei uns kannst du Preise für Sammelfiguren deiner Lieblingsanimes vergleichen!</p>
+
+    <div class="slide-content slide-display-container" style="margin-bottom: 50px;">
+      <a href="/serien/5">
+        <img class="mySlides"
+          src="https://www.freepnglogos.com/uploads/naruto/image-naruto-shippuden-logo-gamefactory-wiki-14.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/7">
+        <img class="mySlides" src="https://www.pngmart.com/files/13/My-Hero-Academia-Logo-PNG-Image.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/8">
+        <img class="mySlides" src="https://www.pngmart.com/files/13/Attack-On-Titan-Word-Logo-Transparent-PNG.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/11">
+        <img class="mySlides" src="https://www.pngmart.com/files/3/One-Piece-Logo-PNG-Image.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/6">
+        <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Jujutsu_Kaisen_logo_in_Japan.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/1">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kimetsu_no_Yaiba_logo.svg/2560px-Kimetsu_no_Yaiba_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/10">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tokyo_Revengers_logo.svg/2560px-Tokyo_Revengers_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/16">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Persona_5_logo.svg/2560px-Persona_5_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/12">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/de/thumb/e/e8/Shaman_king_logo.svg/1200px-Shaman_king_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/4">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Danganronpa_series_English_logo.svg/2560px-Danganronpa_series_English_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/14">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Black_Rock_Shooter_logo.svg/2560px-Black_Rock_Shooter_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/2">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Darling_in_the_Franxx_logo.svg/1280px-Darling_in_the_Franxx_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/17">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Digimon_Logo.svg/1280px-Digimon_Logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/13">
+        <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Hololive_Production.png"
+          style="width:100%; height: 350px">
+      </a>
+      <a href="/serien/15">
+        <img class="mySlides"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg/1200px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg.png"
+          style="width:100%; height: 350px">
+      </a>
+
+      <button class="button button-black slide-display-left" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="button button-black slide-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
       }
-      html {
-        height: 100%;
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
       }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <div class="banner"></div>
-    </div>
 
-    <div class="topnav">
-      <a style="background-color: #234536;" href="/">Startseite</a>
-      <a href="trending">Trending</a>
-      <a href="allFigurines">Figuren</a>
-      <a href="trustedShops">Shops</a>
-      <a href="hersteller">Hersteller</a>
-      <a href="serien">Serien</a>
-      <a href="myAccount">Mein Konto</a>
-      <div class="search-container">
-        <form action="/search" method="POST">
-          <input type="text" placeholder="Search.." name="search" required>
-          <button type="submit">Suchen</button>
-        </form>
+      carousel();
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 5000); // Ändert Bild alle 5 Sekunden
+      }
+    </script>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <div class="footer-column">
+        <p style="font-size: 20px">Service-Hotline</p>
+        <p>Wir beraten dich gerne:</p>
+        <p style="font-size: 22px">089/1234567-8</p>
+        <p>Mo-Fr 09.00 - 16.00 Uhr</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Impressum</p>
+        <p>Max Mustermann</p>
+        <p>Musterstraße 1</p>
+        <p>80999 München</p>
+      </div>
+      <div class="footer-column">
+        <p style="font-size: 20px">Kontakt:</p>
+        <p>Telefon: 089/1234567-8</p>
+        <p>Telefax: 089/1234567-9</p>
+        <p>E-Mail: mail@mustermann.de</p>
+      </div>
+      <div class="footer-column">
+        <p><a style="color: white" href="trending">Trending</a></p>
+        <p><a style="color: white" href="allFigurines">Figuren</a></p>
+        <p><a style="color: white" href="trustedShops">Shops</a></p>
+        <p><a style="color: white" href="hersteller">Hersteller</a></p>
+        <p><a style="color: white" href="serien">Serien</a></p>
+        <p><a style="color: white" href="myAccount">Mein Konto</a></p>
       </div>
     </div>
+  </footer>
 
-    <div style="text-align: center;">
-      <h2 style="font-size: 40px"><%=message%></h2>
-      <p style="font-size: 25px">Bei uns kannst du Preise für Sammelfiguren deiner Lieblingsanimes vergleichen!</p>
-
-      <div class="slide-content slide-display-container" style="margin-bottom: 50px;">
-        <a href="/serien/5">
-          <img class="mySlides" src="https://www.freepnglogos.com/uploads/naruto/image-naruto-shippuden-logo-gamefactory-wiki-14.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/7">
-          <img class="mySlides" src="https://www.pngmart.com/files/13/My-Hero-Academia-Logo-PNG-Image.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/8">
-          <img class="mySlides" src="https://www.pngmart.com/files/13/Attack-On-Titan-Word-Logo-Transparent-PNG.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/11">
-          <img class="mySlides" src="https://www.pngmart.com/files/3/One-Piece-Logo-PNG-Image.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/6">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Jujutsu_Kaisen_logo_in_Japan.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/1">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kimetsu_no_Yaiba_logo.svg/2560px-Kimetsu_no_Yaiba_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/10">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tokyo_Revengers_logo.svg/2560px-Tokyo_Revengers_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/16">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Persona_5_logo.svg/2560px-Persona_5_logo.svg.png" style="width:100%; height: 350px">      
-        </a>
-        <a href="/serien/12">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/de/thumb/e/e8/Shaman_king_logo.svg/1200px-Shaman_king_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/4">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Danganronpa_series_English_logo.svg/2560px-Danganronpa_series_English_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/14">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Black_Rock_Shooter_logo.svg/2560px-Black_Rock_Shooter_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/2">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Darling_in_the_Franxx_logo.svg/1280px-Darling_in_the_Franxx_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/17">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Digimon_Logo.svg/1280px-Digimon_Logo.svg.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/13">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Hololive_Production.png" style="width:100%; height: 350px">
-        </a>
-        <a href="/serien/15">
-          <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg/1200px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg.png" style="width:100%; height: 350px">
-        </a>
-
-        <button class="button button-black slide-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="button button-black slide-display-right" onclick="plusDivs(1)">&#10095;</button>
-      </div>
-      
-      <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-        
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
-        
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          if (n > x.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = x.length}
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          x[slideIndex-1].style.display = "block";  
-        }
-      
-        carousel();
-        function carousel() {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > x.length) {slideIndex = 1}    
-          x[slideIndex-1].style.display = "block";  
-          setTimeout(carousel, 5000); // Change image every 5 seconds
-        }
-      </script>
-
-    </div>
-      
-    <footer class="footer">
-      <div class="footer-row">
-        <div class="footer-column">
-          <p style="font-size: 20px">Service-Hotline</p>
-          <p>Wir beraten dich gerne:</p>
-          <p style="font-size: 22px">089/1234567-8</p>
-          <p>Mo-Fr 09.00 - 16.00 Uhr</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Impressum</p>
-          <p>Max Mustermann</p>
-          <p>Musterstraße 1</p>
-          <p>80999 München</p>
-        </div>
-        <div class="footer-column">
-          <p style="font-size: 20px">Kontakt:</p>
-          <p>Telefon: 089/1234567-8</p>
-          <p>Telefax: 089/1234567-9</p>
-          <p>E-Mail: mail@mustermann.de</p>
-        </div>
-        <div class="footer-column">
-          <p><a style="color: white" href="trending">Trending</a></p>
-          <p><a style="color: white" href="allFigurines">Figuren</a></p>
-          <p><a style="color: white" href="trustedShops">Shops</a></p>
-          <p><a style="color: white" href="hersteller">Hersteller</a></p>
-          <p><a style="color: white" href="serien">Serien</a></p>
-          <p><a style="color: white" href="myAccount">Mein Konto</a></p>
-        </div>
-      </div>
-    </footer>
-
-  </body>
+</body>
 <html>

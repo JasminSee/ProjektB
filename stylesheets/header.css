@@ -7,7 +7,6 @@
   font-size: 22px;
 }
 
-/*test! richtiger banner kommt noch*/
 .banner {
   background: no-repeat center/contain url('/media/banner.png');
   display: flex;
