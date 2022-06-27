@@ -7,6 +7,17 @@
   font-size: 22px;
 }
 
+.bannerbox{
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  text-align: center;
+  color: white;
+  width: 100vh;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .banner {
   background: no-repeat center/contain url('/media/banner.png');
   display: flex;
